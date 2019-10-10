@@ -72,6 +72,12 @@ export class UsuarioService {
      * @param usuario 
      */
     registro( usuario:Usuario){
+      console.log(usuario);
+
+      if (usuario.avatar === ''){
+        console.log('set avatar');
+          usuario.avatar ='av-1.png';
+      }
 
       return new Promise(resolve => {
 

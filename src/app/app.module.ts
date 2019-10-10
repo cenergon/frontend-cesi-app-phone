@@ -17,6 +17,8 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { MenuComponent } from './components/menu/menu.component';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
+
 
 
 
@@ -38,6 +40,7 @@ import { MenuComponent } from './components/menu/menu.component';
     Geolocation,
     Camera, 
     FileTransfer,
+    OneSignal,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

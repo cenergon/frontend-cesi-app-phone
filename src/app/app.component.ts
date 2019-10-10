@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { MenuService } from './services/menu.service';
 import { ComponentMenu } from './interfaces/interfaces';
 import { Observable } from 'rxjs';
+import { PushService } from './services/push.service';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private menuService: MenuService,
+    private pushService: PushService
 
   ) {
     this.initializeApp();
@@ -31,10 +33,14 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
 
+      //Llamo menu
       this.componentes = this.menuService.getMenuOpts();
 
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      //Llamo oneSignal Component
+      this.pushService.configuracionInicial();
     });
   }
 

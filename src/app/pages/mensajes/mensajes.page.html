@@ -1,6 +1,43 @@
 <app-header [titulo]="titulo || 'Notificaciones'" [icono]="icono || 'ios-chatbubbles'"></app-header>
 
+<ion-toolbar>
+    <ion-buttons slot="end">
+        <ion-button (click)="borrarMensajes()" color="danger">
+            <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+</ion-toolbar>
+
 <ion-content padding>
+
+    <ion-header>
+        <ion-label>UserId</ion-label>
+    </ion-header>
+    <ion-item>
+        <ion-label>{{ pushService.userId }}</ion-label>
+    </ion-item>
+
+    <ion-list-header>
+        <ion-label>Mensajes</ion-label>
+    </ion-list-header>
+
+
+
+    <ion-item *ngFor="let push of mensajes">
+        <ion-label>
+            <h3>
+                {{ push.title}}
+            </h3>
+            <p>
+                {{ push.body }}
+            </p>
+            <ion-label>Muestro info Adicional</ion-label>
+            <p>
+                {{ push.additionalData | json }}
+            </p>
+
+        </ion-label>
+    </ion-item>
 
 
 </ion-content>
