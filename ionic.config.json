@@ -1,5 +1,7 @@
 {
   "name": "frontend-ceci-app-phone",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

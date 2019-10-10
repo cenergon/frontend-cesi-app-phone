@@ -1,0 +1,62 @@
+<app-header [titulo]="titulo || 'Sol. prestamo'" [icono]="icono || 'cash'"></app-header>
+<ion-content padding>
+
+
+    <!-- Default title -->
+    <ion-toolbar color="light">
+        <ion-title size="small">ELEGÍ TU PRÉSTAMO</ion-title>
+    </ion-toolbar>
+
+    <!-- Small title above a default title -->
+    <ion-toolbar>
+        <ion-title size="small">El que mejor se adapte a tu necesidad!</ion-title>
+    </ion-toolbar>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col style="text-align: center">
+                <ion-button expand="block" color="tertiary" (click)="presentInput()">$3.0000</ion-button>
+                <ion-label size="small">3 Cuotas de $1100</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col style="text-align: center">
+                <ion-button expand="block" color="secondary" (click)="presentInput()">$6.0000</ion-button>
+                <ion-label size="small">3 Cuotas de $3100</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col style="text-align: center">
+                <ion-button expand="block" color="warning" (click)="presentInput()">$9.000</ion-button>
+                <ion-label size="small">3 Cuotas de $4100</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col style="text-align: center">
+                <ion-button expand="block" color="medium" (click)="presentInput()">$12.000</ion-button>
+                <ion-label size="small">3 Cuotas de $5100</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col style="text-align: center">
+                <ion-button expand="block" color="success" (click)="presentInput()">$15.000</ion-button>
+                <ion-label size="small">3 Cuotas de $6100</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+
+</ion-content>

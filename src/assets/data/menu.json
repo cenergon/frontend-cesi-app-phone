@@ -1,0 +1,47 @@
+[{
+        "icon": "ios-contact",
+        "name": "Perfil",
+        "redirectTo": "/perfil"
+    },
+    {
+        "icon": "home",
+        "name": "Inicio",
+        "redirectTo": "/"
+    },
+    {
+        "icon": "cash",
+        "name": "Solicitar Prestamo",
+        "redirectTo": "/pedir-prestamo"
+    },
+    {
+        "icon": "ios-chatbubbles",
+        "name": "Notificaciones",
+        "redirectTo": "/mensajes"
+    },
+    {
+        "icon": "ios-document",
+        "name": "Documentacion",
+        "redirectTo": "/documentacion"
+    },
+
+    {
+        "icon": "contact",
+        "name": "Estado de Cuenta",
+        "redirectTo": "/cuenta"
+    },
+    {
+        "icon": "logo-usd",
+        "name": "Mis prestamos",
+        "redirectTo": "/prestamo"
+    },
+    {
+        "icon": "md-contacts",
+        "name": "Acerca de Nosotros",
+        "redirectTo": "/acercade"
+    },
+    {
+        "icon": "ios-help-circle-outline",
+        "name": "Ayuda",
+        "redirectTo": "/ayuda"
+    }
+]
