@@ -1,4 +1,5 @@
-<app-header [titulo]="titulo || 'Notificaciones'" [icono]="icono || 'ios-chatbubbles'"></app-header>
+<app-header [titulo]="titulo || 'Notificaciones'" [icono]="icono || 'ios-chatbubbles'">
+</app-header>
 
 <ion-toolbar>
     <ion-buttons slot="end">
@@ -11,33 +12,32 @@
 <ion-content padding>
 
     <ion-header>
-        <ion-label>UserId</ion-label>
+        <ion-label>UserId: Cliente</ion-label>
     </ion-header>
     <ion-item>
         <ion-label>{{ pushService.userId }}</ion-label>
     </ion-item>
 
-    <ion-list-header>
-        <ion-label>Mensajes</ion-label>
-    </ion-list-header>
-
-
-
-    <ion-item *ngFor="let push of mensajes">
-        <ion-label>
-            <h3>
-                {{ push.title}}
-            </h3>
-            <p>
-                {{ push.body }}
-            </p>
-            <ion-label>Muestro info Adicional</ion-label>
-            <p>
-                {{ push.additionalData | json }}
-            </p>
-
-        </ion-label>
-    </ion-item>
-
+    <div class="container main-container">
+        <h1>Mensajes</h1>
+        <div class="app-mensajes" id="app-mensajes">
+            <ion-item *ngFor="let push of mensajes">
+                <ion-label>
+                    <div class="speech-bubble">
+                        <h2 style="color:white;">
+                            {{ push.title }}
+                        </h2>
+                        <p style="color:white;">
+                            {{ push.body }}
+                        </p>
+                        <ion-label>Muestro info Adicional</ion-label>
+                        <p style="color:white;">
+                            {{ push.additionalData | json }}
+                        </p>
+                    </div>
+                </ion-label>
+            </ion-item>
+        </div>
+    </div>
 
 </ion-content>

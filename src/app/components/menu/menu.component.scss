@@ -1,3 +1,12 @@
 .my-custom-menu {
     --width: 500px;
 }
+
+.active-item {
+    border-left: 8px solid var(--ion-color-primary);
+}
+
+$colors: ( primary : #488aff, secondary : #32db64, danger : #f53d3d, light : #f4f4f4, dark : #222);
+.activeHightLight {
+    background-color: map-get($colors, mp-main);
+}

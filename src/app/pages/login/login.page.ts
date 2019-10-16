@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
 
   //Lleno datos por defecto en login
   loginUser = {
-    email: 'aliaselnegro@hotmail.com',
+    email: 'tuprestamoya@mutual.com',
     password: '123456'
   };
 
@@ -52,7 +52,9 @@ export class LoginPage implements OnInit {
      if (valido){
        //navegar al tabs
        //this.navCtrl.navigateRoot('/main/tabs/tab1', { animated: true});
+       
        this.navCtrl.navigateRoot('/pedir-prestamo', { animated: true});
+
 
      } else {
        //mostrar alerta 
@@ -75,7 +77,7 @@ export class LoginPage implements OnInit {
       //mostrar alerta 
       this.uiService.presentAlert("El correo electrónico ya existe.");
     }
-      console.log(fRegistro.valid);
+     // console.log(fRegistro.valid);
   }
 
  

@@ -3,13 +3,12 @@
         <ion-title>
             Documentación
         </ion-title>
-        <ion-label color="tertiary" class="testclass" position="start">Puede seleccionar varios documentos</ion-label>
-
+        <hr>
 
         <ion-buttons slot="end">
             <!-- Si el mensaje no tiene al menos una letra , el boton no se habilita -->
             <ion-button [disabled]="post.mensaje.length < 1 || cargandoGeo" (click)="crearPost()" color="primary">
-                CARGAR
+                UPLOAD
             </ion-button>
         </ion-buttons>
 

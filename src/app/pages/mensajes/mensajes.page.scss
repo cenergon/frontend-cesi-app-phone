@@ -1,0 +1,48 @@
+.main-container {
+    margin-top: 50px;
+    margin-bottom: 150px;
+}
+
+.puntero {
+    cursor: pointer;
+}
+
+.chat-window {
+    padding: 20px;
+    width: 340px;
+    height: 400px;
+    overflow: hidden;
+    border: 2px solid #4080FF;
+    border-radius: 20px;
+}
+
+.app-mensajes {
+    overflow-y: scroll;
+    height: 530px;
+    width: 340px;
+    // background: gray;
+    padding: 5px;
+}
+
+// Mensajes https://leaverou.github.io/bubbly/
+.speech-bubble {
+    position: relative;
+    background: #f500ad;
+    border-radius: .4em;
+    padding: 5px;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 3.063em solid transparent;
+    border-right-color: #f500ad;
+    border-left: 0;
+    border-top: 0;
+    margin-top: -1.531em;
+    margin-left: -3.062em;
+}

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../../services/posts.service';
 import { Post, ComponentMenu } from '../../interfaces/interfaces';
 import { Observable } from 'rxjs';
+import { MenuController } from '@ionic/angular';
+import { MenuService } from 'src/app/services/menu.service';
 
 @Component({
   selector: 'app-tab1',
@@ -13,14 +15,18 @@ export class Tab1Page implements OnInit{
   posts: Post[]=[];
   habilitado = true;
 
+  componentes: Observable<ComponentMenu[]>;
 
 
- 
-  constructor( private postService: PostsService) {}
+  constructor( private postService: PostsService, private menuService: MenuService
+    ) {}
 
   ngOnInit() {
     this.siguientes();
 
+    this.componentes = this.menuService.getMenuOpts();
+
+    
     this.postService.nuevoPost.subscribe( post => {
       //Cuando recibo mi post lo pongo en mi primer posicion
       this.posts.unshift(post);
@@ -41,7 +47,7 @@ export class Tab1Page implements OnInit{
 
     this.postService.getPost(pull).subscribe( resp => {
       // console.log(resp.postList[0].usuario._id);
-      console.log(resp);
+      //console.log(resp);
       this.posts.push( ...resp.postList);//cada entrada retorna como elemento nuevo
    
        if (event) {

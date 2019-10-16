@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { ComponentMenu } from 'src/app/interfaces/interfaces';
+import { Observable } from 'rxjs';
+import { MenuService } from '../../services/menu.service';
 
 @Component({
   selector: 'app-pedir-prestamo',
@@ -10,9 +13,13 @@ export class PedirPrestamoPage implements OnInit {
 
   titulo: string;
   icono: string;
-  constructor(public alertCtrl: AlertController) { }
+  //componentes: Observable<ComponentMenu[]>;
+
+
+  constructor(public alertCtrl: AlertController, private menuService: MenuService) { }
 
   ngOnInit() {
+     //this.componentes = this.menuService.getMenuOpts();
   }
 
   async presentInput() {
@@ -37,14 +44,14 @@ export class PedirPrestamoPage implements OnInit {
           text: 'Cancelar',
           role: 'cancel',
           handler: () => {
-            console.log('Confirm Cancel');
+            //console.log('Confirm Cancel');
           }
         }, {
           text: 'OK',
           handler: ( data ) => {
 
             if (data.txtCBU === '123' ) {
-              console.log('Confirm Ok', data);
+              //console.log('Confirm Ok', data);
                this.titulo = data.txtNombre;
                this.presentAlertCbuValido();
             }
@@ -76,7 +83,7 @@ export class PedirPrestamoPage implements OnInit {
         {
             text: 'Ok',
             handler: (blah) => {
-              console.log('Botón OK');
+              //console.log('Botón OK');
           }
         }
       ]

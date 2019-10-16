@@ -9,6 +9,7 @@ import { MapaComponent } from './mapa/mapa.component';
 import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
+import { ComponentMenu } from '../interfaces/interfaces';
 
 
 
@@ -18,19 +19,20 @@ import { HeaderComponent } from './header/header.component';
     PostsComponent,
     AvatarSelectorComponent,
     MapaComponent,
-    HeaderComponent
+    HeaderComponent,
+
   ],
   exports: [
     PostsComponent,
     AvatarSelectorComponent,
-    HeaderComponent
+    HeaderComponent,
     
   ],
   imports: [
     CommonModule,
     IonicModule,
     PipesModule,
-    RouterModule
+    RouterModule,
   ]
 })
 export class ComponentsModule { }

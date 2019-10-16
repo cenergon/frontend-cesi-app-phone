@@ -50,7 +50,7 @@ export class PostsService {
       this.http.post(`${URL}/post`,post,{ headers })
       .subscribe( resp => {
        this.nuevoPost.emit(resp['post']);//emito mi post al tab 2
-       console.log("Respuesta al crear post",resp);
+       //console.log("Respuesta al crear post",resp);
        resolve(true);
       });
     });

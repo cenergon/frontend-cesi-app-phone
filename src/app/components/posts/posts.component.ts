@@ -15,7 +15,7 @@ export class PostsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('Mi posts.components: ',this.posts);
+   // console.log('Mi posts.components: ',this.posts);
   }
 
 }

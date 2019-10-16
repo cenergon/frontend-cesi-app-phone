@@ -5,6 +5,7 @@ import { MenuService } from '../../services/menu.service';
 import { UsuarioService } from '../../services/usuario.service';
 import { PostsService } from '../../services/posts.service';
 import { MenuController } from '@ionic/angular';
+import { RouterEvent, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -15,11 +16,24 @@ export class MenuComponent implements OnInit {
 
   componentes: Observable<ComponentMenu[]>;
 
+  flag: boolean = true;
+
+
+  selectedPath = '';
+
+
   constructor( 
     private menu: MenuController,
     private menuService: MenuService,
     private usuarioService: UsuarioService ,
-    private postService: PostsService ) { }
+    private postService: PostsService ,
+    private router: Router) {
+
+      this.router.events.subscribe((event: RouterEvent) => {
+        this.selectedPath = event.url;
+      });
+
+     }
 
   ngOnInit() { 
     this.componentes = this.menuService.getMenuOpts();
@@ -33,6 +47,10 @@ export class MenuComponent implements OnInit {
   close() {
     this.menu.close();
     this.menu.open('end');
+  }
+
+  flagcahngeTrue(){
+    this.flag = true;
   }
 
 }

@@ -14,5 +14,7 @@ export class MenuService {
   getMenuOpts() {
     return this.http.get<ComponentMenu[]>('/assets/data/menu.json');
   }
+
+  
   
 }

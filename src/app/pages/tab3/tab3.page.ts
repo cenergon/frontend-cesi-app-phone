@@ -24,7 +24,7 @@ export class Tab3Page  implements OnInit{
 
  ngOnInit(): void {
   this.usuario = this.usuarioService.getUsuario();
-  console.log( 'Tab3 ngOnInit',this.usuario );
+  //console.log( 'Tab3 ngOnInit',this.usuario );
  }
 
 async actualizarUsuario( fActulizar: NgForm){

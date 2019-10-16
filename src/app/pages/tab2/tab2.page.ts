@@ -33,7 +33,7 @@ export class Tab2Page {
 
   async crearPost(){
     
-   console.log(this.post);
+   //console.log(this.post);
 
    const creado = await this.postsSerivce.crearPost(this.post)
   
@@ -78,7 +78,7 @@ export class Tab2Page {
      });
 
 
-     console.log(this.post);
+     //console.log(this.post);
   }
 
   camara(){
@@ -120,7 +120,7 @@ export class Tab2Page {
       // let base64Image = 'data:image/jpeg;base64,' + imageData;
      
       const img = window.Ionic.WebView.convertFileSrc( imageData );
-      console.log (img);
+      //console.log (img);
  
       this.postsSerivce.subirImagen( imageData );
       this.tempImages.push( img );

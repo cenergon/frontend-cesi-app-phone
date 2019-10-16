@@ -19,19 +19,14 @@ import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { MenuComponent } from './components/menu/menu.component';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 
-
-
-
-
-
 @NgModule({
-  declarations: [AppComponent, MenuComponent],
+  declarations: [AppComponent,MenuComponent],
   entryComponents: [],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
     AppRoutingModule,
-    HttpClientModule,
+    HttpClientModule,  
     IonicStorageModule.forRoot(), //Collecion des ervicios por eso es forRoot,
   ],
   providers: [

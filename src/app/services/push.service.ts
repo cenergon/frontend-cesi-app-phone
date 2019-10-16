@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { OneSignal, OSNotification, OSNotificationPayload } from '@ionic-native/onesignal/ngx';
 import { Storage } from '@ionic/storage';
+import { NavController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,9 @@ export class PushService {
 
   constructor(
     private oneSignal: OneSignal,
-    private storage: Storage
+    private storage: Storage,
+    private navCtrl: NavController  
+
     ) {
       this.cargarMensajes(); //Cuando carga mi aplicacion , cargo mis mjs almacenados en el storage
      }
@@ -30,9 +33,9 @@ export class PushService {
 
 configuracionInicial(){
 
-  console.log("Push service Onesignal start");
+  //("Push service Onesignal start");
 
-  //Confiruo Forebase y OneSignal
+  //Configuro Firebase y OneSignal
   this.oneSignal.startInit('bb4c972b-c5a5-424f-bd80-d12516d6d5ab','231233391718');
   
   //Muestro notificacion
@@ -41,15 +44,19 @@ configuracionInicial(){
   //Recibo notificacion
   this.oneSignal.handleNotificationReceived().subscribe((noti) => {
    // do something when notification is received
-   console.log('Notificacion Recibida',noti);
+   //console.log('Notificacion Recibida',noti);
    this.notificacionRecibida( noti );
 
   });
   
   this.oneSignal.handleNotificationOpened().subscribe(async(noti) => {
     // do something when a notification is opened
-    console.log('Notificacion Abierta',noti);
+    //console.log('Notificacion Abierta',noti);
     await this.notificacionRecibida(noti.notification);
+    
+    //Redirecciono a la pagina
+    this.navCtrl.navigateRoot('/mensajes',{ animated: true });
+
   });
   
   //Obtener id del suscrptor
@@ -57,6 +64,8 @@ configuracionInicial(){
     this.userId = info.userId;
     console.log(info.userId);
   });
+
+
 
   this.oneSignal.endInit();
   }
@@ -77,7 +86,6 @@ configuracionInicial(){
     this.pushListener.emit( payload );
   
     await this.guardarMensajes();
-
   }
 
   guardarMensajes(){
@@ -85,7 +93,6 @@ configuracionInicial(){
   }
 
   async cargarMensajes(){
-   this.storage.clear();
    this.mensajes = await this.storage.get('mensajes') || []; //Los paso por el operador || porque puede ser vacio y devuelvo nulo
    return this.mensajes;
   }
@@ -95,14 +102,10 @@ configuracionInicial(){
     return [...this.mensajes]; //todos los mensajes del arreglo van como objetos nuevos
   }
 
-  borrarMensajes(){
-  //await this.storage.remove('mensajes');
-  //await this.storage.remove('mensajes');
-  this.storage.clear();
+  async borrarMensajes(){
+  await this.storage.clear();
   this.mensajes = [];
-  this.guardarMensajes();
-  console.log("Borrar mensajes new");
-   
+  this.guardarMensajes();   
  }
 
  async borrarStorageFull(){

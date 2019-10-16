@@ -72,10 +72,10 @@ export class UsuarioService {
      * @param usuario 
      */
     registro( usuario:Usuario){
-      console.log(usuario);
+      //console.log(usuario);
 
       if (usuario.avatar === ''){
-        console.log('set avatar');
+        //console.log('set avatar');
           usuario.avatar ='av-1.png';
       }
 
@@ -114,7 +114,7 @@ export class UsuarioService {
         })
         this.http.get(`${ URL }/usuarios/verificar`, {headers})
         .subscribe ( resp =>{ 
-          console.log(resp);
+          //console.log(resp);
           if (resp['ok']){
             this.usuario = resp['usuario']; //es el usuario, del token no de la base de datos!!
              resolve(true);

@@ -6,7 +6,7 @@
     {
         "icon": "home",
         "name": "Inicio",
-        "redirectTo": "/"
+        "redirectTo": "main/tabs/tab1"
     },
     {
         "icon": "cash",
@@ -21,7 +21,7 @@
     {
         "icon": "ios-document",
         "name": "Documentacion",
-        "redirectTo": "/documentacion"
+        "redirectTo": "/main/tabs/tab2"
     },
 
     {

@@ -1,6 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ComponentsModule } from '../components.module';
+import { MenuService } from '../../services/menu.service';
+import { ComponentMenu } from 'src/app/interfaces/interfaces';
+
 
 
 @Component({
@@ -10,20 +13,17 @@ import { ComponentsModule } from '../components.module';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() titulo: string ="Creditos M22";
+  @Input() titulo: string ="Inicio";
   @Input() icono: string ="home";
 
-
-  componentes: Observable<ComponentsModule[]>;
-  
-  constructor() { }
+  constructor( private menuService: MenuService) { }
 
   ngOnInit() {
   }
 
-  notifications(){
-    
+  notifications(){ 
   }
+  
 
 
 }

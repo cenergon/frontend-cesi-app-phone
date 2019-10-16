@@ -32,12 +32,12 @@ export class AlertPage implements OnInit {
           text: 'Cancelar',
           role: 'cancel',
           handler: () => {
-            console.log('Confirm Cancel');
+        //  console.log('Confirm Cancel');
           }
         }, {
           text: 'OK',
           handler: ( data ) => {
-            console.log('Confirm Ok', data);
+          // console.log('Confirm Ok', data);
             this.titulo = data.txtNombre;
           }
         }
@@ -59,13 +59,13 @@ export class AlertPage implements OnInit {
           role: 'cancel',
           cssClass: 'secondary',
           handler: (blah) => {
-            console.log('Cancelar');
+            // console.log('Cancelar');
           }
         },
         {
             text: 'Ok',
             handler: (blah) => {
-              console.log('Botón OK');
+              // console.log('Botón OK');
           }
         }
       ]

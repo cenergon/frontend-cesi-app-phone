@@ -70,7 +70,7 @@ export class AvatarSelectorComponent implements OnInit {
    this.avatars.forEach(av => av.seleccionado = false); 
    //a este avatar es true, modifica el objeto del arreglo
    avatar.seleccionado = true;
-   console.log(avatar.img );
+   //console.log(avatar.img );
    this.avatarSeleccionado.emit( avatar.img ); 
   }
 
