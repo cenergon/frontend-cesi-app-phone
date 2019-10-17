@@ -20,7 +20,7 @@
     },
     {
         "icon": "ios-document",
-        "name": "Documentacion",
+        "name": "Documentación",
         "redirectTo": "/main/tabs/tab2"
     },
 

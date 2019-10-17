@@ -17,13 +17,16 @@
 
 
         <ion-buttons slot="end">
-            <ion-button (click)="notifications()" color="primary">
+            <ion-button (click)="notifications()" color="light">
                 <ion-icon slot="icon-only" name="notifications"></ion-icon>
             </ion-button>
         </ion-buttons>
 
         <ion-buttons slot="end">
-            <ion-back-button text="" defaultHref="/"></ion-back-button>
+            <ion-button (click)="notifications()" color="succes">
+                <ion-icon slot="icon-only" name="notifications"></ion-icon>
+            </ion-button>
+            <ion-back-button text="" defaultHref="/main/tabs/tab1"></ion-back-button>
         </ion-buttons>
 
     </ion-toolbar>
