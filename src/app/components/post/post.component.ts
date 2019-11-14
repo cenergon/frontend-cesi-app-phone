@@ -13,6 +13,8 @@ export class PostComponent implements OnInit {
 
   @Input() post: Post = {};
 
+
+
   //El slideSoloOpts permite que cuando tengo una imagen esta no se mueva con el slide
   slideSoloOpts = {
     allowSlideNext: false,
@@ -28,5 +30,6 @@ export class PostComponent implements OnInit {
   ngOnInit() {
     
   }
+
 
 }

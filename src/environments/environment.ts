@@ -4,9 +4,8 @@
 
 export const environment = {
   production: false,
- // url:'http://localhost:3001'
- //url: 'http://192.168.0.104:3001'
- url: 'http://190.12.101.100:3001'
+  //url:'http://localhost:3001'
+  url: 'http://190.12.101.100:3001'
 
 };
 

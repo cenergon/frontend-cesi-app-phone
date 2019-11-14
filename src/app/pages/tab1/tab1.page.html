@@ -16,9 +16,9 @@
     <app-posts [posts]="posts"></app-posts>
 
     <!-- Infinite Scroll - lo controlo por una propiedad de angular [disabled]='true/false'-->
-    <!-- <ion-infinite-scroll [disabled]="!habilitado" threshold="150px" (ionInfinite)="siguientes($event)">
+    <ion-infinite-scroll [disabled]="!habilitado" threshold="150px" (ionInfinite)="siguientes($event)">
         <ion-infinite-scroll-content>
         </ion-infinite-scroll-content>
-    </ion-infinite-scroll> -->
+    </ion-infinite-scroll>
 
 </ion-content>
