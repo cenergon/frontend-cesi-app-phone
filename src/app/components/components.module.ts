@@ -6,10 +6,8 @@ import { IonicModule } from '@ionic/angular';
 import { PipesModule } from '../pipes/pipes.module';
 import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.component';
 import { MapaComponent } from './mapa/mapa.component';
-import { MenuComponent } from './menu/menu.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
-import { ComponentMenu } from '../interfaces/interfaces';
 
 
 

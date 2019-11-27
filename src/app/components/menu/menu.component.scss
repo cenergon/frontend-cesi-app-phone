@@ -6,7 +6,21 @@
     border-left: 8px solid var(--ion-color-primary);
 }
 
-$colors: ( primary : #488aff, secondary : #32db64, danger : #f53d3d, light : #f4f4f4, dark : #222);
+$colors: ( primary: #488aff, secondary: #32db64, danger: #f53d3d, light: #f4f4f4, dark: #222);
 .activeHightLight {
     background-color: map-get($colors, mp-main);
+}
+
+.whatsapp {
+    //position: fixed;
+    width: 60px;
+    height: 60px;
+    // bottom: 40px;
+    // right: 40px;
+    // background-color: #25d366;
+    // color: #FFF;
+    // border-radius: 50px;
+    // text-align: center;
+    // font-size: 30px;
+    // z-index: 100;
 }

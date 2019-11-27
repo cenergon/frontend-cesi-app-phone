@@ -4,6 +4,7 @@ import { IonSlide, IonSlides, NavController } from '@ionic/angular';
 import { UsuarioService } from '../../services/usuario.service';
 import { UiSericeService } from '../../services/ui-serice.service';
 import { Usuario } from '../../interfaces/interfaces';
+import { AuthService } from '../../services/auth0.service';
 
 
 @Component({
@@ -15,6 +16,17 @@ export class LoginPage implements OnInit {
 
   //Este decorador permite manipular el IonSlides de mi html
   @ViewChild( 'slidePrincipal', {static: true} ) slides: IonSlides;
+
+  //Datos de configuracion App
+  configApp = {
+    whatsappActive : '1',
+    whatsappNumbre : '2944667389',
+    loginAuth0 : '1',
+    loginApp : '1',
+    tab1: '1',
+    tab2: '1',
+    tab3: '1'
+  }
 
 
   //Lleno datos por defecto en login
@@ -36,7 +48,8 @@ export class LoginPage implements OnInit {
   constructor(
     private usuarioService : UsuarioService,
     private navCtrl: NavController,
-    private uiService: UiSericeService
+    private uiService: UiSericeService,
+    public authService: AuthService //auth0
   ) { }
 
   ngOnInit() {
@@ -99,5 +112,6 @@ export class LoginPage implements OnInit {
    this.slides.slideTo(0);
    this.slides.lockSwipes(true);
   }
+
 
 }

@@ -20,6 +20,26 @@
                         </ion-col>
                     </ion-row>
 
+                    <!-- Auth- -->
+                    <ion-row>
+                        <ion-col>
+
+                            <ion-list>
+
+                                <ion-button (click)="authService.login()" *ngIf="!authService.loggedIn" color="tertiary" shape="round">Ingresar</ion-button>
+
+                            </ion-list>
+
+                            <ion-list>
+
+                                <button (click)="authService.logout()" *ngIf="authService.loggedIn">Log Out</button>
+
+                            </ion-list>
+
+                        </ion-col>
+                    </ion-row>
+                    <!-- Fin Auth0 -->
+
                     <ion-row>
                         <ion-col>
 
@@ -36,6 +56,7 @@
                                 </ion-item>
 
                             </ion-list>
+
                         </ion-col>
                     </ion-row>
 

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { UsuariosGuard } from './guards/usuarios.guard';
-import { MenuComponent } from './components/menu/menu.component';
 
 const routes: Routes = [
   {
@@ -17,10 +16,11 @@ const routes: Routes = [
   {
     path: '' , 
     pathMatch: 'full', 
-    //Defino a donde quiero enviar cuando la aplicacion se inicializa nuevamente y se logue el usuario
-    //redirectTo: 'login'
-   // redirectTo: 'main/tabs/tab1'
-   redirectTo: 'iniciodemo'
+    //Defino a donde quiero enviar cuando la aplicacion se inicializa nuevamente y se logueo el usuario
+    redirectTo: 'login'
+    //redirectTo: 'main/tabs/tab1'
+    //redirectTo: 'iniciodemo'
+    //redirectTo: 'pedir-prestamo'
   },
 
   { path: 'alert', loadChildren: './components/alert/alert.module#AlertPageModule', canLoad: [ UsuariosGuard ] },
@@ -32,8 +32,9 @@ const routes: Routes = [
   { path: 'acercade', loadChildren: './pages/acercade/acercade.module#AcercadePageModule', canLoad: [ UsuariosGuard ] },
   { path: 'mensajes', loadChildren: './pages/mensajes/mensajes.module#MensajesPageModule'},
   { path: 'ayuda', loadChildren: './pages/ayuda/ayuda.module#AyudaPageModule', canLoad: [ UsuariosGuard ] },
-  { path: 'pedir-prestamo', loadChildren: './pages/pedir-prestamo/pedir-prestamo.module#PedirPrestamoPageModule' , canLoad: [ UsuariosGuard ]},
-  { path: 'iniciodemo', loadChildren: './pages/iniciodemo/iniciodemo.module#IniciodemoPageModule' },
+  { path: 'pedir-prestamo', loadChildren: './pages/pedir-prestamo/pedir-prestamo.module#PedirPrestamoPageModule',canLoad: [ UsuariosGuard ] },
+  { path: 'iniciodemo', loadChildren: './pages/iniciodemo/iniciodemo.module#IniciodemoPageModule' , canLoad: [ UsuariosGuard ] },
+  { path: 'callback', loadChildren: './components/auth0/callback/callback.module#CallbackPageModule' },
 
 ];
 @NgModule({

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth0.service';
 
 @Component({
   selector: 'app-perfil',
@@ -8,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class PerfilPage implements OnInit {
 
   titulo: string;
-  constructor() { }
+  constructor(
+    public authService: AuthService
+  ) { }
 
   ngOnInit() {
-  }
+    this.authService.userProfile$.subscribe(perfil => {
+      //console.log("ngOnInit: pefil.page " ,perfil);
+    })
+  } 
 
 }

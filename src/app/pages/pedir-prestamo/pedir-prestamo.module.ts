@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { PedirPrestamoPage } from './pedir-prestamo.page';
 import { ComponentsModule } from '../../components/components.module';
+import { MenuComponent } from '../../components/menu/menu.component';
 
 const routes: Routes = [
   {
@@ -21,8 +22,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    ComponentsModule
+    ComponentsModule,
   ],
-  declarations: [PedirPrestamoPage]
+  declarations: [PedirPrestamoPage,MenuComponent]
 })
 export class PedirPrestamoPageModule {}

@@ -4,6 +4,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Usuario } from '../interfaces/interfaces';
 import { NavController } from '@ionic/angular';
+import { AuthService } from './auth0.service';
 
 //Defino constatne definia en environment
 const URL = environment.url;
@@ -23,7 +24,9 @@ export class UsuarioService {
   constructor( 
     private http: HttpClient,
     private storage: Storage  ,
-    private navCtrl: NavController  
+    private navCtrl: NavController  ,
+    private authService: AuthService ,
+
     ) { }
 
     /**
@@ -71,16 +74,31 @@ export class UsuarioService {
      * Si no paso el avatar genera el avatar por defecto av-1.png
      * @param usuario 
      */
-    registro( usuario:Usuario){
-      //console.log(usuario);
+    registro( pUsuario:Usuario){
+
+      let usuario = { 
+        avatar: pUsuario.avatar,
+        nombre:  pUsuario.nombre,
+        password: pUsuario.password,
+        dni:  pUsuario.dni,
+        cbu:  pUsuario.cbu,
+        email: pUsuario.email,
+        email_verified: pUsuario.email_verified,
+        family_name: pUsuario.family_name,
+        given_name: pUsuario.given_name,
+        locale: pUsuario.locale,
+        name: pUsuario.name,
+        nickname:pUsuario.nickname,
+        picture: pUsuario.picture,
+        sub_idAuth0: pUsuario.sub, //aca cambio el nombre del campo 
+        updated_at: pUsuario.updated_at
+      }
 
       if (usuario.avatar === ''){
-        //console.log('set avatar');
           usuario.avatar ='av-1.png';
       }
 
       return new Promise(resolve => {
-
         this.http.post(`${ URL }/usuarios/create`,usuario)
         .subscribe( async resp =>{
           if (resp['ok']){
@@ -115,7 +133,7 @@ export class UsuarioService {
         this.http.get(`${ URL }/usuarios/verificar`, {headers})
         .subscribe ( resp =>{ 
           //console.log(resp);
-          if (resp['ok']){
+          if (resp['ok'] || this.authService.isAuthenticated$){
             this.usuario = resp['usuario']; //es el usuario, del token no de la base de datos!!
              resolve(true);
           }else{
@@ -132,46 +150,77 @@ export class UsuarioService {
        this.token = await this.storage.get('token') || null;
     }
 
-    /**
-     * Retorna la informacion del usuario si exite
-     */
-    getUsuario(){
-      //Lo saco al login, si no es correcto el token
-      if (!this.usuario._id){
-        this.validaToken();
-      }
-      return { ...this.usuario}; //destruyo la relacion al objeto y retorno uno nuevo
+/**
+ * Retorna la informacion del usuario si exite
+ */
+  getUsuario(){
+    //Lo saco al login, si no es correcto el token
+    if (!this.usuario._id){
+      this.validaToken();
     }
+    return { ...this.usuario}; //destruyo la relacion al objeto y retorno uno nuevo
+}
+
 
 /**
  * Actualizo el usuario , y utilizo el token del mismo
  * @param usuario 
  */
-    actualizarUsusario(usuario: Usuario){
+  actualizarUsusario(usuario: Usuario){
+  
+    //Preparo para pasar mi token al servicio
+    const headers = new HttpHeaders({
+      'x-token': this.token
+    });
+    return new Promise( resolve =>{
+      this.http.post(`${ URL }/usuarios/update`,usuario, { headers })
+      .subscribe ( resp =>{
+        if (resp['ok']){
+            this.guardarToken(resp['token']);
+            resolve(true);
+        } else {
+            resolve(false);
+        }
+      })
+    });
+  } 
 
-      //Preparo para pasar mi token al servicio
-      const headers = new HttpHeaders({
-        'x-token': this.token
-      });
+  logout(){
+      this.token =  null;
+      this.usuario  = null;
+      this.storage.clear();
+      this.navCtrl.navigateRoot('/login',{ animated: true });
+  }
 
-      return new Promise( resolve =>{
+  registroUsuarioauth0(){
+    this.authService.userProfile$.subscribe(perfil => {
+      //this.registro(perfil);
+      console.log("busco si esixte usuario");
+      this.getUsuarioByAuth0(perfil);
+    })
+  }
 
-        this.http.post(`${ URL }/usuarios/update`,usuario, { headers })
-        .subscribe ( resp =>{
-          if (resp['ok']){
-              this.guardarToken(resp['token']);
-              resolve(true);
-          } else {
-              resolve(false);
-          }
-        })
-      });
-      } 
+  getUsuarioByAuth0(perfil: Usuario){
+  console.log("getUsuarioByAuth0",perfil);
+      let sub_idAuth0 = perfil.sub;
+    return new Promise( resolve =>{
+      this.http.get(`${ URL }/usuarios/usuarioAuth0/${sub_idAuth0}`)
+      .subscribe ( resp =>{
+        if (resp['ok']){
+           console.log("encontrado por app");
+            this.guardarToken(resp['token']);
+            resolve(true);
+        } else {
+            resolve(false);
+        }
+      })
+    });
+  }
+  // //Control y cracion de usuario si no existe en mongo a partir de facebook
+  // validarRegisrarUsuarioAuth0(usuario : Usuario){
 
-      logout(){
-          this.token =  null;
-          this.usuario  = null;
-          this.storage.clear();
-          this.navCtrl.navigateRoot('/login',{ animated: true });
-      }
+  //   //Busco usuario que se loguea en mongo, si no exise lo creo y guardo token
+  //   //Si existe guardo token
+
+  // }
 }

@@ -4,7 +4,7 @@
     <description>An awesome FinTech app.</description>
     <author email="ramossistemas@gmail.com" href="http://www.cenergon.com.ar/">Juan Carlos Ramos</author>
     <content src="index.html" />
-    <access origin="*" />
+    <access launch-external="yes" origin="whatsapp//*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />

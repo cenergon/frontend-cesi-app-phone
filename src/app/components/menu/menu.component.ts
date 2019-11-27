@@ -4,8 +4,10 @@ import { ComponentMenu } from 'src/app/interfaces/interfaces';
 import { MenuService } from '../../services/menu.service';
 import { UsuarioService } from '../../services/usuario.service';
 import { PostsService } from '../../services/posts.service';
-import { MenuController } from '@ionic/angular';
+import { MenuController, Platform } from '@ionic/angular';
 import { RouterEvent, Router } from '@angular/router';
+import { AuthService } from '../../services/auth0.service';
+
 
 @Component({
   selector: 'app-menu',
@@ -22,12 +24,18 @@ export class MenuComponent implements OnInit {
   selectedPath = '';
 
 
+
+
   constructor( 
     private menu: MenuController,
     private menuService: MenuService,
     private usuarioService: UsuarioService ,
     private postService: PostsService ,
-    private router: Router) {
+    private router: Router,
+    public platform: Platform,
+    public authService : AuthService
+    
+    ) {
 
       this.router.events.subscribe((event: RouterEvent) => {
         this.selectedPath = event.url;
@@ -51,6 +59,10 @@ export class MenuComponent implements OnInit {
 
   flagcahngeTrue(){
     this.flag = true;
+  }
+
+  chatWhatsapp(){
+    window.location.href = 'https://wa.me/542944667389?text=Me%20gustaría%20saber%20más%20sobre%20el%20servicio';
   }
 
 }

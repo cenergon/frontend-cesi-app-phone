@@ -1,4 +1,67 @@
 <ion-app>
+    <ion-menu side="start">
+        <ion-header>
+            <ion-toolbar translucent>
+                <ion-title>Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-menu-toggle autoHide="false" *ngFor="let c of componentes | async">
+                    <ion-item [routerLink]="c.redirectTo" [class.active-item]="selectedPath === c.redirectTo">
+                        <ion-icon slot="start" [name]="c.icon"></ion-icon>
+                        <ion-label>{{ c.name }}</ion-label>
+                    </ion-item>
+                </ion-menu-toggle>
+                <ion-item>
+                    <ion-row align-items-start>
+                        <ion-col size="2" no-padding text-right>
+                            <img src="/assets/icon/whatsapp.png" float-right (click)="chatWhatsapp()" />
+                        </ion-col>
+                    </ion-row>
+                </ion-item>
+
+                <ion-item>
+                    <ion-button (click)="logout()" expand="" color="danger">
+                        <ion-icon slot="icon-only" name="exit"></ion-icon>
+                        <ion-label>Salir</ion-label>
+                    </ion-button>
+                </ion-item>
+
+                <ion-item>
+                    <ion-button (click)="authService.logout()" *ngIf="authService.loggedIn" expand="" color="success">
+                        <ion-icon slot="icon-only" name="exit"></ion-icon>
+                        <ion-label>Salir Auth0</ion-label>
+                    </ion-button>
+                </ion-item>
+
+
+
+
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <div class="ion-page" main>
+        <ion-header>
+            <ion-toolbar>
+                <ion-buttons slot="start">
+                    <ion-menu-button></ion-menu-button>
+                </ion-buttons>
+                <ion-title>Home</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+            <ion-button expand="block" onclick="openMenu()">Open Menu</ion-button>
+        </ion-content>
+    </div>
+</ion-app>
+
+
+
+<!-- 
+
+<ion-app>
 
     <ion-split-pane when="md" contentId="principal">
 
@@ -17,12 +80,36 @@
                             <ion-label>{{ c.name }}</ion-label>
                         </ion-item>
                     </ion-menu-toggle>
+
+                    <ion-item>
+                        <ion-button expand="block" (click)="chatWhatsapp()" color="success">
+                            <ion-icon slot="icon-only" name="logo-whatsapp"></ion-icon>
+                            <ion-label> whatsapp</ion-label>
+                        </ion-button>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-row align-items-start>
+                            <ion-col size="2" no-padding text-right>
+                                <img src="/assets/icon/whatsapp.png" float-right (click)="chatWhatsapp()" />
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>  
+
                     <ion-item>
                         <ion-button (click)="logout()" expand="" color="danger">
                             <ion-icon slot="icon-only" name="exit"></ion-icon>
                             <ion-label>Salir</ion-label>
                         </ion-button>
                     </ion-item>
+
+                    <ion-item>
+                        <ion-button (click)="authService.logout()" *ngIf="authService.loggedIn" expand="" color="success">
+                            <ion-icon slot="icon-only" name="exit"></ion-icon>
+                            <ion-label>Salir Auth0</ion-label>
+                        </ion-button>
+                    </ion-item>
+
 
                 </ion-list>
             </ion-content>
@@ -33,4 +120,4 @@
 
     </ion-split-pane>
 
-</ion-app>
+</ion-app> -->

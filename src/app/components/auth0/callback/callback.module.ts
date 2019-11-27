@@ -5,14 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AcercadePage } from './acercade.page';
-import { ComponentsModule } from '../../components/components.module';
-import { MenuComponent } from '../../components/menu/menu.component';
+import { CallbackPage } from './callback.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AcercadePage
+    component: CallbackPage
   }
 ];
 
@@ -21,8 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes), ComponentsModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [AcercadePage, MenuComponent]
+  declarations: [CallbackPage]
 })
-export class AcercadePageModule {}
+export class CallbackPageModule {}

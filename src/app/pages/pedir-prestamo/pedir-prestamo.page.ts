@@ -3,6 +3,8 @@ import { AlertController } from '@ionic/angular';
 import { ComponentMenu } from 'src/app/interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { MenuService } from '../../services/menu.service';
+import { AuthService } from '../../services/auth0.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-pedir-prestamo',
@@ -16,10 +18,16 @@ export class PedirPrestamoPage implements OnInit {
   //componentes: Observable<ComponentMenu[]>;
 
 
-  constructor(public alertCtrl: AlertController, private menuService: MenuService) { }
+  constructor(
+    public alertCtrl: AlertController, 
+    private menuService: MenuService,
+    private usuarioService: UsuarioService
+) { }
 
   ngOnInit() {
      //this.componentes = this.menuService.getMenuOpts();
+     //this.authservice.handleAuthCallback();
+     console.log("respuesta rest",this.usuarioService.registroUsuarioauth0());
   }
 
   async presentInput() {

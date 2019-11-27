@@ -1,11 +1,13 @@
 <app-header [titulo]="titulo || 'Perfil'"> </app-header>
 
 
-<ion-content padding>
+<ion-content padding *ngIf="authService.userProfile$ | async as profile">
     <div class="user-photo" padding-top>
         <ion-row>
             <ion-col style="text-align: center">
-                <img height='100' width='100' src="/assets/avatars/av-1.png">
+                <!-- <img height='100' width='100' src="/assets/avatars/av-1.png"> -->
+                <!-- <img height='100' width='100' src="/assets/avatars/av-1.png"> -->
+                <img [src]="profile.picture" class="img-fluid">
             </ion-col>
         </ion-row>
     </div>
@@ -15,7 +17,29 @@
             <ion-icon name="person" slot="start"></ion-icon>
             <ion-label>
                 <p>Nombre</p>
-                <h2>CESI</h2>
+                <pre>
+                        <code>{{ profile | json }}</code>
+                        </pre> </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label>
+                <p>Nombre</p>
+                <h2>{{ profile.given_name | json }} {{ profile.middle_name | json }}</h2>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label>
+                <p>Apellido</p>
+                <h2>{{ profile.family_name | json }}</h2>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="person" slot="start"></ion-icon>
+            <ion-label>
+                <p>Alias</p>
+                <h2>{{ profile.nickname | json }}</h2>
             </ion-label>
         </ion-item>
         <ion-item>

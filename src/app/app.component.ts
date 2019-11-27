@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -7,6 +7,7 @@ import { MenuService } from './services/menu.service';
 import { ComponentMenu } from './interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { PushService } from './services/push.service';
+import { AuthService } from './services/auth0.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { PushService } from './services/push.service';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
  
   componentes: Observable<ComponentMenu[]>;
 
@@ -24,7 +25,8 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private menuService: MenuService,
-    private pushService: PushService
+    private pushService: PushService,
+    private authService: AuthService
 
   ) {
     this.initializeApp();
@@ -41,7 +43,15 @@ export class AppComponent {
 
       //Llamo oneSignal Component
       this.pushService.configuracionInicial();
+
+
     });
+  }
+
+  ngOnInit(): void {
+      //Auth0
+      this.authService.localAuthSetup();
+      this.authService.handleAuthCallback();
   }
 
 
