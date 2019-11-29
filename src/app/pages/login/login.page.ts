@@ -19,20 +19,33 @@ export class LoginPage implements OnInit {
 
   //Datos de configuracion App
   configApp = {
-    whatsappActive : '1',
+    whatsappActive : true,
     whatsappNumbre : '2944667389',
-    loginAuth0 : '1',
-    loginApp : '1',
-    tab1: '1',
-    tab2: '1',
-    tab3: '1'
+    loginAuth0 : true,
+    loginApp : false,
+    tab1: true,
+    tab2: true,
+    tab3: true,
+    titulo1: "Mutual 22 Septiembre",
+    titulo2: "Bienvenido",
+    buttonFacebook: true,
+    buttonGmail: false,
+    buttonRegistrate: true,
+    fotterSlideLogin: false,
+    fotterleyenda: true,
+    fotterLeyendaTitulo: "¡Gracias por elegirnos...!", 
+    footerColor: "primary",
+    footerPosition: "stacked",
+    fotterSlideIrInicio: true
   }
 
 
   //Lleno datos por defecto en login
   loginUser = {
-    email: 'tuprestamoya@mutual.com',
-    password: '123456'
+    // email: 'tuprestamoya@mutual.com',
+    // password: '123456'
+    email: '',
+    password: ''
   };
 
   //Lleno datos por defecto en registro

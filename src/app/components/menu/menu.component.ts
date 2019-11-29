@@ -20,10 +20,11 @@ export class MenuComponent implements OnInit {
 
   flag: boolean = true;
 
-
   selectedPath = '';
 
-
+  configMenu ={
+    buttonSalir : false
+  }
 
 
   constructor( 

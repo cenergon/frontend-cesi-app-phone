@@ -21,19 +21,21 @@
                     </ion-row>
                 </ion-item>
 
-                <ion-item>
-                    <ion-button (click)="logout()" expand="" color="danger">
-                        <ion-icon slot="icon-only" name="exit"></ion-icon>
-                        <ion-label>Salir</ion-label>
-                    </ion-button>
-                </ion-item>
-
-                <ion-item>
+                <div *ngIf="configMenu.buttonSalir">
+                    <ion-item>
+                        <ion-button (click)="logout()" expand="" color="danger">
+                            <ion-icon slot="icon-only" name="exit"></ion-icon>
+                            <ion-label>Salir</ion-label>
+                        </ion-button>
+                    </ion-item>
+                </div>
+                <!-- Activa boton salir solo de autho0 - Para Pruebas -->
+                <!-- <ion-item>
                     <ion-button (click)="authService.logout()" *ngIf="authService.loggedIn" expand="" color="success">
                         <ion-icon slot="icon-only" name="exit"></ion-icon>
                         <ion-label>Salir Auth0</ion-label>
                     </ion-button>
-                </ion-item>
+                </ion-item> -->
 
 
 

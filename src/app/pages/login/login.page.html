@@ -1,13 +1,13 @@
 <ion-header>
-    <ion-toolbar color="primary">
-        <ion-title text-center>MUTUAL</ion-title>
+    <ion-toolbar color="tertiary">
+        <ion-title text-center>{{configApp.titulo1}}</ion-title>
+        <ion-title text-center>{{configApp.titulo2}}</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content class="auth-page">
 
     <ion-slides class="mainSlide" #slidePrincipal>
-
 
         <ion-slide>
 
@@ -16,58 +16,78 @@
 
                     <ion-row>
                         <ion-col>
-                            <img src="/assets/avatars/av-1.png">
+                            <img src="/assets/avatars/avatarM22.png">
                         </ion-col>
                     </ion-row>
 
+
                     <!-- Auth- -->
-                    <ion-row>
-                        <ion-col>
+                    <div *ngIf="configApp.loginAuth0">
+                        <ion-row>
+                            <ion-col>
 
-                            <ion-list>
+                                <div *ngIf="configApp.buttonFacebook">
+                                    <ion-list>
 
-                                <ion-button (click)="authService.login()" *ngIf="!authService.loggedIn" color="tertiary" shape="round">Ingresar</ion-button>
+                                        <ion-button (click)="authService.login()" shape="round" expand="full" size="small" *ngIf="!authService.loggedIn" color="primary">Facebook</ion-button>
 
-                            </ion-list>
+                                    </ion-list>
+                                </div>
 
-                            <ion-list>
+                                <div *ngIf="configApp.buttonGmail">
+                                    <ion-list>
+
+                                        <ion-button (click)="authService.login()" shape="round" expand="full" size="small" *ngIf="!authService.loggedIn" color="secondary">Gmail</ion-button>
+
+                                    </ion-list>
+                                </div>
+
+                                <div *ngIf="configApp.buttonRegistrate">
+                                    <ion-list>
+
+                                        <ion-button (click)="mostrarRegistro()" shape="round" expand="full" size="small" color="success">Registrate</ion-button>
+
+                                    </ion-list>
+                                </div>
+                                <!-- <ion-list>
 
                                 <button (click)="authService.logout()" *ngIf="authService.loggedIn">Log Out</button>
 
-                            </ion-list>
+                            </ion-list> -->
 
-                        </ion-col>
-                    </ion-row>
+                            </ion-col>
+                        </ion-row>
+                    </div>
                     <!-- Fin Auth0 -->
 
-                    <ion-row>
-                        <ion-col>
+                    <div *ngIf="configApp.loginApp">
+                        <ion-row>
+                            <ion-col>
+                                <ion-list>
+                                    <ion-item>
+                                        <ion-label>Email</ion-label>
+                                        <ion-input name="email" type="email" [(ngModel)]="loginUser.email" required></ion-input>
+                                    </ion-item>
 
-                            <ion-list>
+                                    <ion-item>
+                                        <ion-label>Clave</ion-label>
+                                        <ion-input name="password" type="password" [(ngModel)]="loginUser.password" required></ion-input>
+                                    </ion-item>
 
-                                <ion-item>
-                                    <ion-label>Email</ion-label>
-                                    <ion-input name="email" type="email" [(ngModel)]="loginUser.email" required></ion-input>
-                                </ion-item>
+                                </ion-list>
+                            </ion-col>
+                        </ion-row>
+                    </div>
 
-                                <ion-item>
-                                    <ion-label>Password</ion-label>
-                                    <ion-input name="password" type="password" [(ngModel)]="loginUser.password" required></ion-input>
-                                </ion-item>
-
-                            </ion-list>
-
-                        </ion-col>
-                    </ion-row>
-
-                    <ion-row>
-                        <ion-col>
-                            <ion-button type="submit" color="tertiary" shape="round">
-                                ACEPTAR
-                            </ion-button>
-                        </ion-col>
-                    </ion-row>
-
+                    <div *ngIf="configApp.loginApp">
+                        <ion-row>
+                            <ion-col>
+                                <ion-button type="submit" color="tertiary" shape="round">
+                                    INGRESAR
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </div>
                 </ion-grid>
             </form>
 
@@ -92,7 +112,6 @@
                                     <ion-input name="dni" type="email" [(ngModel)]="registerUser.dni" required></ion-input>
                                 </ion-item>
 
-
                                 <ion-item>
                                     <ion-label>Email</ion-label>
                                     <ion-input [(ngModel)]="registerUser.email" name="email" type="email" required></ion-input>
@@ -114,11 +133,15 @@
 
                     <ion-row>
                         <ion-col>
-                            <ion-button type="submit" color="tertiary" shape="round">
+                            <ion-button type="submit" color="success" shape="round" expand="full" size="small">
                                 Crear usuario
                             </ion-button>
                         </ion-col>
                     </ion-row>
+
+                    <ion-button (click)="mostrarLogin()" shape="round" size="small" fill="outline" color="tertiary">
+                        Inicio
+                    </ion-button>
 
                 </form>
             </ion-grid>
@@ -128,25 +151,40 @@
 
 
     </ion-slides>
-
-
-
 </ion-content>
 
-<ion-footer no-border>
-    <ion-toolbar>
-        <ion-row>
-            <ion-col>
-                <ion-button (click)="mostrarLogin()" shape="round" expand="full" size="small" fill="outline" color="tertiary">
-                    Ingresar
-                </ion-button>
-            </ion-col>
+<div *ngIf="configApp.fotterSlideLogin">
+    <ion-footer no-border>
+        <ion-toolbar>
+            <ion-row>
+                <ion-col>
+                    <ion-button (click)="mostrarLogin()" shape="round" expand="full" size="small" fill="outline" color="tertiary">
+                        Ingresar
+                    </ion-button>
+                </ion-col>
 
-            <ion-col>
-                <ion-button (click)="mostrarRegistro()" shape="round" expand="full" size="small" fill="outline" color="tertiary">
-                    Registrarme
-                </ion-button>
-            </ion-col>
-        </ion-row>
-    </ion-toolbar>
-</ion-footer>
+                <ion-col>
+                    <ion-button (click)="mostrarRegistro()" shape="round" expand="full" size="small" fill="outline" color="tertiary">
+                        Registrarme
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-toolbar>
+    </ion-footer>
+</div>
+
+<div *ngIf="configApp.fotterleyenda">
+    <ion-footer no-border>
+        <ion-toolbar>
+
+            <ion-row>
+                <ion-col text-center>
+                    <ion-label color="primary">
+                        <h3>{{configApp.fotterLeyendaTitulo}}</h3>
+                    </ion-label>
+                </ion-col>
+            </ion-row>
+
+        </ion-toolbar>
+    </ion-footer>
+</div>

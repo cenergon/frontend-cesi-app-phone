@@ -11,6 +11,13 @@ export class AvatarSelectorComponent implements OnInit {
   @Input() avatarActual = 'av-1.png'
 
 
+//Datos de configuracion App
+configApp = {
+  tituloAvatar1 : "Hagámoslo divertido",
+  tituloAvatar2 : "Selecione un avatar"
+
+}
+
   avatarSlide = {
     slidesPerView: 3.5
   };
