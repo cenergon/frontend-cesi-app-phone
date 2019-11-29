@@ -17,10 +17,10 @@ const routes: Routes = [
     path: '' , 
     pathMatch: 'full', 
     //Defino a donde quiero enviar cuando la aplicacion se inicializa nuevamente y se logueo el usuario
-    redirectTo: 'login'
+    //redirectTo: 'login'
     //redirectTo: 'main/tabs/tab1'
     //redirectTo: 'iniciodemo'
-    //redirectTo: 'pedir-prestamo'
+    redirectTo: 'pedir-prestamo'
   },
 
   { path: 'alert', loadChildren: './components/alert/alert.module#AlertPageModule', canLoad: [ UsuariosGuard ] },
@@ -30,9 +30,9 @@ const routes: Routes = [
   { path: 'cuenta', loadChildren: './pages/cuenta/cuenta.module#CuentaPageModule', canLoad: [ UsuariosGuard ] },
   { path: 'prestamo', loadChildren: './pages/prestamo/prestamo.module#PrestamoPageModule', canLoad: [ UsuariosGuard ] },
   { path: 'acercade', loadChildren: './pages/acercade/acercade.module#AcercadePageModule', canLoad: [ UsuariosGuard ] },
-  { path: 'mensajes', loadChildren: './pages/mensajes/mensajes.module#MensajesPageModule'},
+  { path: 'mensajes', loadChildren: './pages/mensajes/mensajes.module#MensajesPageModule', },
   { path: 'ayuda', loadChildren: './pages/ayuda/ayuda.module#AyudaPageModule', canLoad: [ UsuariosGuard ] },
-  { path: 'pedir-prestamo', loadChildren: './pages/pedir-prestamo/pedir-prestamo.module#PedirPrestamoPageModule',canLoad: [ UsuariosGuard ] },
+  { path: 'pedir-prestamo', loadChildren: './pages/pedir-prestamo/pedir-prestamo.module#PedirPrestamoPageModule', canLoad: [ UsuariosGuard ] },
   { path: 'iniciodemo', loadChildren: './pages/iniciodemo/iniciodemo.module#IniciodemoPageModule' , canLoad: [ UsuariosGuard ] },
   { path: 'callback', loadChildren: './components/auth0/callback/callback.module#CallbackPageModule' },
 

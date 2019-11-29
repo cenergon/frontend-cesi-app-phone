@@ -18,6 +18,7 @@ import { Camera } from '@ionic-native/camera/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { MenuComponent } from './components/menu/menu.component';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
+import { UsuarioService } from './services/usuario.service';
 
 
 
@@ -38,7 +39,7 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
     Camera, 
     FileTransfer,
     OneSignal,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },UsuarioService
   ],
   bootstrap: [AppComponent]
 })

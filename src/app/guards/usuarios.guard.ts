@@ -27,27 +27,15 @@ export class UsuariosGuard implements CanLoad {
     ){}
   
   canLoad():  Observable<boolean> | Promise<boolean> | boolean {
-    //return this.usuarioService.validaToken();
-    if (this.usuarioService.validaToken()){
-      return true;
-    }else
-    if (this.authService.isAuthenticated$){
-      console.log("entro");
-      return true;
-    }
-    else {
-      return false;    
-    }
- 
-    //Me retorna cuando no esto logueado al login de aUTH0
-    // return this.authService.isAuthenticated$.pipe(
-    //   tap(loggedIn => {
-    //     if (!loggedIn) {
-    //       this.authService.login();
-    //     }
-    //   })
-    // );
-
+    
+   // return this.usuarioService.validaToken());
+   if (this.authService.loggedIn ){
+    return true;
+  } else{
+    return this.usuarioService.validaToken()
+  }
+  
+  
  }
 
 

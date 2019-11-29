@@ -47,9 +47,12 @@ export class MenuComponent implements OnInit {
     this.componentes = this.menuService.getMenuOpts();
   }
   logout(){
+    //logout propip
     this.close();
     this.postService.paginaPost = 0;
     this.usuarioService.logout();
+    //logou auth0
+    this.authService.logout();
   }
 
   close() {

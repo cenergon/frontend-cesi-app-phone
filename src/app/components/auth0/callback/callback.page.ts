@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth0.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-callback',
@@ -11,16 +12,19 @@ export class CallbackPage implements OnInit {
   loading: boolean;
 
   constructor(
-    private authservice: AuthService
+    private authService: AuthService,
+    private router:Router
   ) { }
 
   ngOnInit() {
 
-    this.authservice.handleAuthCallback();
+    this.authService.handleAuthCallback();
 
     this.loading = true;
 
-    setTimeout( ()=>this.loading = false, 5000 )
+    //setTimeout( ()=>this.loading = false, 5000 );
+
+   
   }
 
 }

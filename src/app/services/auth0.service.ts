@@ -5,7 +5,6 @@ import { from, of, Observable, BehaviorSubject, combineLatest, throwError } from
 import { tap, catchError, concatMap, shareReplay } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { UsuarioService } from './usuario.service';
-import { Usuario } from '../interfaces/interfaces';
 
 
 @Injectable({
@@ -44,14 +43,15 @@ export class AuthService {
   // Create a local property for login status
   loggedIn: boolean = null;
 
+
   constructor(
     private router: Router,
-    //private usuarioService : UsuarioService
+    private usuarioService: UsuarioService
     ) { }
 
   // When calling, options can be passed if desired
   // https://auth0.github.io/auth0-spa-js/classes/auth0client.html#getuser
-  getUser$(options?): Observable<any> {
+  getUser$(options?): Observable<any> {   
     return this.auth0Client$.pipe(
       concatMap((client: Auth0Client) => from(client.getUser(options))),
       tap(user => this.userProfileSubject$.next(user))
@@ -75,7 +75,7 @@ export class AuthService {
     checkAuth$.subscribe();
   }
 
-  login(redirectPath: string = '/') {
+  login(redirectPath: string = '/pedir-prestamo') {
     // A desired redirect path can be passed to login method
     // (e.g., from a route guard)
     // Ensure Auth0 client instance exists
@@ -91,6 +91,14 @@ export class AuthService {
   handleAuthCallback() {
     // Call when app reloads after user logs in with Auth0
     const params = window.location.search;
+
+  
+    // console.log("llamo registroUsuarioauth0");   
+    // this.userProfile$.subscribe(perfil => {
+    //   console.log("userProfile: auth0service.page " ,perfil);
+    //   this.registroUsuarioauth0();
+    // })
+    
     if (params.includes('code=') && params.includes('state=')) {
       let targetRoute: string; // Path to redirect to after login processsed
       const authComplete$ = this.handleRedirectCallback$.pipe(
@@ -112,7 +120,15 @@ export class AuthService {
       authComplete$.subscribe(([user, loggedIn]) => {
         // Redirect to target route after callback processing
         this.router.navigate([targetRoute]);
+
+        // console.log(" 1 login autho");
+        // this.userProfile$.subscribe(perfil => {
+        //   console.log("userProfile: auth0service.page " ,perfil);
+        //   this.registroUsuarioauth0();
+        // })
       });
+
+   
     }
   }
 
@@ -127,5 +143,25 @@ export class AuthService {
       this.router.navigate(['/']);
 
     });
+  }
+
+  async registroUsuarioauth0(){
+    await this.userProfile$.subscribe(perfil => {
+    console.log("busco si esixte usuario Auth0");
+    console.log("registroUsuarioauth0: auth0service.page " ,perfil);
+      this.usuarioService.getUsuarioByAuth0(perfil).then( flag =>{
+        if (!flag){
+          console.log("Creo Usuario");
+          this.usuarioService.registro(perfil);
+          this.usuarioService.login('cesi@cesi.com.ar','@');
+          return true;
+        }else{
+          console.log("NO creo Usuario - genero Token ");
+          this.usuarioService.login('cesi@cesi.com.ar','@'); 
+          return true;  
+        }
+     })
+    });
+    
   }
 }

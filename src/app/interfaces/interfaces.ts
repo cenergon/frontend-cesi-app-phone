@@ -29,7 +29,7 @@ export interface RespuestaPosts {
     name?: string;
     nickname?: string;
     picture?: string;
-    sub?: string;
+    sub?: string; //id que brinda auth0
     updated_at?: string;
   }
 

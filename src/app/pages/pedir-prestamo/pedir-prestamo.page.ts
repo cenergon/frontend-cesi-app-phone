@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { ComponentMenu } from 'src/app/interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { MenuService } from '../../services/menu.service';
@@ -21,14 +21,19 @@ export class PedirPrestamoPage implements OnInit {
   constructor(
     public alertCtrl: AlertController, 
     private menuService: MenuService,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private authService: AuthService,
+    private navCtrl: NavController
 ) { }
 
   ngOnInit() {
      //this.componentes = this.menuService.getMenuOpts();
      //this.authservice.handleAuthCallback();
-     console.log("respuesta rest",this.usuarioService.registroUsuarioauth0());
+
+     this.authService.registroUsuarioauth0().then(resp =>{});
+
   }
+
 
   async presentInput() {
 

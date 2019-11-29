@@ -25,7 +25,7 @@ export class UsuarioService {
     private http: HttpClient,
     private storage: Storage  ,
     private navCtrl: NavController  ,
-    private authService: AuthService ,
+   // private authService: AuthService ,
 
     ) { }
 
@@ -34,16 +34,19 @@ export class UsuarioService {
      * @param email 
      * @param password 
      */
-    login(email: string, password: string){
+    async login(email: string, password: string){
 
+      console.log("entre a login ");
+      
       const data = {email, password};
       
-      return new Promise(resolve => {
+     return new Promise(resolve => {
         this.http.post(`${ URL }/usuarios/login`,data)
         .subscribe( async resp => {
         console.log(resp);
   
         if (resp['ok']){
+          console.log("guardo Token generado");
           await this.guardarToken( resp['token']) ;
           resolve(true);
         } else {
@@ -65,7 +68,6 @@ export class UsuarioService {
     async guardarToken(token: string){
        this.token = token;
        await this.storage.set('token',token);
-
        await this.validaToken();
     }
 
@@ -102,6 +104,7 @@ export class UsuarioService {
         this.http.post(`${ URL }/usuarios/create`,usuario)
         .subscribe( async resp =>{
           if (resp['ok']){
+            console.log("creo usuario y guardo token");
             await this.guardarToken( resp['token']) ;
             resolve(true);
           } else {
@@ -119,9 +122,10 @@ export class UsuarioService {
  * Esto valida el token y obtiene los datos del usuario del token - no de la base de datos
  */
     async validaToken(): Promise<boolean>{
-
+      console.log("valido token generado por servicio rest - METODO validarToken del canLoad");
       await this.cargarToken(); //espera y carga el token
       if (!this.token) {
+        console.log("NO  valido token y mando a login");
         this.navCtrl.navigateRoot('/login');
         return Promise.resolve(false);
       }
@@ -133,10 +137,12 @@ export class UsuarioService {
         this.http.get(`${ URL }/usuarios/verificar`, {headers})
         .subscribe ( resp =>{ 
           //console.log(resp);
-          if (resp['ok'] || this.authService.isAuthenticated$){
+          //if (resp['ok'] || this.authService.isAuthenticated$){
+          if (resp['ok'] ){
             this.usuario = resp['usuario']; //es el usuario, del token no de la base de datos!!
              resolve(true);
           }else{
+            console.log("NO PASO VALIDACION TOKEN");
             this.navCtrl.navigateRoot('/login');
             resolve(false);
           }
@@ -190,37 +196,43 @@ export class UsuarioService {
       this.usuario  = null;
       this.storage.clear();
       this.navCtrl.navigateRoot('/login',{ animated: true });
-  }
+  }    
 
-  registroUsuarioauth0(){
-    this.authService.userProfile$.subscribe(perfil => {
-      //this.registro(perfil);
-      console.log("busco si esixte usuario");
-      this.getUsuarioByAuth0(perfil);
-    })
-  }
+  // registroUsuarioauth0(){
+  //   this.authService.userProfile$.subscribe(perfil => {
+  //   console.log("busco si esixte usuario Auth0");
+  //    this.getUsuarioByAuth0(perfil).then( flag =>{
+  //       if (!flag){
+  //         console.log("Creo Usuario");
+  //         this.registro(perfil);
+  //         this.login('cesi@cesi.com.ar','@');
+  //       }else{
+  //         console.log("NO creo Usuario - genero Token ");
+  //         this.login('cesi@cesi.com.ar','@');   
+  //       }
+  //    })
+  //   })
+  // }
 
+  /**
+   * Busco si existe el usuario de red social, 
+   * si no existe se crea. Si existe genera el token de navegación
+   * @param perfil 
+   */
   getUsuarioByAuth0(perfil: Usuario){
-  console.log("getUsuarioByAuth0",perfil);
-      let sub_idAuth0 = perfil.sub;
+    let sub_idAuth0 = perfil.sub;
     return new Promise( resolve =>{
-      this.http.get(`${ URL }/usuarios/usuarioAuth0/${sub_idAuth0}`)
+    this.http.get(`${ URL }/usuarios/usuarioAuth0/${sub_idAuth0}`)
       .subscribe ( resp =>{
-        if (resp['ok']){
-           console.log("encontrado por app");
-            this.guardarToken(resp['token']);
+        if (resp){
+            //console.log("Encontrado");
             resolve(true);
         } else {
+           //console.log("NO encontrado");
             resolve(false);
         }
       })
     });
   }
-  // //Control y cracion de usuario si no existe en mongo a partir de facebook
-  // validarRegisrarUsuarioAuth0(usuario : Usuario){
 
-  //   //Busco usuario que se loguea en mongo, si no exise lo creo y guardo token
-  //   //Si existe guardo token
-
-  // }
 }
