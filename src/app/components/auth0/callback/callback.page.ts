@@ -16,13 +16,14 @@ export class CallbackPage implements OnInit {
     private router:Router
   ) { }
 
+
   ngOnInit() {
 
     this.authService.handleAuthCallback();
 
     this.loading = true;
 
-    //setTimeout( ()=>this.loading = false, 5000 );
+    setTimeout( ()=>this.loading = false, 5000 );
 
    
   }

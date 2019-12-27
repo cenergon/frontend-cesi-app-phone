@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 
 import { AcercadePage } from './acercade.page';
 import { ComponentsModule } from '../../components/components.module';
-import { MenuComponent } from '../../components/menu/menu.component';
 
 const routes: Routes = [
   {
@@ -23,6 +22,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes), ComponentsModule
   ],
-  declarations: [AcercadePage, MenuComponent]
+  declarations: [AcercadePage]
 })
 export class AcercadePageModule {}

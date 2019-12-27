@@ -5,6 +5,7 @@ import { UsuarioService } from '../../services/usuario.service';
 import { UiSericeService } from '../../services/ui-serice.service';
 import { Usuario } from '../../interfaces/interfaces';
 import { AuthService } from '../../services/auth0.service';
+import { AuthServiceIonic } from '../../services/auth0ionic.service';
 
 
 @Component({
@@ -14,23 +15,25 @@ import { AuthService } from '../../services/auth0.service';
 })
 export class LoginPage implements OnInit {
 
-  //Este decorador permite manipular el IonSlides de mi html
+  // Este decorador permite manipular el IonSlides de mi html
   @ViewChild( 'slidePrincipal', {static: true} ) slides: IonSlides;
 
-  //Datos de configuracion App
+  // Datos de configuracion App
   configApp = {
     whatsappActive : true,
     whatsappNumbre : '2944667389',
-    loginAuth0 : true,
-    loginApp : false,
+    loginApp : true ,
     tab1: true,
     tab2: true,
     tab3: true,
     titulo1: "Mutual 22 Septiembre",
     titulo2: "Bienvenido",
-    buttonFacebook: true,
-    buttonGmail: false,
+    buttonIngresar: true,
     buttonRegistrate: true,
+    buttonFacebookAngular: false,
+    buttonGmailAngular: false,
+    buttonRegistrateIonic: false,
+    buttonRegistrateRedesSocialesAll: false,
     fotterSlideLogin: false,
     fotterleyenda: true,
     fotterLeyendaTitulo: "¡Gracias por elegirnos...!", 
@@ -40,33 +43,34 @@ export class LoginPage implements OnInit {
   }
 
 
-  //Lleno datos por defecto en login
+  // Lleno datos por defecto en login
   loginUser = {
-    // email: 'tuprestamoya@mutual.com',
-    // password: '123456'
-    email: '',
-    password: ''
+    email: 'tuprestamoya@mutual.com',
+    password: '123456'
+    // email: '',
+    // password: ''
   };
 
-  //Lleno datos por defecto en registro
-  registerUser: Usuario= {
+  // Lleno datos por defecto en registro
+  registerUser: Usuario = {
     email: '',
     password: '',
     nombre: '',
     avatar : '',
     dni: null,
-    cbu:''
-  }
+    cbu: ''
+  };
   
   constructor(
     private usuarioService : UsuarioService,
     private navCtrl: NavController,
     private uiService: UiSericeService,
-    public authService: AuthService //auth0
+    public authService: AuthService ,// auth0 Web
+    public autrhServiceIonic : AuthServiceIonic
   ) { }
 
   ngOnInit() {
-    //Bloqueo mi slide principal 
+    // Bloqueo mi slide principal 
     this.slides.lockSwipes(true);
   }
 
@@ -76,14 +80,15 @@ export class LoginPage implements OnInit {
      const valido = await this.usuarioService.login(this.loginUser.email,this.loginUser.password);
      
      if (valido){
-       //navegar al tabs
-       //this.navCtrl.navigateRoot('/main/tabs/tab1', { animated: true});
+       // navegar al tabs
+       // this.navCtrl.navigateRoot('/main/tabs/tab1', { animated: true});
        
-       this.navCtrl.navigateRoot('/pedir-prestamo', { animated: true});
+      //  this.navCtrl.navigateRoot('/pedir-prestamo', { animated: true});
+       this.navCtrl.navigateRoot('/menu', { animated: true});
 
 
      } else {
-       //mostrar alerta 
+       // mostrar alerta 
        this.uiService.presentAlert("Usuario o contraseña no son correctas.");
      }
 
@@ -96,11 +101,11 @@ export class LoginPage implements OnInit {
     const valido = await this.usuarioService.registro(this.registerUser);
 
     if (valido){
-      //navegar al tabs
+      // navegar al tabs
       this.navCtrl.navigateRoot('/main/tabs/tab1', { animated: true});
 
     } else {
-      //mostrar alerta 
+      // mostrar alerta 
       this.uiService.presentAlert("El correo electrónico ya existe.");
     }
      // console.log(fRegistro.valid);

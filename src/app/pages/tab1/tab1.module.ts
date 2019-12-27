@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 //Personalizados 
 import { ComponentsModule } from '../../components/components.module';
-import { MenuComponent } from 'src/app/components/menu/menu.component';
 import { AppComponent } from '../../app.component';
 
 @NgModule({

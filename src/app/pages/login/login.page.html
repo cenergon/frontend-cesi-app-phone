@@ -20,46 +20,7 @@
                         </ion-col>
                     </ion-row>
 
-
-                    <!-- Auth- -->
-                    <div *ngIf="configApp.loginAuth0">
-                        <ion-row>
-                            <ion-col>
-
-                                <div *ngIf="configApp.buttonFacebook">
-                                    <ion-list>
-
-                                        <ion-button (click)="authService.login()" shape="round" expand="full" size="small" *ngIf="!authService.loggedIn" color="primary">Facebook</ion-button>
-
-                                    </ion-list>
-                                </div>
-
-                                <div *ngIf="configApp.buttonGmail">
-                                    <ion-list>
-
-                                        <ion-button (click)="authService.login()" shape="round" expand="full" size="small" *ngIf="!authService.loggedIn" color="secondary">Gmail</ion-button>
-
-                                    </ion-list>
-                                </div>
-
-                                <div *ngIf="configApp.buttonRegistrate">
-                                    <ion-list>
-
-                                        <ion-button (click)="mostrarRegistro()" shape="round" expand="full" size="small" color="success">Registrate</ion-button>
-
-                                    </ion-list>
-                                </div>
-                                <!-- <ion-list>
-
-                                <button (click)="authService.logout()" *ngIf="authService.loggedIn">Log Out</button>
-
-                            </ion-list> -->
-
-                            </ion-col>
-                        </ion-row>
-                    </div>
-                    <!-- Fin Auth0 -->
-
+                        
                     <div *ngIf="configApp.loginApp">
                         <ion-row>
                             <ion-col>
@@ -78,16 +39,69 @@
                             </ion-col>
                         </ion-row>
                     </div>
+    
 
-                    <div *ngIf="configApp.loginApp">
+                    <div *ngIf="configApp.buttonIngresar">
                         <ion-row>
                             <ion-col>
-                                <ion-button type="submit" color="tertiary" shape="round">
+                                <ion-button type="submit" color="tertiary" shape="round" expand="block"  size="" >
                                     INGRESAR
                                 </ion-button>
                             </ion-col>
                         </ion-row>
                     </div>
+
+                    <div *ngIf="configApp.buttonFacebookAngular">
+                        <ion-row>
+                            <ion-col>
+                                <ion-button (click)="authService.login()" shape="round" expand="block" size=""  color="primary">
+                                    Facebook
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+
+                    <div *ngIf="configApp.buttonGmailAngular">
+                        <ion-row>
+                            <ion-col>
+                                 <ion-button (click)="authService.login()" shape="round" expand="block" size="" color="secondary">
+                                     Gmail
+                                 </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+
+                    <div *ngIf="configApp.buttonRegistrateIonic">
+                        <ion-row>
+                            <ion-col>  
+                                <ion-button (click)="autrhServiceIonic.login()" shape="round" expand="block" size="" color="primary">
+                                    Facebook
+                                </ion-button>
+                          </ion-col>
+                        </ion-row>
+                    </div>
+
+                    <div *ngIf="configApp.buttonRegistrate">
+                        <ion-row>
+                           <ion-col>                           
+                                <ion-button (click)="mostrarRegistro()" shape="round" expand="block" size="" color="success">
+                                    Registrate
+                                </ion-button>
+                           </ion-col>
+                        </ion-row>
+                    </div>
+
+                    <div *ngIf="configApp.buttonRegistrateRedesSocialesAll">
+                         <ion-row>
+                            <ion-col>
+                                <ion-button (click)="mostrarRegistro()" shape="round" expand="block" size="" color="tertiary">
+                                    Redes socilaes
+                                </ion-button>
+                            </ion-col>
+                        </ion-row>
+                    </div>
+
+
                 </ion-grid>
             </form>
 

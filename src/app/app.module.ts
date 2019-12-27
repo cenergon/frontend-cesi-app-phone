@@ -10,15 +10,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 
-//Importanciones Personalizadas
+// Importanciones Personalizadas
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera } from '@ionic-native/camera/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
-import { MenuComponent } from './components/menu/menu.component';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { UsuarioService } from './services/usuario.service';
+import { AuthService } from './services/auth0.service';
+import { SafariViewController } from '@ionic-native/safari-view-controller/ngx';
+import { AuthServiceIonic } from './services/auth0ionic.service';
 
 
 
@@ -26,17 +28,21 @@ import { UsuarioService } from './services/usuario.service';
   declarations: [AppComponent],
   entryComponents: [],
   imports: [
-    BrowserModule, 
-    IonicModule.forRoot(), 
+    BrowserModule,
+    IonicModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule,  
-    IonicStorageModule.forRoot(), //Collecion des ervicios por eso es forRoot,
+    HttpClientModule,
+    IonicStorageModule.forRoot(), // Collecion des ervicios por eso es forRoot,
+    
   ],
   providers: [
+    AuthServiceIonic,
+    AuthService, // auth0
+    SafariViewController, // auth0
     StatusBar,
     SplashScreen,
     Geolocation,
-    Camera, 
+    Camera,
     FileTransfer,
     OneSignal,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },UsuarioService

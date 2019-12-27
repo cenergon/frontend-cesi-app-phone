@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth0.service';
+import { MenuService } from '../../services/menu.service';
+import { Observable } from 'rxjs';
+import { ComponentMenu } from 'src/app/interfaces/interfaces';
 
 @Component({
   selector: 'app-perfil',
@@ -10,7 +13,8 @@ export class PerfilPage implements OnInit {
 
   titulo: string;
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+
   ) { }
 
   ngOnInit() {

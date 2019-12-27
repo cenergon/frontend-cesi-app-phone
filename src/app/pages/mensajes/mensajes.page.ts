@@ -1,10 +1,6 @@
 import { Component, OnInit, ApplicationRef } from '@angular/core';
 import { OSNotificationPayload } from '@ionic-native/onesignal/ngx';
 import { PushService } from '../../services/push.service';
-import { ComponentMenu } from '../../interfaces/interfaces';
-import { Observable } from 'rxjs';
-import { MenuService } from '../../services/menu.service';
-import { MenuComponent } from '../../components/menu/menu.component';
 
 @Component({
   selector: 'app-mensajes',

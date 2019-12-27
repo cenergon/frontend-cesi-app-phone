@@ -1,17 +1,17 @@
-[{
+[   {
         "icon": "ios-contact",
         "name": "Perfil",
-        "redirectTo": "/perfil"
+        "redirectTo": "/menu/perfil"
     },
     {
         "icon": "home",
         "name": "Inicio",
-        "redirectTo": "main/tabs/tab1"
+        "redirectTo": "/main/tabs/tab1"
     },
     {
         "icon": "cash",
         "name": "Solicitar Prestamo",
-        "redirectTo": "/pedir-prestamo"
+        "redirectTo": "/menu/pedir-prestamo"
     },
     {
         "icon": "ios-chatbubbles",
@@ -37,7 +37,7 @@
     {
         "icon": "md-contacts",
         "name": "Acerca de Nosotros",
-        "redirectTo": "/acercade"
+        "redirectTo": "/menu/acercade"
     },
     {
         "icon": "ios-help-circle-outline",

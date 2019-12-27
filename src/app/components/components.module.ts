@@ -18,6 +18,7 @@ import { HeaderComponent } from './header/header.component';
     AvatarSelectorComponent,
     MapaComponent,
     HeaderComponent,
+    
 
   ],
   exports: [
@@ -31,6 +32,7 @@ import { HeaderComponent } from './header/header.component';
     IonicModule,
     PipesModule,
     RouterModule,
+    
   ]
 })
 export class ComponentsModule { }

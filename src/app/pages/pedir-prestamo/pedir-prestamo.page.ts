@@ -15,7 +15,7 @@ export class PedirPrestamoPage implements OnInit {
 
   titulo: string;
   icono: string;
-  //componentes: Observable<ComponentMenu[]>;
+  componentes: Observable<ComponentMenu[]>;
 
 
   constructor(
@@ -27,10 +27,9 @@ export class PedirPrestamoPage implements OnInit {
 ) { }
 
   ngOnInit() {
-     //this.componentes = this.menuService.getMenuOpts();
+     this.componentes = this.menuService.getMenuOpts();
      //this.authservice.handleAuthCallback();
-
-     this.authService.registroUsuarioauth0().then(resp =>{});
+     //this.authService.registroUsuarioauth0().then(resp =>{}); //funciona ok
 
   }
 

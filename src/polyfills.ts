@@ -64,3 +64,15 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+ /*
+ Auth0
+  */
+ (window as any).global = window;
+ // @ts-ignore
+ window.Buffer = window.Buffer || require('buffer').Buffer;
+
+ (window as any).process = {
+    env: { DEBUG: undefined },
+  };
+

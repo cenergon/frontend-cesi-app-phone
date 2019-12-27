@@ -8,6 +8,7 @@ import { ComponentMenu } from './interfaces/interfaces';
 import { Observable } from 'rxjs';
 import { PushService } from './services/push.service';
 import { AuthService } from './services/auth0.service';
+import Auth0Cordova from '@auth0/cordova';
 
 
 @Component({
@@ -35,21 +36,27 @@ export class AppComponent implements OnInit {
   initializeApp() {
     this.platform.ready().then(() => {
 
-      //Llamo menu
+      // Llamo menu
       this.componentes = this.menuService.getMenuOpts();
 
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      //Llamo oneSignal Component
+      // Llamo oneSignal Component
       this.pushService.configuracionInicial();
+
+       // Redirect back to app after authenticating
+      (window as any).handleOpenURL = (url: string) => {
+      console.log("redirecciono a pedir-prestamo");
+      Auth0Cordova.onRedirectUri('/pedir-prestamo');
+      };
 
 
     });
   }
 
   ngOnInit(): void {
-      //Auth0
+      // Auth0
       this.authService.localAuthSetup();
       this.authService.handleAuthCallback();
   }
