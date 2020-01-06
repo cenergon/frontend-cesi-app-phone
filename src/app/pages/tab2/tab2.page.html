@@ -4,14 +4,12 @@
             Documentación
         </ion-title>
         <hr>
-
         <ion-buttons slot="end">
             <!-- Si el mensaje no tiene al menos una letra , el boton no se habilita -->
             <ion-button [disabled]="post.mensaje.length < 1 || cargandoGeo" (click)="crearPost()" color="primary">
                 UPLOAD
             </ion-button>
         </ion-buttons>
-
     </ion-toolbar>
 </ion-header>
 

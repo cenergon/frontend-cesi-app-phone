@@ -6,7 +6,7 @@
     {
         "icon": "home",
         "name": "Inicio",
-        "redirectTo": "/main/tabs/tab1"
+        "redirectTo": "/menu/main/tabs/tab1"
     },
     {
         "icon": "cash",
@@ -16,23 +16,23 @@
     {
         "icon": "ios-chatbubbles",
         "name": "Notificaciones",
-        "redirectTo": "/mensajes"
+        "redirectTo": "/menu/mensajes"
     },
     {
         "icon": "ios-document",
         "name": "Documentación",
-        "redirectTo": "/main/tabs/tab2"
+        "redirectTo": "/menu/main/tabs/tab2"
     },
 
     {
         "icon": "contact",
         "name": "Estado de Cuenta",
-        "redirectTo": "/cuenta"
+        "redirectTo": "/menu/uenta"
     },
     {
         "icon": "logo-usd",
         "name": "Mis prestamos",
-        "redirectTo": "/prestamo"
+        "redirectTo": "/menu/prestamo"
     },
     {
         "icon": "md-contacts",
@@ -42,6 +42,6 @@
     {
         "icon": "ios-help-circle-outline",
         "name": "Ayuda",
-        "redirectTo": "/ayuda"
+        "redirectTo": "/menu/ayuda"
     }
 ]

@@ -28,12 +28,12 @@ export class UsuariosGuard implements CanLoad {
   
   canLoad():  Observable<boolean> | Promise<boolean> | boolean {
     
-   // return this.usuarioService.validaToken());
-   if (this.authService.loggedIn ){
-    return true;
-  } else{
-    return this.usuarioService.validaToken()
-  }
+   return this.usuarioService.validaToken();
+  //  if (this.authService.loggedIn ){
+  //   return true;
+  // } else{
+  //   return this.usuarioService.validaToken()
+  // }
   
   
  }
