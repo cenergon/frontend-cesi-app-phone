@@ -27,7 +27,7 @@
     {
         "icon": "contact",
         "name": "Estado de Cuenta",
-        "redirectTo": "/menu/uenta"
+        "redirectTo": "/menu/cuenta"
     },
     {
         "icon": "logo-usd",

@@ -102,7 +102,7 @@ export class LoginPage implements OnInit {
 
     if (valido){
       // navegar al tabs
-      this.navCtrl.navigateRoot('/main/tabs/tab1', { animated: true});
+      this.navCtrl.navigateRoot('/menu/main/tabs/tab1', { animated: true});
 
     } else {
       // mostrar alerta 
