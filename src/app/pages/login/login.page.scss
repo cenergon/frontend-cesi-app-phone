@@ -1,0 +1,37 @@
+    .mainSlide,
+    .mainSlide ion-slide {
+        width: 100%;
+        height: 100%;
+    }
+    
+    img {
+        width: 120px;
+    }
+    
+    .pick-avatar {
+        width: 80px;
+        opacity: 0.3;
+    }
+    
+    .pick-avatar-seleccionado {
+        transition: opacity 0.5s linear;
+        opacity: 1 !important;
+    }
+    
+    // ion-content {
+    //     --ion-background-color: #FFA07A;
+    // }
+    .auth-page {
+        background-color: #fff;
+        &::after {
+            content: "";
+            background: url("/assets/img/bg.jpg") no-repeat;
+            background-size: cover;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: 0;
+        }
+    }
