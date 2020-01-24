@@ -1,0 +1,401 @@
+https://auth0.com/blog/adding-auth0-to-an-ionic-angular-app-using-auth-connect/
+/*GUIT*/
+git status
+git add .
+git commit -m "Seccion 7 lista"
+git push
+git tag
+
+git tag -a v1.1.0 -m "Seccion 7 lista auth"
+git push —-tags
+
+//Ramas nuevas ->https://www.youtube.com/watch?v=j0U9jBmP3LM
+git bracnch
+Git new-backend //crea el nuevo branch
+
+//me salgo de rama y me cambio a la nueva
+git git new-backend
+
+git push --set-upstream origin new-backend
+
+/*FIN GUIT*/
+
+/*CLI*/
+ —dry-run (veo lo que va generar antes de que lo genere)
+ —flat hace que no cree el directorio
+/*FIN CLI*/
+
+/*GENERAR PWA*/sudo
+ionic build --prod --service-worker
+Firebase deploy
+/*FIN GENERA PWA*/
+
+/*IONIC*/
+Lanzar ionic devApp
+ionic serve --address=192.168.0.103 --port=8100 -c 
+
+
+La generacion de paginas actualizan mi app-routing-module
+La generacion de componentes NO actualizan mi app-routing-module 
+
+crear proyecto ionic start frontend-ceci-app-phone tabs
+ionic g page 
+ionic  g service services
+ionic serve --address=192.168.0.103 --port=8100 -c para desarrollo
+Ionic serve —labs
+Debbuguer
+
+Me funciono el ionic dev app
+ionic serve --source-map --ssl --no-open --consolelogs --devapp --host='192.168.0.104'
+
+/*FIN IONIC*/
+
+/*1-COMPILAR PARA ANDROID STUDIO*/
+sudo ionic cordova prepare android 
+sudo ionic cordova build android
+luego abro con android studio
+
+/*2-COMPILAR PARA ANDROID STUDIO Y EJECUTAR*/
+sudo ionic cordova run android
+
+/*APP STORE*/
+
+ATENCIO NO OLVIDAR CONFIGURAR EL XML network_security_config CON LA IP DEL SERVER PARA EL APP DE NEST
+Para correr el comando ionic cordova resources:
+npm i cordova-res@latest --save
+ionic cordova resources
+sudo ionic cordova prepare android 
+sudo ionic cordova build android
+prbar en android studio
+sudo ionic cordova build android --prod --release 
+
+Ejecutar root en mac 
+sh-3.2# /Applications/Android\ Studio.app/Contents/MacOS/studio 
+
+
+CLAVES CENERGON - 428065
+
+/*Auth 0 validacion mongo*/
+function login(email, password, callback) {
+  const bcrypt = require('bcrypt');
+  const MongoClient = require('mongodb@3.1.4').MongoClient;
+  const client = new MongoClient('mongodb://adrian:ainier@190.12.101.100:27170');
+
+  client.connect(function (err) {
+    if (err) return callback(err);
+
+    const db = client.db('cesiAppPhone');
+    const users = db.collection('usuarios');
+
+    users.findOne({ email: email }, function (err, user) {
+      if (err || !user) {
+        client.close();
+        return callback(err || new WrongUsernameOrPasswordError(email));
+      }
+
+      bcrypt.compare(password, user.password, function (err, isValid) {
+        client.close();
+
+        if (err || !isValid) return callback(err || new WrongUsernameOrPasswordError(email));
+
+        return callback(null, {
+            user_id: user._id.toString(),
+            nickname: user.nombre,
+            email: user.email
+          });
+      });
+    });
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------PRBLEMAS VARIOS------------------------------------------
+
+---Problema de cores con ioni y backend
+Access to XMLHttpRequest at 
+'http://localhost:3001/posts/?pagina=1'
+ from origin 'http://localhost:8100' 
+ has been blocked by CORS policy: 
+No 'Access-Control-Allow-Origin' header is present on the requested resource.
+
+Esto es un problema del bakend porque ve la peticion de IONIC y la rechaza
+ Poner plugin para crome y que funcione consola
+
+ Allow CORS: Access-Control-Allow-Origin
+---FIN Problema de cores con ioni y backend
+
+/*FIN COMPILAR PARA ANDROID STUDIO*/
+
+
+
+/*COMPILAR IONIC MODO DESARROLLO CON ANDROID STUDIO*/
+Instalar:
+1-sudo npm i -g native-run
+2-(Instale https://sdkman.io/install y luego corri el comando a continuacion  
+3-sdk install gradle 5.6.2 ) y me funciono
+
+Listo mis maquinas virtuales android studio
+1-sudo ionic cordova run --list
+2-sudo ionic cordova run android --target=Pixel_2_XL_API_28 -l
+
+Muestra detalle de ejecucion , por si hay errores
+3-sudo ionic cordova build android --verbose --target Pixel_2_XL_API_28 - luego voy y lo ejecuto del android studio !!!(ok push run)
+
+sudo ionic cordova build android --target ZY223CC6SD -l //prueba telefono mari
+
+Comando virtual ESTE ES EL QUE VA!! --force
+4-sudo ionic cordova run android
+
+/Nessudot
+npm run start:dev
+
+--comando para probar app en virtual sin Livereload funciona siempre
+sudo ionic cordova run android
+
+--Comando Livereload con flag ip
+ionic cordova run android -c -s -l --address='192.168.0.103'
+
+
+key store password: cenergon
+key password alias: vicente
+
+----PROBAR Contestaciones jose udemy para ionic dev desde ceular , y que funcione
+aplicacion de camara ionic cordova run android -c -s -l
+También puedes añadir el flag --address y especificar tu IP. Saludos.
+
+-<i class="Consulta, cuando corro  'ionic cordova run android', y levanta correctamente mi app, cuando voy a activar la geolocalización se queda buscando y   me tira error en la ventana del consola del inspector
+
+GET http://localhost:8100/sockjs-node/info?t=1569809308293
+
+Porque se da el mismo?  , pero si anda cuando ejectuto ionic servefas fa-vr-cardboard    "></i>
+
+Hola Juan Carlos.
+
+Te funciona bien en el pc, porque no esta corriendo cordova. Pero en el dispositivo te alerta que no ha logrado obtener la posición.
+
+Respuesta jose
+Asegúrate de otorgar los permisos a la app para conocer tu ubicación. Saludos.
+
+--------------
+CONSULTAS A FERNANDO 
+Ejecute el comando ng add @angular/pwa para worker and an app manifest y me dio este resultado (al final es un invalido que no entiendo porque, la aplicación funciona bien)
+
+added 11 packages from 10 contributors in 17.864s
+
+Installed packages for tooling via npm.
+
+Invalid rule result: Instance of class Promise.
+
+Respuesta
+npm install -g npm-check-updates
+
+ncu -u  (actualiza todo el package)
+
+realizando esa linea anterior me modifica esto:
+
+ "@angular-devkit/n": "^7.2.4",
+ "@types/node": "~10.12.0",
+Volver a lanzar $ ng add @angular/pwa
+
+
+ionic cordova run android --livereload
+
+
+
+-----json
+
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "defaultProject": "app",
+    "newProjectRoot": "projects",
+    "projects": {
+        "app": {
+            "root": "",
+            "sourceRoot": "src",
+            "projectType": "application",
+            "prefix": "app",
+            "schematics": {},
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "www",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.app.json",
+                        "assets": [{
+                                "glob": "**/*",
+                                "input": "src/assets",
+                                "output": "assets"
+                            },
+                            {
+                                "glob": "**/*.svg",
+                                "input": "node_modules/ionicons/dist/ionicons/svg",
+                                "output": "./svg"
+                            }
+                        ],
+                        "styles": [{
+                                "input": "src/theme/variables.scss"
+                            },
+                            {
+                                "input": "src/global.scss"
+                            }
+                        ],
+                        "scripts": []
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.prod.ts"
+                            }],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [{
+                                "type": "initial",
+                                "maximumWarning": "2mb",
+                                "maximumError": "5mb"
+                            }]
+                        },
+                        "ci": {
+                            "progress": false
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "app:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "app:build:production"
+                        },
+                        "ci": {
+                            "progress": false
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "app:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.spec.json",
+                        "karmaConfig": "karma.conf.js",
+                        "styles": [],
+                        "scripts": [],
+                        "assets": [{
+                                "glob": "favicon.ico",
+                                "input": "src/",
+                                "output": "/"
+                            },
+                            {
+                                "glob": "**/*",
+                                "input": "src/assets",
+                                "output": "/assets"
+                            }
+                        ]
+                    },
+                    "configurations": {
+                        "ci": {
+                            "progress": false,
+                            "watch": false
+                        }
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "tsconfig.app.json",
+                            "tsconfig.spec.json",
+                            "e2e/tsconfig.json"
+                        ],
+                        "exclude": ["**/node_modules/**"]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "e2e/protractor.conf.js",
+                        "devServerTarget": "app:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "app:serve:production"
+                        },
+                        "ci": {
+                            "devServerTarget": "app:serve:ci"
+                        }
+                    }
+                },
+                "ionic-cordova-build": {
+                    "builder": "@ionic/angular-toolkit:cordova-build",
+                    "options": {
+                        "browserTarget": "app:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "app:build:production"
+                        }
+                    }
+                },
+                "ionic-cordova-serve": {
+                    "builder": "@ionic/angular-toolkit:cordova-serve",
+                    "options": {
+                        "cordovaBuildTarget": "app:ionic-cordova-build",
+                        "devServerTarget": "app:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "cordovaBuildTarget": "app:ionic-cordova-build:production",
+                            "devServerTarget": "app:serve:production"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "cli": {
+        "defaultCollection": "@ionic/angular-toolkit"
+    },
+    "schematics": {
+        "@ionic/angular-toolkit:component": {
+            "styleext": "scss"
+        },
+        "@ionic/angular-toolkit:page": {
+            "styleext": "scss"
+        }
+    }
+}
