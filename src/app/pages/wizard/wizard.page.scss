@@ -19,3 +19,13 @@ ion-label,
 .invalid {
     border: 1px solid #ea6153;
 }
+
+section {
+    margin-top: 1em;
+    margin-bottom: 2.5em;
+}
+
+section:not(.full-width),
+.full-width>header {
+    padding: 0 10px;
+}

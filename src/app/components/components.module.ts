@@ -8,6 +8,7 @@ import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.compo
 import { MapaComponent } from './mapa/mapa.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
+import { CodebarComponent } from './codebar/codebar.component';
 
 
 
@@ -18,14 +19,14 @@ import { HeaderComponent } from './header/header.component';
     AvatarSelectorComponent,
     MapaComponent,
     HeaderComponent,
-    
+    CodebarComponent,
 
   ],
   exports: [
     PostsComponent,
     AvatarSelectorComponent,
     HeaderComponent,
-    
+    CodebarComponent,
   ],
   imports: [
     CommonModule,

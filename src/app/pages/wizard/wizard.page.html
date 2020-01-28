@@ -92,15 +92,41 @@
                 </ion-card-content>
             </ion-card>
 
-            <ion-button color="primary" expand="full" (click)="openLocalPdf()">Ver contrato</ion-button>
-            <ion-button color="tertiary" expand="full" (click)="downloadLocaPdf()">Descargar Contrato</ion-button>
-            <ion-button color="secondary" expand="full" (click)="downloadLocaPdf()">Aceptar y Continuar</ion-button>
 
 
+            <!-- <section class="full-width">
+                <ion-button size="small" color="primary" expand="block" (click)="openLocalPdf()">Ver contrato</ion-button>
+                <ion-button size="small" color="tertiary" expand="block" (click)="downloadLocaPdf()">Descargar Contrato</ion-button>
+            </section> -->
 
 
+            <section class="full-width">
+                <header></header>
+                <ion-button expand="full" color="secondary">Aceptar y Continuar</ion-button>
+            </section>
 
+            <header>Más Información</header>
 
+            <div class="row">
+                <div class="col">
+                    <a class="button button-block button-custom2">
+                        <ion-button size="small" color="primary" (click)="openLocalPdf()">Ver Información</ion-button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <a class="button button-block button-custom2">
+                        <ion-button size="small" color="tertiary" (click)="downloadLocaPdf()">Decargar</ion-button>
+                    </a>
+                </div>
+            </div>
+
+        </ion-slide>
+
+        <ion-slide>
+            <app-codebar></app-codebar>
         </ion-slide>
 
         <ion-slide>
