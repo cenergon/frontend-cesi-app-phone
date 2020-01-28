@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import { RouteReuseStrategy, RouterLink, RouterModule } from '@angular/router';
 
 import { IonicModule, IonicRouteStrategy, Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -51,7 +51,7 @@ import { File } from '@ionic-native/file/ngx';
     AppRoutingModule,
     HttpClientModule,
     IonicStorageModule.forRoot(), // Collecion des ervicios por eso es forRoot,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     AuthServiceIonic,
