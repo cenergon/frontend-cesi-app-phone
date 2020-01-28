@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { Tab5Page } from './tab5.page';
+import { WizardPage } from './wizard.page';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: Tab5Page
+    component: WizardPage
   }
 ];
 
@@ -20,12 +20,11 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
-  
+    RouterModule.forChild(routes),
+    ReactiveFormsModule
   ],
-  declarations: [Tab5Page]
-})
-export class Tab5PageModule {
 
-  
-}
+  declarations: [WizardPage]
+})
+export class WizardPageModule {}
+

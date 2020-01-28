@@ -1,20 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { DynamicPage } from '../dynamic-steps/dynamic.page';
 import {  NavController, AlertController, Events } from '@ionic/angular';
 
-
 @Component({
-  selector: 'app-tab5',
-  templateUrl: './tab5.page.html',
-  styleUrls: ['./tab5.page.scss'],
+  selector: 'page-home',
+  templateUrl: 'home.html',
+
 })
-export class Tab5Page implements OnInit {
-
-  swiperOts = {
-    allowSlidePrev : false,
-    allowSlideNext : false
-  };
-
-  
+export class HomePage {
   step: any;
   stepCondition: any;
   stepDefaultCondition: any;
@@ -43,7 +36,6 @@ export class Tab5Page implements OnInit {
       console.log('Back pressed: ', this.currentStep);
     });
   }
-
   /**
    * Demo functions
    */
@@ -89,9 +81,6 @@ export class Tab5Page implements OnInit {
     } else {
       this.stepCondition = false;
     }
-  }
-
-  ngOnInit() {
   }
 
 }

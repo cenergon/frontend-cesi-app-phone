@@ -22,7 +22,7 @@ git push --set-upstream origin new-backend
 
 /*CLI*/
  —dry-run (veo lo que va generar antes de que lo genere)
- —flat hace que no cree el directorio
+ —flat hace que no cree el directoriogit
 /*FIN CLI*/
 
 /*GENERAR PWA*/sudo
@@ -49,13 +49,13 @@ Me funciono el ionic dev app
 ionic serve --source-map --ssl --no-open --consolelogs --devapp --host='192.168.0.104'
 
 /*FIN IONIC*/
-
-/*1-COMPILAR PARA ANDROID STUDIO*/
+export ANDROID_HOME=/Users/MeridaDesignStudio/Development/adt-bundle/sdk
+/*1-COMPILAR PARA ANDROID STUDIO*/ (export ANDROID_SDK_ROOT=/var/root/Library/Android/sdk )
 sudo ionic cordova prepare android 
 sudo ionic cordova build android
 luego abro con android studio
 
-/*2-COMPILAR PARA ANDROID STUDIO Y EJECUTAR*/
+/*2-COMPILAR PARA ANDROID STUDIO EJECUTAR*/
 sudo ionic cordova run android
 
 /*APP STORE*/
