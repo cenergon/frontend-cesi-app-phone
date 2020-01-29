@@ -1,8 +1,53 @@
+<ion-header translucent>
+    <ion-toolbar color="warning">
+        <ion-title>
+            <ion-title style="text-align: center" size="small">Datos Personales</ion-title>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
 <ion-content>
-    <ion-slides [options]="swiperOts">
-        <ion-slide>
-            <ion-button expand="full" (click)="scan()" size='large' shape='round'>
-                Scan Code</ion-button>
-        </ion-slide>
-    </ion-slides>
+    <!-- <ion-text color="secondary" style="text-align:center;" and style="margin: 0 auto;">
+        <h3>Ingrese sus datos a escaneando el codigo de su DNI</h3>
+    </ion-text> -->
+
+    <!-- <ion-row class="top-20">
+        <ion-col size="12" text-center>
+            <img src="assets/img/dni.png" class="img-avatar">
+        </ion-col>
+      <ion-slides [options]="swiperOts">
+            <ion-slide>
+                <ion-button expand="full" (click)="scan()" size='large' shape='round'>
+                    Scan Code</ion-button>
+            </ion-slide>
+        </ion-slides> 
+    </ion-row> -->
+
+    <ion-card>
+        <ion-card-header>
+            <ion-card-subtitle>Escanear DNI</ion-card-subtitle>
+            <ion-row class="top-20">
+                <ion-col size="12" text-center>
+                    <img src="assets/img/dni.png" class="img-avatar">
+                </ion-col>
+            </ion-row>
+            <ion-card-title>Presiones SCAN CODE</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+            Coloque el Código del DNI en un lugar con claridad
+
+            <ion-slides [options]="swiperOts">
+                <ion-slide>
+                    <ion-button expand="full" (click)="scan()" size='large' shape='round'>
+                        Scan Code</ion-button>
+                </ion-slide>
+            </ion-slides>
+
+        </ion-card-content>
+    </ion-card>
+
+
+
 </ion-content>
