@@ -35,6 +35,7 @@ import { DocumentViewer } from '@ionic-native/document-viewer/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
 import { File } from '@ionic-native/file/ngx';
+import { Sim } from '@ionic-native/sim/ngx';
 
 
 
@@ -71,6 +72,7 @@ import { File } from '@ionic-native/file/ngx';
     // tslint:disable-next-line: deprecation
     OneSignal,
     BarcodeScanner,
+    Sim,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },UsuarioService
   ],
   bootstrap: [AppComponent]

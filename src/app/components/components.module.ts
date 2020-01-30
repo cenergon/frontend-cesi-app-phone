@@ -9,6 +9,7 @@ import { MapaComponent } from './mapa/mapa.component';
 import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { CodebarComponent } from './codebar/codebar.component';
+import { SimComponent } from './sim/sim.component';
 
 
 
@@ -20,6 +21,7 @@ import { CodebarComponent } from './codebar/codebar.component';
     MapaComponent,
     HeaderComponent,
     CodebarComponent,
+    SimComponent
 
   ],
   exports: [
@@ -27,6 +29,7 @@ import { CodebarComponent } from './codebar/codebar.component';
     AvatarSelectorComponent,
     HeaderComponent,
     CodebarComponent,
+    SimComponent
   ],
   imports: [
     CommonModule,
