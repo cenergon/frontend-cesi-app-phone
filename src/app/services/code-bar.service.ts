@@ -52,7 +52,7 @@ export class CodeBarService {
         k = i;
         i++;
     }
-    dniCode = {apellido};
+  
     //console.log(apellido);
     letra = codeBar.substring(k, i);
     while ( letra != '@' ) {
@@ -63,7 +63,7 @@ export class CodeBarService {
         k = i;
         i++;
     }
-    dniCode = {nombre}
+  
     //console.log(nombre);
     letra = codeBar.substring(k, i);
     while ( letra != '@' ) {
@@ -123,6 +123,10 @@ export class CodeBarService {
         }
         k = i;
         i++;
+   }
+   dniCode = {
+     nombre: nombre,
+     apellido: apellido
    }
    console.log(dniCode);
   
