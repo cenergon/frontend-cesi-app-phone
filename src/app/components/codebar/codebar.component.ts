@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
+import { CodeBarService } from '../../services/code-bar.service';
 
 @Component({
   selector: 'app-codebar',
@@ -13,9 +14,13 @@ export class CodebarComponent implements OnInit {
     allowSlideNext : false
   };
 
-  constructor( private barcodeScanner: BarcodeScanner) { }
+  constructor( 
+    private barcodeScanner: BarcodeScanner,
+    private codeBaservice: CodeBarService
+    ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ionViewWillEnter() {
     console.log('viewWillEnter-lanzo el lector');
@@ -37,10 +42,16 @@ export class CodebarComponent implements OnInit {
     };
 
     this.barcodeScanner.scan(options).then(barcodeData => {
-      console.log('Barcode data', barcodeData);
+      console.log('Barcode data completo', barcodeData);
+      this.codeBaservice.guardarCodeBar(barcodeData.text);
+      
      }).catch(err => {
          console.log('Error', err);
      });
+  }
+
+  test(){
+    this.codeBaservice.guardarCodeBar('test');
   }
 
 }
