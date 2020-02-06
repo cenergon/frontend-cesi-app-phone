@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { CodebarComponent } from './codebar/codebar.component';
 import { SimComponent } from './sim/sim.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -29,14 +30,15 @@ import { SimComponent } from './sim/sim.component';
     AvatarSelectorComponent,
     HeaderComponent,
     CodebarComponent,
-    SimComponent
+    SimComponent,
   ],
   imports: [
     CommonModule,
     IonicModule,
     PipesModule,
     RouterModule,
-    
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ComponentsModule { }

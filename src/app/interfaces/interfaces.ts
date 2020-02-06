@@ -40,14 +40,15 @@ export interface ComponentMenu {
 }
 
 export interface DniCode {
-  nro_1?: number;
+  dniCode ?: string;
+  nroTramite?: string;
   apellido?: string;
   nombre?: string;
-  nro_4?: number;
+  sexo?: string;
   dni?: number;
-  nro_6?: number;
+  ejemplar?: string;
   fechaNacimiento?: Date;
-  fechaTramite?: Date;
-  nro_9?: number;
+  fechaEmision?: Date;
+  codigo?: string;
 }
   

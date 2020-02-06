@@ -23,26 +23,27 @@ export class CodeBarService {
     let letra = "";
     let i = 1;
     let k = 0;
-    let nro_1 : string = '';
+    let nroTramite : string = '';
     let apellido : string = '';
     let nombre : string = '';
-    let nro_4 : string = '';
+    let sexo : string = '';
     let dni : string = '';
-    let nro_6 : string = '';
+    let ejemplar : string = '';
     let fechaNacimiento : string = '';
-    let fechaTramite : string = '';
-    let nro_9 : string = '';
+    let fechaEmision : string = '';
+    let codigo : string = '';
+
+    let dniDate: Date, myDay, myMonth, myYear;
 
     while ( letra != '@' ) {
           letra = codeBar.substring(k, i);
           if (letra != '@') {
-            nro_1 = nro_1 + letra;
+            nroTramite = nroTramite + letra;
           }
           k = i;
           i++;
       }
 
-    //console.log(nro_1);
     letra = codeBar.substring(k, i);
     while ( letra != '@' ) {
         letra = codeBar.substring(k, i);
@@ -53,7 +54,6 @@ export class CodeBarService {
         i++;
     }
   
-    //console.log(apellido);
     letra = codeBar.substring(k, i);
     while ( letra != '@' ) {
         letra = codeBar.substring(k, i);
@@ -64,17 +64,16 @@ export class CodeBarService {
         i++;
     }
   
-    //console.log(nombre);
     letra = codeBar.substring(k, i);
     while ( letra != '@' ) {
         letra = codeBar.substring(k, i);
         if (letra != '@') {
-          nro_4 = nro_4 + letra;
+          sexo = sexo + letra;
         }
         k = i;
         i++;
     }
-    //console.log(nro_4);
+
     letra = codeBar.substring(k, i);
     while ( letra != '@' ) {
         letra = codeBar.substring(k, i);
@@ -89,12 +88,12 @@ export class CodeBarService {
     while ( letra != '@' ) {
         letra = codeBar.substring(k, i);
         if (letra != '@') {
-          nro_6 = nro_6 + letra;
+          ejemplar = ejemplar + letra;
         }
         k = i;
         i++;
     }
-    //console.log(nro_6);
+
     letra = codeBar.substring(k, i);
     while ( letra != '@' ) {
         letra = codeBar.substring(k, i);
@@ -104,31 +103,48 @@ export class CodeBarService {
         k = i;
         i++;
     }
-    //console.log(fechaNacimiento);
+
     letra = codeBar.substring(k, i);
     while ( letra != '@' ) {
         letra = codeBar.substring(k, i);
         if (letra != '@') {
-          fechaTramite = fechaTramite + letra;
+          fechaEmision = fechaEmision + letra;
         }
         k = i;
         i++;
     }
-    //console.log(fechaTramite);
+
     letra = codeBar.substring(k, i);
     while ( letra != '') {
         letra = codeBar.substring(k, i);
         if (letra != '') {
-          nro_9 = nro_9 + letra;
+          codigo = codigo + letra;
         }
         k = i;
         i++;
    }
-   dniCode = {
-     nombre: nombre,
-     apellido: apellido
+    dniCode = {
+      dniCode : codeBar,
+      nroTramite : nroTramite,
+      apellido : apellido,
+      nombre : nombre,
+      sexo : sexo,
+      dni : parseInt(dni) ,
+      ejemplar : ejemplar,
+      fechaNacimiento : new Date(this.invertirFecha(fechaNacimiento)),
+      fechaEmision : new Date(this.invertirFecha(fechaEmision)),
+      codigo : codigo,
    }
-   console.log(dniCode);
+    console.log(dniCode);
+ 
   
+  }
+
+   invertirFecha(fecha : string): string {
+    let dd = fecha.substring(0,2);
+    let mm = fecha.substring(3,5);
+    let yyyy = fecha.substring(6,10);
+    let fechaEstandar = mm + '/' + dd + '/' + yyyy;
+    return fechaEstandar;
   }
 }

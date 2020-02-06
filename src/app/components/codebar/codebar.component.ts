@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 import { CodeBarService } from '../../services/code-bar.service';
+import { FormGroup, FormControl, Validator} from '@angular/forms';
 
 @Component({
   selector: 'app-codebar',
@@ -8,6 +9,8 @@ import { CodeBarService } from '../../services/code-bar.service';
   styleUrls: ['./codebar.component.scss'],
 })
 export class CodebarComponent implements OnInit {
+ 
+  forma: FormGroup;
 
   swiperOts = {
     allowSlidePrev : false,
@@ -17,7 +20,14 @@ export class CodebarComponent implements OnInit {
   constructor( 
     private barcodeScanner: BarcodeScanner,
     private codeBaservice: CodeBarService
-    ) { }
+    ) { 
+      this.forma = new FormGroup({
+        'dni': new FormControl('29428784'/*,regla de validacion,/*regla de validacion ascincrona*/),
+        'nombre': new FormControl('Junca'/*regla de validacion,/*regla de validacion ascincrona*/),
+        'apellido': new FormControl('Ramos'/*regla de validacion,/*regla de validacion ascincrona*/),
+        'fechaNacimiento': new FormControl('27/05/27'/*,regla de validacion,/*regla de validacion ascincrona*/)
+      });
+    }
 
   ngOnInit() {
   }
@@ -52,6 +62,10 @@ export class CodebarComponent implements OnInit {
 
   test(){
     this.codeBaservice.guardarCodeBar('test');
+  }
+
+  guardarDatosDni(){
+    console.log(this.forma.value);
   }
 
 }

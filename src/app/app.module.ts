@@ -53,6 +53,7 @@ import { Sim } from '@ionic-native/sim/ngx';
     HttpClientModule,
     IonicStorageModule.forRoot(), // Collecion des ervicios por eso es forRoot,
     BrowserAnimationsModule,
+    
   ],
   providers: [
     AuthServiceIonic,

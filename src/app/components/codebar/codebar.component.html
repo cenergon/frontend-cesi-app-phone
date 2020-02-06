@@ -8,22 +8,6 @@
 
 
 <ion-content>
-    <!-- <ion-text color="secondary" style="text-align:center;" and style="margin: 0 auto;">
-        <h3>Ingrese sus datos a escaneando el codigo de su DNI</h3>
-    </ion-text> -->
-
-    <!-- <ion-row class="top-20">
-        <ion-col size="12" text-center>
-            <img src="assets/img/dni.png" class="img-avatar">
-        </ion-col>
-      <ion-slides [options]="swiperOts">
-            <ion-slide>
-                <ion-button expand="full" (click)="scan()" size='large' shape='round'>
-                    Scan Code</ion-button>
-            </ion-slide>
-        </ion-slides> 
-    </ion-row> -->
-
     <ion-card>
         <ion-card-header>
             <ion-card-subtitle>Escanear DNI</ion-card-subtitle>
@@ -53,8 +37,49 @@
             </ion-slides>
 
         </ion-card-content>
+
     </ion-card>
 
 
+    <form [formGroup]="forma" (ngSubmit)="guardarDatosDni()">
+        <ion-row>
+            <ion-col>
+
+                <ion-list>
+
+                    <ion-item>
+                        <ion-label>DNI</ion-label>
+                        <ion-input formControlName="dni" placeholder="dni" name="dni" type="numeric" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Nombre</ion-label>
+                        <ion-input formControlName="nombre" placeholder="nombre" name="nombre" type="text" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Apellido</ion-label>
+                        <ion-input formControlName="apellido" placeholder="apellido" name="nombre" type="text" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Fecha de Nacimiento</ion-label>
+                        <ion-input formControlName="fechaNacimiento" name=" fechaNacimiento " type="date " required></ion-input>
+                    </ion-item>
+
+                </ion-list>
+            </ion-col>
+        </ion-row>
+
+
+        <ion-row>
+            <ion-col>
+                <ion-button type="submit" color="success" shape="round" expand="full" size="small">
+                    ACEPTAR
+                </ion-button>
+            </ion-col>
+        </ion-row>
+
+    </form>
 
 </ion-content>
