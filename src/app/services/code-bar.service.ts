@@ -9,16 +9,16 @@ import { Usuario } from 'src/app/interfaces/interfaces';
 export class CodeBarService {
 
   // tslint:disable-next-line: align
+  deniCode: DniCode;
 
   constructor() { }
 
-  async guardarCodeBar( codeBar: string) {
-    codeBar = '00398344125@RAMOS@JUAN CARLOS@M@29428784@B@27/05/1982@11/09/2015@202'    
-    console.log('servicio codebar' , codeBar);
-    this.fraccionarCodebarDni(codeBar);
+    formatCodeBar( codeBar: string) : DniCode {
+    //codeBar = '00398344125@RAMOS@JUAN CARLOS@M@29428784@B@27/05/1982@11/09/2015@202';    
+    return this.fraccionarCodebarDni(codeBar);
   }
 
-  fraccionarCodebarDni(codeBar: string) {
+  fraccionarCodebarDni(codeBar: string): DniCode {
     let  dniCode : DniCode ;
     let letra = "";
     let i = 1;
@@ -33,7 +33,6 @@ export class CodeBarService {
     let fechaEmision : string = '';
     let codigo : string = '';
 
-    let dniDate: Date, myDay, myMonth, myYear;
 
     while ( letra != '@' ) {
           letra = codeBar.substring(k, i);
@@ -83,7 +82,7 @@ export class CodeBarService {
         k = i;
         i++;
     }
-    //console.log(dni);
+
     letra = codeBar.substring(k, i);
     while ( letra != '@' ) {
         letra = codeBar.substring(k, i);
@@ -131,11 +130,12 @@ export class CodeBarService {
       sexo : sexo,
       dni : parseInt(dni) ,
       ejemplar : ejemplar,
-      fechaNacimiento : new Date(this.invertirFecha(fechaNacimiento)),
-      fechaEmision : new Date(this.invertirFecha(fechaEmision)),
+      fechaNacimiento : fechaNacimiento,//new Date(this.invertirFecha(fechaNacimiento)),
+      fechaEmision : fechaNacimiento,//new Date(this.invertirFecha(fechaEmision)),
       codigo : codigo,
    }
-    console.log(dniCode);
+    //console.log(dniCode);
+    return dniCode;
  
   
   }

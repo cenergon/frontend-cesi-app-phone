@@ -8,31 +8,43 @@
 
 
 <ion-content>
+
     <ion-card>
-        <ion-card-header>
-            <ion-card-subtitle>Escanear DNI</ion-card-subtitle>
-            <ion-row class="top-20">
-                <ion-col size="12" text-center>
-                    <img src="assets/img/dni.png" class="img-avatar">
-                </ion-col>
-            </ion-row>
-            <ion-card-title>Presiones SCAN CODE</ion-card-title>
-        </ion-card-header>
-
         <ion-card-content>
-            Coloque el Código del DNI en un lugar con claridad
 
+            <!-- <ion-card-header>
+                <ion-card-title>Escanear DNI</ion-card-title>
+            </ion-card-header> -->
+
+            <ion-row>
+                <ion-col col-20></ion-col>
+                <ion-col col-20>
+                    <img src="assets/img/dni.png" height='20' width='20' />
+                </ion-col>
+                <ion-col col-20></ion-col>
+            </ion-row>
+
+            <ion-card-title>Presiones SCAN CODE</ion-card-title>
+
+            <ion-card-subtitle>Coloque el Código del DNI en un lugar con claridad</ion-card-subtitle>
             <ion-slides [options]="swiperOts">
                 <ion-slide>
-                    <ion-button expand="full" (click)="scan()" size='large' shape='round'>
+                    <ion-button size="small" expand="full" (click)="scan()" shape='round'>
                         Scan Code</ion-button>
                 </ion-slide>
             </ion-slides>
 
-            <ion-slides [options]="swiperOts">
+            <!-- <ion-slides [options]="swiperOts">
                 <ion-slide>
                     <ion-button expand="full" (click)="test()" size='large' shape='round'>
                         Scan Code</ion-button>
+                </ion-slide>
+            </ion-slides> -->
+
+            <ion-slides [options]="swiperOts">
+                <ion-slide>
+                    <ion-button expand="full" slot="start" (click)="resetForm()" size='small' color='danger'>
+                        Reset Form</ion-button>
                 </ion-slide>
             </ion-slides>
 
@@ -41,7 +53,7 @@
     </ion-card>
 
 
-    <form [formGroup]="forma" (ngSubmit)="guardarDatosDni()">
+    <form [formGroup]="form" (ngSubmit)="guardarDatosDni()">
         <ion-row>
             <ion-col>
 
@@ -64,13 +76,17 @@
 
                     <ion-item>
                         <ion-label>Fecha de Nacimiento</ion-label>
-                        <ion-input formControlName="fechaNacimiento" name=" fechaNacimiento " type="date " required></ion-input>
+                        <ion-input formControlName="fechaNacimiento" placeholder="dd/mm/yyyy" name="fechaNacimiento" type="date " required></ion-input>
                     </ion-item>
+
+                    <!-- 
+                    <tr>
+                        <td> {{ fecha | date:'dd - MM - yyyy' }} </td>
+                    </tr> -->
 
                 </ion-list>
             </ion-col>
         </ion-row>
-
 
         <ion-row>
             <ion-col>

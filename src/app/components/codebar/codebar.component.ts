@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 import { CodeBarService } from '../../services/code-bar.service';
 import { FormGroup, FormControl, Validator} from '@angular/forms';
+import { DniCode } from '../../interfaces/interfaces';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-codebar',
@@ -10,7 +12,7 @@ import { FormGroup, FormControl, Validator} from '@angular/forms';
 })
 export class CodebarComponent implements OnInit {
  
-  forma: FormGroup;
+  form: FormGroup;
 
   swiperOts = {
     allowSlidePrev : false,
@@ -21,15 +23,16 @@ export class CodebarComponent implements OnInit {
     private barcodeScanner: BarcodeScanner,
     private codeBaservice: CodeBarService
     ) { 
-      this.forma = new FormGroup({
-        'dni': new FormControl('29428784'/*,regla de validacion,/*regla de validacion ascincrona*/),
-        'nombre': new FormControl('Junca'/*regla de validacion,/*regla de validacion ascincrona*/),
-        'apellido': new FormControl('Ramos'/*regla de validacion,/*regla de validacion ascincrona*/),
-        'fechaNacimiento': new FormControl('27/05/27'/*,regla de validacion,/*regla de validacion ascincrona*/)
+      this.form = new FormGroup({
+        'dni': new FormControl(''/*,regla de validacion,/*regla de validacion ascincrona*/),
+        'nombre': new FormControl(''/*regla de validacion,/*regla de validacion ascincrona*/),
+        'apellido': new FormControl(''/*regla de validacion,/*regla de validacion ascincrona*/),
+        'fechaNacimiento': new FormControl(''/*,regla de validacion,/*regla de validacion ascincrona*/)
       });
     }
 
   ngOnInit() {
+    
   }
 
   ionViewWillEnter() {
@@ -39,7 +42,6 @@ export class CodebarComponent implements OnInit {
 
 
   scan() {
-
     const options: BarcodeScannerOptions = {
       preferFrontCamera: false,
       showFlipCameraButton: true,
@@ -53,19 +55,46 @@ export class CodebarComponent implements OnInit {
 
     this.barcodeScanner.scan(options).then(barcodeData => {
       console.log('Barcode data completo', barcodeData);
-      this.codeBaservice.guardarCodeBar(barcodeData.text);
+      let lectura = this.codeBaservice.formatCodeBar(barcodeData.text);
+      console.log("lectura de: ", lectura);
+      this.cargarForm(lectura);
       
+        
      }).catch(err => {
          console.log('Error', err);
      });
   }
 
   test(){
-    this.codeBaservice.guardarCodeBar('test');
+    this.cargarForm(this.codeBaservice.formatCodeBar('test'));
   }
 
-  guardarDatosDni(){
-    console.log(this.forma.value);
+  cargarForm( lectura : DniCode){
+    this.form.setValue({
+      dni : lectura.dni,
+      nombre : lectura.nombre,
+      apellido : lectura.apellido,
+      fechaNacimiento : lectura.fechaNacimiento
+    }) ;
+
+
+ 
+    console.log(this.form.value);
   }
+
+  guardarForm(){
+    console.log(this.form.value);
+  }
+
+  resetForm(){
+    this.form.reset({
+      'dni': '',
+        'nombre': '',
+        'apellido': '',
+        'fechaNacimiento': ''
+    });
+  }
+
+ 
 
 }

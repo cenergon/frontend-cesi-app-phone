@@ -47,8 +47,8 @@ export interface DniCode {
   sexo?: string;
   dni?: number;
   ejemplar?: string;
-  fechaNacimiento?: Date;
-  fechaEmision?: Date;
+  fechaNacimiento?: string;
+  fechaEmision?: string;
   codigo?: string;
 }
   
