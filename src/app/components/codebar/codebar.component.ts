@@ -13,6 +13,7 @@ import { DatePipe } from '@angular/common';
 export class CodebarComponent implements OnInit {
  
   form: FormGroup;
+  lectura : DniCode;
 
   swiperOts = {
     allowSlidePrev : false,
@@ -55,9 +56,9 @@ export class CodebarComponent implements OnInit {
 
     this.barcodeScanner.scan(options).then(barcodeData => {
       console.log('Barcode data completo', barcodeData);
-      let lectura = this.codeBaservice.formatCodeBar(barcodeData.text);
-      console.log("lectura de: ", lectura);
-      this.cargarForm(lectura);
+      this.lectura = this.codeBaservice.formatCodeBar(barcodeData.text);
+      console.log("lectura de: ", this.lectura);
+      this.cargarForm(this.lectura);
       
         
      }).catch(err => {
@@ -65,25 +66,23 @@ export class CodebarComponent implements OnInit {
      });
   }
 
-  test(){
-    this.cargarForm(this.codeBaservice.formatCodeBar('test'));
-  }
-
   cargarForm( lectura : DniCode){
+    this.resetForm();
     this.form.setValue({
       dni : lectura.dni,
       nombre : lectura.nombre,
       apellido : lectura.apellido,
       fechaNacimiento : lectura.fechaNacimiento
     }) ;
-
-
  
     console.log(this.form.value);
   }
 
-  guardarForm(){
-    console.log(this.form.value);
+  /**
+   * No guardo datos del Form, sino de el codigo completo de lectura
+   */
+  guardarDatosDni(){
+    console.log('guardo: ',this.lectura);
   }
 
   resetForm(){
@@ -93,6 +92,11 @@ export class CodebarComponent implements OnInit {
         'apellido': '',
         'fechaNacimiento': ''
     });
+  }
+
+  test(){
+    this.cargarForm(this.codeBaservice.formatCodeBar('test'));
+    this.lectura = this.codeBaservice.formatCodeBar('test');
   }
 
  

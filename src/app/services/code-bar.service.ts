@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 import { DniCode } from '../interfaces/interfaces';
-import { Usuario } from 'src/app/interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +13,8 @@ export class CodeBarService {
   constructor() { }
 
     formatCodeBar( codeBar: string) : DniCode {
-    //codeBar = '00398344125@RAMOS@JUAN CARLOS@M@29428784@B@27/05/1982@11/09/2015@202';    
-    return this.fraccionarCodebarDni(codeBar);
+     //codeBar = '00398344125@RAMOS@JUAN CARLOS@M@29428784@B@27/05/1982@11/09/2015@202';    
+     return this.fraccionarCodebarDni(codeBar);
   }
 
   fraccionarCodebarDni(codeBar: string): DniCode {
@@ -131,10 +130,10 @@ export class CodeBarService {
       dni : parseInt(dni) ,
       ejemplar : ejemplar,
       fechaNacimiento : fechaNacimiento,//new Date(this.invertirFecha(fechaNacimiento)),
-      fechaEmision : fechaNacimiento,//new Date(this.invertirFecha(fechaEmision)),
+      fechaEmision : fechaEmision,//new Date(this.invertirFecha(fechaEmision)),
       codigo : codigo,
    }
-    //console.log(dniCode);
+    console.log(dniCode);
     return dniCode;
  
   
