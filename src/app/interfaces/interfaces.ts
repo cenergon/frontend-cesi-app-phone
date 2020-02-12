@@ -50,5 +50,7 @@ export interface DniCode {
   fechaNacimiento?: string;
   fechaEmision?: string;
   codigo?: string;
+  coords?: string;
+  created?: Date;
 }
   

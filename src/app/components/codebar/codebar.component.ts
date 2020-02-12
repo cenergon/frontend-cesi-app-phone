@@ -4,6 +4,7 @@ import { CodeBarService } from '../../services/code-bar.service';
 import { FormGroup, FormControl, Validator} from '@angular/forms';
 import { DniCode } from '../../interfaces/interfaces';
 import { DatePipe } from '@angular/common';
+import { GeoService } from '../../services/geo.service';
 
 @Component({
   selector: 'app-codebar',
@@ -11,29 +12,30 @@ import { DatePipe } from '@angular/common';
   styleUrls: ['./codebar.component.scss'],
 })
 export class CodebarComponent implements OnInit {
- 
+
   form: FormGroup;
-  lectura : DniCode;
+  lectura: DniCode;
 
   swiperOts = {
     allowSlidePrev : false,
     allowSlideNext : false
   };
 
-  constructor( 
+  constructor(
     private barcodeScanner: BarcodeScanner,
-    private codeBaservice: CodeBarService
-    ) { 
+    private codeBaservice: CodeBarService,
+    private geoService: GeoService,
+    ) {
       this.form = new FormGroup({
-        'dni': new FormControl(''/*,regla de validacion,/*regla de validacion ascincrona*/),
-        'nombre': new FormControl(''/*regla de validacion,/*regla de validacion ascincrona*/),
-        'apellido': new FormControl(''/*regla de validacion,/*regla de validacion ascincrona*/),
-        'fechaNacimiento': new FormControl(''/*,regla de validacion,/*regla de validacion ascincrona*/)
+        dni: new FormControl(''/*,regla de validacion,/*regla de validacion ascincrona*/),
+        nombre: new FormControl(''/*regla de validacion,/*regla de validacion ascincrona*/),
+        apellido: new FormControl(''/*regla de validacion,/*regla de validacion ascincrona*/),
+        fechaNacimiento: new FormControl(''/*,regla de validacion,/*regla de validacion ascincrona*/)
       });
     }
 
   ngOnInit() {
-    
+
   }
 
   ionViewWillEnter() {
@@ -56,17 +58,25 @@ export class CodebarComponent implements OnInit {
 
     this.barcodeScanner.scan(options).then(barcodeData => {
       console.log('Barcode data completo', barcodeData);
+      // Descompongo el codebar dni
       this.lectura = this.codeBaservice.formatCodeBar(barcodeData.text);
-      console.log("lectura de: ", this.lectura);
+      // Guardo Geo y fecha de cuando scaneo
+      this.geoService.getGeolocation().then( resp => { 
+        console.log ('Imprimo coordenadas ionic',resp);
+        this.lectura.coords = resp;
+        this.lectura.created = new Date();
+      } );
+
+      console.log('lectura de: ', this.lectura);
       this.cargarForm(this.lectura);
-      
-        
+
+
      }).catch(err => {
          console.log('Error', err);
      });
   }
 
-  cargarForm( lectura : DniCode){
+  cargarForm( lectura: DniCode) {
     this.resetForm();
     this.form.setValue({
       dni : lectura.dni,
@@ -74,31 +84,37 @@ export class CodebarComponent implements OnInit {
       apellido : lectura.apellido,
       fechaNacimiento : lectura.fechaNacimiento
     }) ;
- 
+
     console.log(this.form.value);
   }
 
   /**
    * No guardo datos del Form, sino de el codigo completo de lectura
    */
-  guardarDatosDni(){
-    console.log('guardo: ',this.lectura);
+  guardarDatosDni() {
+    console.log('guardo: ', this.lectura);
   }
 
-  resetForm(){
+  resetForm() {
     this.form.reset({
-      'dni': '',
-        'nombre': '',
-        'apellido': '',
-        'fechaNacimiento': ''
+      dni: '',
+        nombre: '',
+        apellido: '',
+        fechaNacimiento: ''
     });
   }
 
-  test(){
+  test() {
+    console.log("entro a test");
     this.cargarForm(this.codeBaservice.formatCodeBar('test'));
     this.lectura = this.codeBaservice.formatCodeBar('test');
+    this.geoService.getGeolocation().then( resp => { 
+      console.log ('Imprimo coordenadas',resp);
+      this.lectura.coords = resp;
+      this.lectura.created = new Date();
+    } );
   }
 
- 
+
 
 }

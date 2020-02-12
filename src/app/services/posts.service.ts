@@ -8,7 +8,7 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 
 
   //Defino constatne definia en environment
-  const URL = environment.url;
+const URL = environment.url;
 
 @Injectable({
   providedIn: 'root'
@@ -41,12 +41,11 @@ export class PostsService {
   crearPost( post ){
 
   const token = this.usuarioServie.token;
-    const headers = new HttpHeaders({
+  const headers = new HttpHeaders({
       'x-token': token
     });
 
-    return new Promise(resolve =>{
-
+  return new Promise(resolve =>{
       this.http.post(`${URL}/post`,post,{ headers })
       .subscribe( resp => {
        this.nuevoPost.emit(resp['post']);//emito mi post al tab 2
@@ -73,9 +72,9 @@ export class PostsService {
 
       //Para subir debo crear una tarea
       //fileTransfer tiene herramientas, de como por ejemplo cuanto % esta subido de la imagen, etc..
-      const fileTransfer:  FileTransferObject = this.fileTransfer.create();
+    const fileTransfer:  FileTransferObject = this.fileTransfer.create();
 
-      fileTransfer.upload( img, `${ URL}/post/upload`, options )
+    fileTransfer.upload( img, `${ URL}/post/upload`, options )
       .then( data => {
         console.log(data);
       }).catch( err => {
