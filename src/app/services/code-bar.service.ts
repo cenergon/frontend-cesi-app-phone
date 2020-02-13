@@ -12,7 +12,7 @@ export class CodeBarService {
 
   constructor() { }
     formatCodeBar( codeBar: string) : DniCode {
-     codeBar = '00398344125@RAMOS@JUAN CARLOS@M@29428784@B@27/05/1982@11/09/2015@202';    
+     //codeBar = '00398344125@RAMOS@JUAN CARLOS@M@29428784@B@27/05/1982@11/09/2015@202';    
      return this.fraccionarCodebarDni(codeBar);
   }
 

@@ -24,6 +24,12 @@ export class WizardPage  {
 	public slideTwoForm: FormGroup;
   public submitAttempt: boolean = false;
 
+  swiperOts = {
+    allowSlidePrev : false,
+    allowSlideNext : false
+  };  
+
+
   constructor(
      public formBuilder: FormBuilder,
      private platform: Platform,

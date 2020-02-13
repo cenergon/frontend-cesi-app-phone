@@ -31,6 +31,9 @@ Firebase deploy
 /*FIN GENERA PWA*/
 
 /*IONIC*/
+
+Lanzar laboratirio: inic lab
+
 Lanzar ionic devApp
 ionic serve --address=192.168.0.103 --port=8100 -c 
 

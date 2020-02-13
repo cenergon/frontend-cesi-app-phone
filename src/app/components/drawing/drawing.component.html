@@ -1,0 +1,44 @@
+<ion-header translucent>
+    <ion-toolbar color="warning">
+        <ion-title>
+            <ion-title style="text-align: center" size="small">FIRMA DIGITAL</ion-title>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding no-bounce>
+    <div #fixedContainer ion-fixed>
+        <ion-row>
+            <ion-col *ngFor="let color of colors" [style.background]="color" class="color-block" tappable (click)="selectColor(color)">
+            </ion-col>
+        </ion-row>
+
+        <ion-radio-group [(ngModel)]="selectedColor">
+
+            <ion-col *ngFor="let color of colors" text-center>
+                <ion-radio [value]="color"></ion-radio>
+            </ion-col>
+        </ion-radio-group>
+
+        <canvas #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
+        <ion-button color="warning" shape="round" expand="full" size="small" (click)="clearImage()">
+            Limpiar Firma
+        </ion-button>
+    </div>
+    <ion-list>
+        <ion-title>
+            <ion-title style="text-align: center" size="small">FIRMA</ion-title>
+        </ion-title>
+        <ion-card *ngFor="let obj of storedImages">
+            <ion-card-content>
+                <img [src]="getImagePath(obj)">
+            </ion-card-content>
+            <ion-row>
+                <ion-button icon-only full color="danger">
+                    <ion-icon name="trash"></ion-icon>
+                </ion-button>
+            </ion-row>
+        </ion-card>
+    </ion-list>
+
+
+</ion-content>

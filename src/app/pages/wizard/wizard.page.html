@@ -19,7 +19,11 @@
 
 <ion-content>
 
-    <ion-slides #signupSlider pager>
+    <ion-slides #signupSlider pager [options]="swiperOts">
+
+        <ion-slide>
+            <app-drawing></app-drawing>
+        </ion-slide>
 
 
         <ion-slide>

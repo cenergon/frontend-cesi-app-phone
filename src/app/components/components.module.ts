@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { CodebarComponent } from './codebar/codebar.component';
 import { SimComponent } from './sim/sim.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DrawingComponent } from './drawing/drawing.component';
 
 
 
@@ -22,8 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MapaComponent,
     HeaderComponent,
     CodebarComponent,
-    SimComponent
-
+    SimComponent,
+    DrawingComponent
   ],
   exports: [
     PostsComponent,
@@ -31,6 +32,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     CodebarComponent,
     SimComponent,
+    DrawingComponent
   ],
   imports: [
     CommonModule,

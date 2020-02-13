@@ -63,7 +63,6 @@ import { Sim } from '@ionic-native/sim/ngx';
     SplashScreen,
     Geolocation,
     Camera,
- 
     Platform,
     File,
     FileOpener,
