@@ -13,23 +13,25 @@ const STORAGE_KEY = 'IMAGE_LIST';
 })
 export class DrawingComponent implements OnInit {
 
+  @ViewChild(IonContent, {static: true}) content: IonContent; 
+  @ViewChild('fixedContainer', {static: true}) fixedContainer: any; 
+  @ViewChild('imageCanvas', {static: true}) canvas: any; 
+  canvasElement: any;
+  saveX: number;
+  saveY: number;
+  storedImages = [] ;
   selectedColor = '#E9967A';
   colors = ['#CD5C5C','#F08080','#FA8072','#E9967A','#00ff00'];
 
-  @ViewChild('imageCanvas', {static: true}) canvas: any; 
-  canvasElement: any;
+  swiperOts = {
+    allowSlidePrev : false,
+    allowSlideNext : false
+  };
 
-  
-
-  saveX: number;
-  saveY: number;
-
-  storedImages = [] ;
-
-  @ViewChild(IonContent, {static: true}) content: IonContent; 
-  @ViewChild('fixedContainer', {static: true}) fixedContainer: any; 
-
-  constructor( private storage: Storage, private plt: Platform, private file: File) { 
+  constructor( 
+    private storage: Storage, 
+    private plt: Platform, 
+    private file: File) { 
     this.storage.ready().then(()=>
     this.storage.get(STORAGE_KEY).then( data => {
       if (data !== undefined) {
@@ -40,15 +42,12 @@ export class DrawingComponent implements OnInit {
 
   selectColor(color) {
     this.selectedColor = color;
-    console.log(color);
   }
-
 
   ngAfterViewInit() {
     this.canvasElement = this.canvas.nativeElement;  
     }
 
-  // Cargo la vista cuando la pagina es cargada (metodo del ciclo de vida)
   ionViewDidEnter(){
     let itemHeigth = this.fixedContainer.nativeElement.offsetHeight;
     let scroll = this.content.getScrollElement();
@@ -65,7 +64,6 @@ export class DrawingComponent implements OnInit {
 
   startDrawing(ev){
     let canvasPosition = this.canvasElement.getBoundingClientRect();
-
     this.saveX = ev.touches[0].pageX - canvasPosition.x;
     this.saveY = ev.touches[0].pageY - canvasPosition.y;
   }
@@ -73,12 +71,8 @@ export class DrawingComponent implements OnInit {
   moved(ev){
 
     var canvasPosition = this.canvasElement.getBoundingClientRect(); 
-
     let curretX = ev.touches[0].pageX - canvasPosition.x;
-    let curretY = ev.touches[0].pageY - canvasPosition.y;
-
-    console.log("moved",curretX,curretY);
-    
+    let curretY = ev.touches[0].pageY - canvasPosition.y;    
     let ctx = this.canvasElement.getContext('2d');
 
     ctx.lineJoin = 'round';
@@ -89,7 +83,6 @@ export class DrawingComponent implements OnInit {
     ctx.moveTo(this.saveX, this.saveY);
     ctx.lineTo(curretX, curretY);
     ctx.closePath();
-
     ctx.stroke();
 
     this.saveX = curretX;
@@ -111,7 +104,7 @@ export class DrawingComponent implements OnInit {
   }
 
   b64toBlob(b64Data, contentType = '', sliceSize = 512) {
-    
+
     var byteCharacters = atob(b64Data);
     var byteArrays = [];
 
@@ -124,13 +117,11 @@ export class DrawingComponent implements OnInit {
       }
 
       var byteArray = new Uint8Array(byteNumbers);
-
       byteArrays.push(byteArray);
     }
 
     var blob = new Blob(byteArrays, { type: contentType });
     return blob;
-
   }
 
   storeImage(imageName){
@@ -162,11 +153,7 @@ export class DrawingComponent implements OnInit {
     let path = this.file.dataDirectory + imageName;
     let win: any = window; // hack compilator
      path = win.Ionic.WebView.convertFileSrc(path);
-
-
-
   }
-
 
   ngOnInit() {
     this.canvasElement = this.canvas.nativeElement;

@@ -1,0 +1,14 @@
+------------Centrar Button
+
+<ion-slides [options]="swiperOts">
+    <ion-slide>
+        <ion-button expand="full" (click)="test()" size='large' shape='round'>
+            Scan Code Test log</ion-button>
+    </ion-slide>
+</ion-slides>
+
+-----------Icono con boton
+
+  <ion-button icon-only color="danger" slot="end" size="small">
+            <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-button>

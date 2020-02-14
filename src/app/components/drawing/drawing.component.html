@@ -1,33 +1,48 @@
 <ion-header translucent>
-    <ion-toolbar color="warning">
+    <ion-toolbar color="secondary">
         <ion-title>
-            <ion-title style="text-align: center" size="small">FIRMA DIGITAL</ion-title>
+            <ion-title style="text-align: center" size="small">Digitalizació de firma</ion-title>
         </ion-title>
     </ion-toolbar>
 </ion-header>
-<ion-content padding no-bounce>
+
+<ion-content padding>
     <div #fixedContainer ion-fixed>
-        <ion-row>
+        <!-- Barra de colores para pintar -->
+        <!-- <ion-row>
             <ion-col *ngFor="let color of colors" [style.background]="color" class="color-block" tappable (click)="selectColor(color)">
             </ion-col>
         </ion-row>
 
         <ion-radio-group [(ngModel)]="selectedColor">
-
             <ion-col *ngFor="let color of colors" text-center>
                 <ion-radio [value]="color"></ion-radio>
             </ion-col>
-        </ion-radio-group>
+        </ion-radio-group> -->
+        <!-- FIN Barra de colores para pintar -->
 
-        <canvas #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
-        <ion-button color="warning" shape="round" expand="full" size="small" (click)="clearImage()">
-            Limpiar Firma
+
+        <ion-button icon-only color="medium" slot="left" size="small">
+            <ion-icon name="create"></ion-icon>
         </ion-button>
+
+        <ion-button icon-only color="medium" slot="right" size="small">
+            <ion-icon name="trash"></ion-icon>
+        </ion-button>
+
+        <ion-slides [options]="swiperOts">
+            <ion-slide>
+                <canvas width="375" height="350" #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
+            </ion-slide>
+        </ion-slides>
+
+        <ion-button expand="full" color="success">CONTINUAR</ion-button>
+
     </div>
     <ion-list>
-        <ion-title>
+        <!-- <ion-title>
             <ion-title style="text-align: center" size="small">FIRMA</ion-title>
-        </ion-title>
+        </ion-title> -->
         <ion-card *ngFor="let obj of storedImages">
             <ion-card-content>
                 <img [src]="getImagePath(obj)">
@@ -39,6 +54,4 @@
             </ion-row>
         </ion-card>
     </ion-list>
-
-
 </ion-content>

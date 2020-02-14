@@ -8,11 +8,11 @@
 <ion-content>
     <ion-card>
         <ion-card-content>
-            <ion-card-subtitle>Colaque el Código del DNI en un lugar con claridad</ion-card-subtitle>
+            <ion-card-subtitle>Coloque el Código del DNI en un lugar con claridad</ion-card-subtitle>
             <img src="assets/img/dni_codigo.png" />
-            <ion-card-header>
-                <ion-card-title>ver video guille</ion-card-title>
-            </ion-card-header>
+            <!-- <ion-card-header>
+                <ion-card-title></ion-card-title>
+            </ion-card-header> -->
             <ion-row>
                 <ion-col col-30></ion-col>
                 <ion-col col-30>
@@ -29,12 +29,12 @@
                         Escanear</ion-button>
                 </ion-slide>
             </ion-slides>
-            <ion-slides [options]="swiperOts">
+            <!-- <ion-slides [options]="swiperOts">
                 <ion-slide>
                     <ion-button expand="full" (click)="test()" size='large' shape='round'>
                         Scan Code Test log</ion-button>
                 </ion-slide>
-            </ion-slides>
+            </ion-slides> -->
 
             <!-- <ion-slides [options]="swiperOts">
                 <ion-slide>
@@ -75,10 +75,9 @@
                     <tr>
                         <td> {{ fecha | date:'dd - MM - yyyy' }} </td>
                     </tr> -->
-
-                    <ion-button type="submit" color="success" shape="round" expand="full" size="small">
-                        ACEPTAR
-                    </ion-button>
+                    <section class="full-width">
+                        <ion-button expand="full" color="success">CONTINUAR</ion-button>
+                    </section>
                 </ion-list>
             </ion-col>
 

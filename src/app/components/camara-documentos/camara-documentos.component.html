@@ -1,0 +1,45 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+        <ion-title>
+            <ion-title style="text-align: center" size="small">Documentación Digital</ion-title>
+        </ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-row class="top-20">
+            <ion-title color="" style="text-align: center" size="small">Toma Fotos de los Documentos</ion-title>
+        </ion-row>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+
+
+
+
+
+
+    <ion-list>
+        <ion-item *ngFor="let entry of form">
+            <ion-checkbox color="secondary" slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+            <ion-label class="textDocument">{{entry.val}}</ion-label>
+            <ion-button shape="round" (click)="camara()">
+                <ion-icon name="camera" size="small"></ion-icon>
+            </ion-button>
+        </ion-item>
+    </ion-list>
+
+    <ion-button color="success" expand="full" shape="round">
+        <ion-icon slot="start" name="cloud-upload"></ion-icon>
+        SUBIR DOCUMENTACION
+    </ion-button>
+
+
+    <ion-col size="3" *ngFor="let image of tempImages">
+        <ion-card>
+            <img [src]="image">
+        </ion-card>
+    </ion-col>
+
+
+</ion-content>

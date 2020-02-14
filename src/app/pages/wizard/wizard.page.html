@@ -19,12 +19,15 @@
 
 <ion-content>
 
-    <ion-slides #signupSlider pager [options]="swiperOts">
+    <!-- <ion-slides #signupSlider pager [options]="swiperOts"> -->
+    <ion-slides #signupSlider pager>
 
         <ion-slide>
             <app-drawing></app-drawing>
         </ion-slide>
-
+        <ion-slide>
+            <app-camara-documentos></app-camara-documentos>
+        </ion-slide>
 
         <ion-slide>
 
@@ -37,9 +40,7 @@
             <ion-toolbar>
                 <ion-row class="top-20">
                     <ion-col size="12" text-center>
-                        <ion-label>
-                            <ion-label color="primary">El que mejor se adapte a tu necesidad!</ion-label>
-                        </ion-label>
+                        <ion-title color="primary" style="text-align: center" size="small">El que mejor se adapte a tu necesidad!</ion-title>
                     </ion-col>
                 </ion-row>
             </ion-toolbar>
@@ -79,10 +80,8 @@
                     </ion-col>
                 </ion-row>
             </ion-grid>
-
-
-
         </ion-slide>
+
 
         <ion-slide>
             <ion-card>
@@ -96,23 +95,27 @@
                 </ion-card-content>
             </ion-card>
 
-
-
             <!-- <section class="full-width">
                 <ion-button size="small" color="primary" expand="block" (click)="openLocalPdf()">Ver contrato</ion-button>
                 <ion-button size="small" color="tertiary" expand="block" (click)="downloadLocaPdf()">Descargar Contrato</ion-button>
             </section> -->
+            <p>
+                <ion-text color="primary"><i> Debes activar tu cámara y geolocalización cuando sea solicitado para continuar con el tramite.
+                </i></ion-text>
+            </p>
 
+            <ion-item>
+                <ion-checkbox color="secondary" checked slot="start"></ion-checkbox>
+                <ion-label>Acepto los términos del presente documento</ion-label>
+            </ion-item>
 
             <section class="full-width">
-                <header></header>
-                <ion-button color="success" shape="round" expand="full" size="small">
-                    Aceptar y Continuar
-                </ion-button>
+                <ion-button expand="full" color="success">CONTINUAR</ion-button>
             </section>
 
 
-            <header>Más Información</header>
+            <!-- Botones para descargar el documento por pdf si quiere el cliente -->
+            <!-- <header>Más Información</header>
 
             <div class="row">
                 <div class="col">
@@ -128,7 +131,9 @@
                         <ion-button size="small" color="tertiary" (click)="downloadLocaPdf()">Decargar</ion-button>
                     </a>
                 </div>
-            </div>
+            </div> -->
+            <!-- Fin Botones para descargar el documento por pdf si quiere el cliente -->
+
 
         </ion-slide>
 

@@ -20,7 +20,7 @@
                         </ion-col>
                     </ion-row>
 
-                        
+
                     <div *ngIf="configApp.loginApp">
                         <ion-row>
                             <ion-col>
@@ -39,12 +39,12 @@
                             </ion-col>
                         </ion-row>
                     </div>
-    
+
 
                     <div *ngIf="configApp.buttonIngresar">
                         <ion-row>
                             <ion-col>
-                                <ion-button type="submit" color="tertiary" shape="round" expand="block"  size="" >
+                                <ion-button type="submit" color="tertiary" shape="round" expand="block" size="">
                                     INGRESAR
                                 </ion-button>
                             </ion-col>
@@ -54,7 +54,7 @@
                     <div *ngIf="configApp.buttonFacebookAngular">
                         <ion-row>
                             <ion-col>
-                                <ion-button (click)="authService.login()" shape="round" expand="block" size=""  color="primary">
+                                <ion-button (click)="authService.login()" shape="round" expand="block" size="" color="primary">
                                     Facebook
                                 </ion-button>
                             </ion-col>
@@ -64,35 +64,35 @@
                     <div *ngIf="configApp.buttonGmailAngular">
                         <ion-row>
                             <ion-col>
-                                 <ion-button (click)="authService.login()" shape="round" expand="block" size="" color="secondary">
-                                     Gmail
-                                 </ion-button>
+                                <ion-button (click)="authService.login()" shape="round" expand="block" size="" color="secondary">
+                                    Gmail
+                                </ion-button>
                             </ion-col>
                         </ion-row>
                     </div>
 
                     <div *ngIf="configApp.buttonRegistrateIonic">
                         <ion-row>
-                            <ion-col>  
+                            <ion-col>
                                 <ion-button (click)="autrhServiceIonic.login()" shape="round" expand="block" size="" color="primary">
                                     Facebook
                                 </ion-button>
-                          </ion-col>
+                            </ion-col>
                         </ion-row>
                     </div>
 
                     <div *ngIf="configApp.buttonRegistrate">
                         <ion-row>
-                           <ion-col>                           
+                            <ion-col>
                                 <ion-button (click)="mostrarRegistro()" shape="round" expand="block" size="" color="success">
                                     Registrate
                                 </ion-button>
-                           </ion-col>
+                            </ion-col>
                         </ion-row>
                     </div>
 
                     <div *ngIf="configApp.buttonRegistrateRedesSocialesAll">
-                         <ion-row>
+                        <ion-row>
                             <ion-col>
                                 <ion-button (click)="mostrarRegistro()" shape="round" expand="block" size="" color="tertiary">
                                     Redes socilaes
@@ -140,6 +140,12 @@
                                     <ion-label>Password</ion-label>
                                     <ion-input [(ngModel)]="registerUser.password" name="password" type="password" required></ion-input>
                                 </ion-item>
+
+                                <ion-item>
+                                    <ion-checkbox color="secondary" checked slot="start"></ion-checkbox>
+                                    <ion-label>Acepto Términos y Condiciones y Aviso de Privacidad</ion-label>
+                                </ion-item>
+
 
                             </ion-list>
                         </ion-col>

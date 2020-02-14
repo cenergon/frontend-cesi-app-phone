@@ -12,6 +12,7 @@ import { CodebarComponent } from './codebar/codebar.component';
 import { SimComponent } from './sim/sim.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DrawingComponent } from './drawing/drawing.component';
+import { CamaraDocumentosComponent } from './camara-documentos/camara-documentos.component';
 
 
 
@@ -24,7 +25,8 @@ import { DrawingComponent } from './drawing/drawing.component';
     HeaderComponent,
     CodebarComponent,
     SimComponent,
-    DrawingComponent
+    DrawingComponent,
+    CamaraDocumentosComponent,
   ],
   exports: [
     PostsComponent,
@@ -32,7 +34,8 @@ import { DrawingComponent } from './drawing/drawing.component';
     HeaderComponent,
     CodebarComponent,
     SimComponent,
-    DrawingComponent
+    DrawingComponent,
+    CamaraDocumentosComponent
   ],
   imports: [
     CommonModule,
