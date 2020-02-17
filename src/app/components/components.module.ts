@@ -14,6 +14,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DrawingComponent } from './drawing/drawing.component';
 import { CamaraDocumentosComponent } from './camara-documentos/camara-documentos.component';
 import { FormDatosDomiciliariosComponent } from './form-datos-domiciliarios/form-datos-domiciliarios.component';
+import { FormDatosContactosComponent } from './form-datos-contactos/form-datos-contactos.component';
+import { FormTerminosCondicionesComponent } from './form-terminos-condiciones/form-terminos-condiciones.component';
+import { SelfieComponent } from './selfie/selfie.component';
+import { FormValoresPrestamoComponent } from './form-valores-prestamo/form-valores-prestamo.component';
 
 
 
@@ -28,7 +32,11 @@ import { FormDatosDomiciliariosComponent } from './form-datos-domiciliarios/form
     SimComponent,
     DrawingComponent,
     CamaraDocumentosComponent,
-    FormDatosDomiciliariosComponent
+    FormDatosDomiciliariosComponent,
+    FormDatosContactosComponent,
+    FormTerminosCondicionesComponent,
+    FormValoresPrestamoComponent,
+    SelfieComponent
   ],
   exports: [
     PostsComponent,
@@ -38,7 +46,11 @@ import { FormDatosDomiciliariosComponent } from './form-datos-domiciliarios/form
     SimComponent,
     DrawingComponent,
     CamaraDocumentosComponent,
-    FormDatosDomiciliariosComponent
+    FormDatosDomiciliariosComponent,
+    FormDatosContactosComponent,
+    FormTerminosCondicionesComponent,
+    FormValoresPrestamoComponent,
+    SelfieComponent
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,56 @@
+<ion-header no-border>
+    <ion-toolbar color="primary">
+        <ion-title style="text-align: center" size="small">
+            <ion-icon name="camera"></ion-icon>
+            Validación de Identidad</ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-row class="top-20">
+            <ion-title color="" style="text-align: center" size="small">Selfie - Rostro - DNI</ion-title>
+        </ion-row>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-card>
+        <ion-card-content>
+            <img src="assets/img/selfie.png" />
+            <ion-card-subtitle color="primary"><i>Tome una Selfie en un lugar con claridad</i></ion-card-subtitle>
+        </ion-card-content>
+        <ion-slides [options]="swiperOts">
+            <ion-slide>
+                <ion-button color="secondary" expand="full" shape="round">
+                    <ion-icon slot="start" name="camera"></ion-icon>
+                    CAMARA
+                </ion-button>
+            </ion-slide>
+        </ion-slides>
+    </ion-card>
+
+    <ion-list>
+        <ion-item-sliding>
+            <ion-item style="text-align: center" color="">
+                <ion-label><i>Su Rostro y DNI deben verse con claridad</i></ion-label>
+            </ion-item>
+        </ion-item-sliding>
+    </ion-list>
+
+
+    <ion-button color="success" expand="full" shape="round">
+        <ion-icon slot="start" name="cloud-upload"></ion-icon>
+        SUBIR FOTO
+    </ion-button>
+
+    <!-- <p></p>
+
+    <ion-button expand="full" color="success">CONTINUAR</ion-button> -->
+
+    <ion-col size="3" *ngFor="let image of tempImages">
+        <ion-card>
+            <img [src]="image">
+        </ion-card>
+    </ion-col>
+
+
+</ion-content>

@@ -1,0 +1,63 @@
+<ion-header translucent>
+    <ion-toolbar color="success">
+        <ion-title style="text-align: center" size="small">
+            <ion-icon name="cash"></ion-icon>
+            Prestamo
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-toolbar color="light">
+        <ion-title style="text-align: center" size="small">ELEGÍ TU PRESTAMO</ion-title>
+    </ion-toolbar>
+
+    <ion-toolbar>
+        <ion-row class="top-20">
+            <ion-col size="12" text-center>
+                <ion-label>
+                    <ion-label color="primary">El que mejor se adapte a tu necesidad!</ion-label>
+                </ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col style="text-align: center">
+                <ion-button expand="block" color="tertiary" (click)="presentInput()">$3.0000</ion-button>
+                <ion-label size="small" class="textcuotas">(3 Cuotas de $1100)</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col style="text-align: center">
+                <ion-button expand="block" color="secondary" (click)="presentInput()">$6.0000</ion-button>
+                <ion-label size="small" class="textcuotas">(3 Cuotas de $3100</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col style="text-align: center">
+                <ion-button expand="block" color="warning" (click)="presentInput()">$9.000</ion-button>
+                <ion-label size="small" class="textcuotas">(3 Cuotas de $4100)</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col style="text-align: center">
+                <ion-button expand="block" color="success" (click)="presentInput()">$12.000</ion-button>
+                <ion-label size="small" class="textcuotas">(3 Cuotas de $5100)</ion-label>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+</ion-content>
