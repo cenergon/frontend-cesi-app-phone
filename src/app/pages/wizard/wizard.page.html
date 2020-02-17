@@ -1,15 +1,14 @@
 <!-- https://www.joshmorony.com/advanced-forms-validation-in-ionic-2/ -->
 <ion-header>
-    <ion-toolbar color="success">
-        <ion-title>
-            <ion-title style="text-align: center" size="small">YA CASI ES TUYO!</ion-title>
-        </ion-title>
-
-        <!-- <ion-buttons slot="start">
+    <ion-toolbar color="tertiary">
+        <ion-buttons slot="start" size="small">
             <ion-button (click)="prev()">
-                <ion-icon slot="start" name="arrow-back"></ion-icon> Anterior</ion-button>
+                <ion-icon color="warning" slot="start" name="arrow-back"></ion-icon> Anterior</ion-button>
         </ion-buttons>
-        <ion-buttons slot="end">
+        <!-- <ion-title>
+            <ion-title style="text-align: center" size="small">YA CASI ES TUYO!</ion-title>
+        </ion-title> -->
+        <!-- <ion-buttons slot="end">
             <ion-button (click)="next()">Siguiente
                 <ion-icon slot="end" name="arrow-forward"></ion-icon>
             </ion-button>
@@ -18,9 +17,12 @@
 </ion-header>
 
 <ion-content>
-
     <!-- <ion-slides #signupSlider pager [options]="swiperOts"> -->
     <ion-slides #signupSlider pager>
+
+        <ion-slide>
+            <app-form-datos-domiciliarios></app-form-datos-domiciliarios>
+        </ion-slide>
 
         <ion-slide>
             <app-drawing></app-drawing>

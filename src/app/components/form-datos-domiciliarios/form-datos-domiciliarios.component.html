@@ -1,0 +1,68 @@
+<ion-header translucent>
+    <ion-toolbar color="warning">
+        <ion-title>
+            <ion-title style="text-align: center" size="small">Datos Domiciliarios</ion-title>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <form [formGroup]="form" (ngSubmit)="guardarDatosDomiciliarios()">
+        <ion-row>
+            <ion-col>
+                <ion-list>
+                    <ion-item>
+                        <ion-label>Provincia</ion-label>
+                        <ion-input formControlName="provincia" placeholder="" name="dni" type="numeric" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Localidad</ion-label>
+                        <ion-input formControlName="localidad" placeholder="" name="nombre" type="text" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Domicilio</ion-label>
+                        <ion-input formControlName="domicilio" placeholder="" name="nombre" type="text" required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Calle</ion-label>
+                        <ion-input formControlName="calle" placeholder="" name="fechaNacimiento" type="date " required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Numero<i class="fas fa-sort-numeric-down    "></i></ion-label>
+                        <ion-input formControlName="numero" placeholder="" name="" type="date " required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Piso</ion-label>
+                        <ion-input formControlName="Piso" placeholder="" name="" type="date " required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Dpto.</ion-label>
+                        <ion-input formControlName="dpto" placeholder="" name="" type="date " required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Entre calle</ion-label>
+                        <ion-input formControlName="entrecalle" placeholder="" name="" type="date " required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Y calle</ion-label>
+                        <ion-input formControlName="ycalle" placeholder="" name="" type="date " required></ion-input>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label>Barrio</ion-label>
+                        <ion-input formControlName="Barrio" placeholder="" name="" type="date " required></ion-input>
+                    </ion-item>
+
+                    <ion-button expand="full" color="success">CONTINUAR</ion-button>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>

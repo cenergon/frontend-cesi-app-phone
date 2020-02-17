@@ -8,27 +8,8 @@
 <ion-content>
     <ion-card>
         <ion-card-content>
-            <ion-card-subtitle>Coloque el Código del DNI en un lugar con claridad</ion-card-subtitle>
-            <img src="assets/img/dni_codigo.png" />
-            <!-- <ion-card-header>
-                <ion-card-title></ion-card-title>
-            </ion-card-header> -->
-            <ion-row>
-                <ion-col col-30></ion-col>
-                <ion-col col-30>
-                    <!-- <img src="assets/img/dni_codigo.png" /> -->
-                    <!-- height='30' width='30'  -->
-                </ion-col>
-                <ion-col col-30></ion-col>
-            </ion-row>
-
-            <ion-card-subtitle></ion-card-subtitle>
-            <ion-slides [options]="swiperOts">
-                <ion-slide>
-                    <ion-button size="small" expand="full" (click)="scan()" shape='round'>
-                        Escanear</ion-button>
-                </ion-slide>
-            </ion-slides>
+            <img src="assets/img/dni_small.png" />
+            <ion-card-subtitle color="primary"><i>Coloque el Código del DNI en un lugar con claridad</i></ion-card-subtitle>
             <!-- <ion-slides [options]="swiperOts">
                 <ion-slide>
                     <ion-button expand="full" (click)="test()" size='large' shape='round'>
@@ -43,14 +24,20 @@
                 </ion-slide>
             </ion-slides> -->
         </ion-card-content>
+        <ion-slides [options]="swiperOts">
+            <ion-slide>
+                <ion-button color="secondary" expand="full" shape="round" (click)="scan()">
+                    <ion-icon slot="start" name="barcode"></ion-icon>
+                    ESCANEAR
+                </ion-button>
+            </ion-slide>
+        </ion-slides>
     </ion-card>
-
+    <!-- Formulario de control de carga  -->
     <form [formGroup]="form" (ngSubmit)="guardarDatosDni()">
         <ion-row>
             <ion-col>
-
                 <ion-list>
-
                     <ion-item>
                         <ion-label>DNI</ion-label>
                         <ion-input formControlName="dni" placeholder="dni" name="dni" type="numeric" required></ion-input>
@@ -71,18 +58,11 @@
                         <ion-input formControlName="fechaNacimiento" placeholder="dd/mm/yyyy" name="fechaNacimiento" type="date " required></ion-input>
                     </ion-item>
 
-                    <!-- 
-                    <tr>
-                        <td> {{ fecha | date:'dd - MM - yyyy' }} </td>
-                    </tr> -->
-                    <section class="full-width">
-                        <ion-button expand="full" color="success">CONTINUAR</ion-button>
-                    </section>
+                    <ion-button expand="full" color="success">CONTINUAR</ion-button>
                 </ion-list>
             </ion-col>
-
         </ion-row>
-
     </form>
+
 
 </ion-content>

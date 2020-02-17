@@ -21,7 +21,7 @@ export class CamaraDocumentosComponent implements OnInit {
   };  
 
   public form = [
-    { val: 'DNI - Ambos lados', isChecked: true },
+    { val: 'DNI - Foto Ambos lados', isChecked: true },
     { val: '3 últimos Meses de Recibo de Sueldo', isChecked: false },
     { val: '3 últimos meses de resumen bancarios', isChecked: false },
     { val: 'Impuesto de Servicio - A Nombre de titular', isChecked: false }

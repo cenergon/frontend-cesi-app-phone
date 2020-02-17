@@ -13,6 +13,7 @@ import { SimComponent } from './sim/sim.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DrawingComponent } from './drawing/drawing.component';
 import { CamaraDocumentosComponent } from './camara-documentos/camara-documentos.component';
+import { FormDatosDomiciliariosComponent } from './form-datos-domiciliarios/form-datos-domiciliarios.component';
 
 
 
@@ -27,6 +28,7 @@ import { CamaraDocumentosComponent } from './camara-documentos/camara-documentos
     SimComponent,
     DrawingComponent,
     CamaraDocumentosComponent,
+    FormDatosDomiciliariosComponent
   ],
   exports: [
     PostsComponent,
@@ -35,7 +37,8 @@ import { CamaraDocumentosComponent } from './camara-documentos/camara-documentos
     CodebarComponent,
     SimComponent,
     DrawingComponent,
-    CamaraDocumentosComponent
+    CamaraDocumentosComponent,
+    FormDatosDomiciliariosComponent
   ],
   imports: [
     CommonModule,
