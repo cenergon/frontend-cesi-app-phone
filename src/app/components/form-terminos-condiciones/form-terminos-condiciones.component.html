@@ -1,12 +1,12 @@
-<ion-header translucent>
+<ion-content>
+
     <ion-toolbar color="medium">
         <ion-title style="text-align: center" size="small">
             <ion-icon name="document"></ion-icon>
             Terminos y Condiciones
         </ion-title>
     </ion-toolbar>
-</ion-header>
-<ion-content>
+
     <ion-card>
         <ion-card-header>
             <ion-card-subtitle>Contrato</ion-card-subtitle>
@@ -18,42 +18,20 @@
         </ion-card-content>
     </ion-card>
 
-    <!-- <section class="full-width">
-  <ion-button size="small" color="primary" expand="block" (click)="openLocalPdf()">Ver contrato</ion-button>
-  <ion-button size="small" color="tertiary" expand="block" (click)="downloadLocaPdf()">Descargar Contrato</ion-button>
-</section> -->
     <p>
-        <ion-text color="primary"><i> Debes Activar Tu Cámara y Geolocalización cuando sea Solicitado para Continuar con el Trámite.
+        <div class="ion-text-center">
+            <ion-text class="label3" color="primary"><i> Debes Activar Tu Cámara y Geolocalización cuando sea Solicitado para Continuar con el Trámite.
   </i></ion-text>
-    </p>
-
-    <ion-item>
-        <ion-checkbox color="secondary" checked slot="start"></ion-checkbox>
-        <ion-label class="textCondiciones">Acepto los términos del presente documento</ion-label>
-    </ion-item>
-
-    <section class="full-width">
-        <ion-button expand="full" color="success">CONTINUAR</ion-button>
-    </section>
+        </div>
 
 
-    <!-- Botones para descargar el documento por pdf si quiere el cliente -->
-    <!-- <header>Más Información</header>
+        <ion-item>
+            <ion-checkbox color="secondary" checked="false" slot="start"></ion-checkbox>
+            <ion-label class="label4">Acepto los términos del presente documento</ion-label>
+        </ion-item>
 
-<div class="row">
-  <div class="col">
-      <a class="button button-block button-custom2">
-          <ion-button size="small" color="primary" (click)="openLocalPdf()">Ver Información</ion-button>
-      </a>
-  </div>
-</div>
+        <section class="full-width">
+            <ion-button (click)="navDatosPersonales()" expand="full" color="success">CONTINUAR</ion-button>
+        </section>
 
-<div class="row">
-  <div class="col">
-      <a class="button button-block button-custom2">
-          <ion-button size="small" color="tertiary" (click)="downloadLocaPdf()">Decargar</ion-button>
-      </a>
-  </div>
-</div> -->
-    <!-- Fin Botones para descargar el documento por pdf si quiere el cliente -->
 </ion-content>

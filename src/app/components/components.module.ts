@@ -18,6 +18,7 @@ import { FormDatosContactosComponent } from './form-datos-contactos/form-datos-c
 import { FormTerminosCondicionesComponent } from './form-terminos-condiciones/form-terminos-condiciones.component';
 import { SelfieComponent } from './selfie/selfie.component';
 import { FormValoresPrestamoComponent } from './form-valores-prestamo/form-valores-prestamo.component';
+import { FormFinTramiteComponent } from './form-fin-tramite/form-fin-tramite.component';
 
 
 
@@ -36,6 +37,7 @@ import { FormValoresPrestamoComponent } from './form-valores-prestamo/form-valor
     FormDatosContactosComponent,
     FormTerminosCondicionesComponent,
     FormValoresPrestamoComponent,
+    FormFinTramiteComponent,
     SelfieComponent
   ],
   exports: [
@@ -50,6 +52,7 @@ import { FormValoresPrestamoComponent } from './form-valores-prestamo/form-valor
     FormDatosContactosComponent,
     FormTerminosCondicionesComponent,
     FormValoresPrestamoComponent,
+    FormFinTramiteComponent,
     SelfieComponent
   ],
   imports: [

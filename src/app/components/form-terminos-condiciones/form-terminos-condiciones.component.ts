@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-form-terminos-condiciones',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormTerminosCondicionesComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public navCtrl : NavController
+  ) { }
+
+  navDatosPersonales(){
+    this.navCtrl.navigateRoot('/menu/datos-personales', { animated: true});
+  }
 
   ngOnInit() {}
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-form-datos-contactos',
@@ -9,7 +10,9 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class FormDatosContactosComponent implements OnInit {
 
   form: FormGroup;
-  constructor() {
+  constructor(
+    private navCtrl: NavController
+  ) {
     this.form = new FormGroup ({
       telefonoCelular : new FormControl(''),
       telefonoFijo : new FormControl(''),
@@ -19,6 +22,11 @@ export class FormDatosContactosComponent implements OnInit {
     });
   }
   guardarDatosContactos(){}
+
+
+  navCamDatos(){
+    this.navCtrl.navigateRoot('/menu/cam-documentos', { animated: true});
+  }
 
   ngOnInit() {}
 

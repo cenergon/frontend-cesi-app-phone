@@ -3,6 +3,7 @@ import { PostsService } from '../../services/posts.service';
 import { Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { NavController } from '@ionic/angular';
 
 declare var window : any;
 
@@ -43,7 +44,8 @@ export class CamaraDocumentosComponent implements OnInit {
     private postsSerivce: PostsService,
     private router: Router,
     private geolocation : Geolocation,
-    private camera: Camera
+    private camera: Camera,
+    private navCtrl: NavController
     ) {}
 
   async crearPost(){
@@ -143,6 +145,11 @@ export class CamaraDocumentosComponent implements OnInit {
      }, (err) => {
       // Handle error
      });
+  }
+
+
+  navSelfie(){
+    this.navCtrl.navigateRoot('/menu/cam-selfie', { animated: true});
   }
 
   ngOnInit() {}

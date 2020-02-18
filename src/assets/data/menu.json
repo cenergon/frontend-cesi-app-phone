@@ -1,4 +1,4 @@
-[   {
+[{
         "icon": "ios-contact",
         "name": "Perfil",
         "redirectTo": "/menu/perfil"
@@ -40,8 +40,13 @@
         "redirectTo": "/menu/acercade"
     },
     {
-        "icon": "ios-help-circle-outline",
+        "icon": "ios-document",
         "name": "Ayuda",
         "redirectTo": "/menu/ayuda"
+    },
+    {
+        "icon": "ios-help-circle-outline",
+        "name": "Terminos y Condiciones",
+        "redirectTo": "/menu/terminos-condiciones"
     }
 ]

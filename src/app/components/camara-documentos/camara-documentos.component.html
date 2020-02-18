@@ -1,7 +1,8 @@
-<ion-header no-border>
+<ion-content padding>
+
     <ion-toolbar color="primary">
         <ion-title style="text-align: center" size="small">
-            <ion-icon name="document"></ion-icon>
+            <ion-icon name="attach"></ion-icon>
             Documentación</ion-title>
     </ion-toolbar>
     <ion-toolbar>
@@ -9,9 +10,6 @@
             <ion-title color="" style="text-align: center" size="small">Toma Fotos de los Documentos</ion-title>
         </ion-row>
     </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
 
     <ion-list>
         <ion-item *ngFor="let entry of form">
@@ -30,7 +28,7 @@
 
     <p></p>
 
-    <ion-button expand="full" color="success">CONTINUAR</ion-button>
+    <ion-button expand="full" color="success" (click)="navSelfie()">CONTINUAR</ion-button>
 
     <ion-col size="3" *ngFor="let image of tempImages">
         <ion-card>

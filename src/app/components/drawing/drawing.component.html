@@ -1,13 +1,10 @@
-<ion-header translucent>
+<ion-content padding>
     <ion-toolbar color="secondary">
         <ion-title style="text-align: center" size="small">
             <ion-icon name="create"></ion-icon>
             Digitalizació de firma
         </ion-title>
     </ion-toolbar>
-</ion-header>
-
-<ion-content padding>
     <div #fixedContainer ion-fixed>
         <!-- Barra de colores para pintar -->
         <!-- <ion-row>
@@ -27,23 +24,29 @@
             <ion-icon name="create"></ion-icon>
         </ion-button> -->
 
-        <ion-button icon-only color="medium" slot="right" size="small">
-            <ion-icon name="trash"></ion-icon>
-        </ion-button>
+        <ion-toolbar>
+            <ion-buttons slot="end">
+                <ion-button color="medium" size="small">
+                    <ion-icon slot="icon-only" name="trash"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-toolbar>
 
         <ion-slides [options]="swiperOts">
             <ion-slide>
-                <canvas width="375" height="350" #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
+                <canvas width="375" height="450" #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
             </ion-slide>
         </ion-slides>
-
-        <ion-button expand="full" color="success">CONTINUAR</ion-button>
+        <p></p>
+        <p></p>
+        <p></p>
+        <ion-button expand="full" color="success" (click)="navFinTramite()">FINALIZAR</ion-button>
 
     </div>
-    <ion-list>
-        <!-- <ion-title>
+    <!-- <ion-list>
+        <ion-title>
             <ion-title style="text-align: center" size="small">FIRMA</ion-title>
-        </ion-title> -->
+        </ion-title>
         <ion-card *ngFor="let obj of storedImages">
             <ion-card-content>
                 <img [src]="getImagePath(obj)">
@@ -54,5 +57,5 @@
                 </ion-button>
             </ion-row>
         </ion-card>
-    </ion-list>
+    </ion-list> -->
 </ion-content>

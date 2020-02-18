@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonContent, Platform } from '@ionic/angular';
+import { IonContent, Platform, NavController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { style } from '@angular/animations';
 import { File } from '@ionic-native/file/ngx';
+import { ActionSheetController } from '@ionic/angular';
+
 
 const STORAGE_KEY = 'IMAGE_LIST';
 
@@ -25,12 +27,14 @@ export class DrawingComponent implements OnInit {
 
   swiperOts = {
     allowSlidePrev : false,
-    allowSlideNext : false
+    allowSlideNext : false,
   };
 
   constructor( 
+    public actionSheetController: ActionSheetController,
     private storage: Storage, 
     private plt: Platform, 
+    private navCtrl: NavController,
     private file: File) { 
     this.storage.ready().then(()=>
     this.storage.get(STORAGE_KEY).then( data => {
@@ -153,6 +157,10 @@ export class DrawingComponent implements OnInit {
     let path = this.file.dataDirectory + imageName;
     let win: any = window; // hack compilator
      path = win.Ionic.WebView.convertFileSrc(path);
+  }
+
+  navFinTramite(){
+    this.navCtrl.navigateRoot('/menu/fin-tramite', { animated: true});
   }
 
   ngOnInit() {

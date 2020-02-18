@@ -1,12 +1,12 @@
-<ion-header translucent>
-    <ion-toolbar color="warning">
+<ion-content>
+
+    <ion-toolbar color="tertiary">
         <ion-title style="text-align: center" size="small">
             <ion-icon name="home"></ion-icon>
             Datos Domiciliarios
         </ion-title>
     </ion-toolbar>
-</ion-header>
-<ion-content>
+
     <form [formGroup]="form" (ngSubmit)="guardarDatosDomiciliarios()">
         <ion-row>
             <ion-col>
@@ -38,7 +38,7 @@
 
                     <ion-item>
                         <ion-label>Piso</ion-label>
-                        <ion-input formControlName="Piso" placeholder="ingrese piso de domicilio si corresponde..." name="" type="date " required></ion-input>
+                        <ion-input formControlName="piso" placeholder="ingrese piso de domicilio si corresponde..." name="" type="date " required></ion-input>
                     </ion-item>
 
                     <ion-item>
@@ -58,10 +58,10 @@
 
                     <ion-item>
                         <ion-label>Barrio</ion-label>
-                        <ion-input formControlName="Barrio" placeholder="ingrese barrio si corresponde..." name="" type="date " required></ion-input>
+                        <ion-input formControlName="barrio" placeholder="ingrese barrio si corresponde..." name="" type="date " required></ion-input>
                     </ion-item>
 
-                    <ion-button expand="full" color="success">CONTINUAR</ion-button>
+                    <ion-button expand="full" color="success" (click)="navDatosContactos()">CONTINUAR</ion-button>
                 </ion-list>
             </ion-col>
         </ion-row>

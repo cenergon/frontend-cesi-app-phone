@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner/ngx';
 import { CodeBarService } from '../../services/code-bar.service';
 import { FormGroup, FormControl, Validator} from '@angular/forms';
 import { DniCode } from '../../interfaces/interfaces';
 import { DatePipe } from '@angular/common';
 import { GeoService } from '../../services/geo.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-codebar',
@@ -15,6 +16,9 @@ export class CodebarComponent implements OnInit {
 
   form: FormGroup;
   lectura: DniCode;
+  @Output() inmediatoAnterior='/menu/terinos-condiciones';
+
+  inmediatoSiguiente='/menu/datos-domiciliarios';
 
   swiperOts = {
     allowSlidePrev : false,
@@ -25,6 +29,7 @@ export class CodebarComponent implements OnInit {
     private barcodeScanner: BarcodeScanner,
     private codeBaservice: CodeBarService,
     private geoService: GeoService,
+    private navCtrl: NavController,
     ) {
       this.form = new FormGroup({
         dni: new FormControl(''/*,regla de validacion,/*regla de validacion ascincrona*/),
@@ -35,6 +40,11 @@ export class CodebarComponent implements OnInit {
     }
 
   ngOnInit() {
+
+  }
+
+  navDatosDomiciliarios(){
+    this.navCtrl.navigateRoot(this.inmediatoSiguiente, { animated: true});
 
   }
 

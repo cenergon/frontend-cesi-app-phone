@@ -17,6 +17,8 @@ export class MenuPage implements OnInit {
   componentes: Observable<ComponentMenu[]>;
 
   flag: boolean = true;
+  titulo: string;
+  icono: string;
 
   selectedPath = '';
 

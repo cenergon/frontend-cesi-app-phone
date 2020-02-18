@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-selfie',
@@ -13,7 +14,12 @@ export class SelfieComponent implements OnInit {
 
   tempImages = [];
 
-  constructor() { }
+  constructor( private navCtrl: NavController) { }
+
+
+  navFirma(){
+    this.navCtrl.navigateRoot('/menu/firma', { animated: true});
+  }
 
   ngOnInit() {}
 

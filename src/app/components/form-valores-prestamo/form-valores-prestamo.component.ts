@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-form-valores-prestamo',
@@ -11,9 +11,17 @@ export class FormValoresPrestamoComponent implements OnInit {
   titulo: string;
   icono: string;
 
-  constructor( public alertCtrl: AlertController ) { }
+  constructor( 
+    public alertCtrl: AlertController,
+    public navCtrl: NavController
+
+    ) { }
 
   ngOnInit() {
+  }
+
+  navTerminosCondiones(){
+    this.navCtrl.navigateRoot('/menu/terminos-condiciones', { animated: true});
   }
 
 

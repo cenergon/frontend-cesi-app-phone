@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-form-datos-domiciliarios',
@@ -9,7 +10,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class FormDatosDomiciliariosComponent implements OnInit {
 
   form: FormGroup;
-  constructor() { 
+  constructor(private navCtrl: NavController) { 
     this.form = new FormGroup({
       provincia: new FormControl(''),
       localidad: new FormControl(''),
@@ -28,6 +29,10 @@ export class FormDatosDomiciliariosComponent implements OnInit {
   guardarDatosDomiciliarios(){
     console.log(this.form.value);
 
+  }
+
+  navDatosContactos(){
+    this.navCtrl.navigateRoot('/menu/datos-contactos', { animated: true});
   }
 
   ngOnInit() {}

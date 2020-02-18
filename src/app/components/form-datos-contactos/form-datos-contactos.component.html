@@ -1,12 +1,12 @@
-<ion-header translucent>
+<ion-content>
+
     <ion-toolbar color="medium">
         <ion-title style="text-align: center" size="small">
-            <ion-icon name="phone"></ion-icon>
+            <ion-icon name="call"></ion-icon>
             Datos de Contacto
         </ion-title>
     </ion-toolbar>
-</ion-header>
-<ion-content>
+
     <form [formGroup]="form" (ngSubmit)="guardarDatosContactos()">
         <ion-row>
             <ion-col>
@@ -21,7 +21,7 @@
                         <ion-input formControlName="telefonoFijo" placeholder="" name="nombre" type="text" required></ion-input>
                     </ion-item>
 
-                    <ion-button expand="full" color="success">CONTINUAR</ion-button>
+                    <ion-button expand="full" color="success" (click)="navCamDatos()">CONTINUAR</ion-button>
                 </ion-list>
             </ion-col>
         </ion-row>
