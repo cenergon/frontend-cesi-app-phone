@@ -160,7 +160,7 @@ export class DrawingComponent implements OnInit {
   }
 
   navFinTramite(){
-    this.navCtrl.navigateRoot('/menu/fin-tramite', { animated: true});
+    this.navCtrl.navigateRoot('/menu/fin-tramite', { animated: true });  
   }
 
   ngOnInit() {

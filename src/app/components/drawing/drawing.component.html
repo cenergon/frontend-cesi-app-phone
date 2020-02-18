@@ -2,7 +2,7 @@
     <ion-toolbar color="secondary">
         <ion-title style="text-align: center" size="small">
             <ion-icon name="create"></ion-icon>
-            Digitalizació de firma
+            Firma
         </ion-title>
     </ion-toolbar>
     <div #fixedContainer ion-fixed>
@@ -34,7 +34,7 @@
 
         <ion-slides [options]="swiperOts">
             <ion-slide>
-                <canvas width="375" height="450" #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
+                <canvas width="375" height="400" #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
             </ion-slide>
         </ion-slides>
         <p></p>
