@@ -19,6 +19,7 @@ import { FormTerminosCondicionesComponent } from './form-terminos-condiciones/fo
 import { SelfieComponent } from './selfie/selfie.component';
 import { FormValoresPrestamoComponent } from './form-valores-prestamo/form-valores-prestamo.component';
 import { FormFinTramiteComponent } from './form-fin-tramite/form-fin-tramite.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -38,7 +39,8 @@ import { FormFinTramiteComponent } from './form-fin-tramite/form-fin-tramite.com
     FormTerminosCondicionesComponent,
     FormValoresPrestamoComponent,
     FormFinTramiteComponent,
-    SelfieComponent
+    SelfieComponent,
+    FooterComponent
   ],
   exports: [
     PostsComponent,
@@ -53,7 +55,8 @@ import { FormFinTramiteComponent } from './form-fin-tramite/form-fin-tramite.com
     FormTerminosCondicionesComponent,
     FormValoresPrestamoComponent,
     FormFinTramiteComponent,
-    SelfieComponent
+    SelfieComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

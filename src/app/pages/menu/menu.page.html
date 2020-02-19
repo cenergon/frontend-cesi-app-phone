@@ -1,6 +1,6 @@
 <ion-menu side="start" menuId="primerMenu" contentId="content">
     <ion-header>
-        <ion-toolbar translucent>
+        <ion-toolbar translucent color="primary">
             <ion-title>Menu</ion-title>
         </ion-toolbar>
     </ion-header>
@@ -10,7 +10,6 @@
             <ion-menu-toggle autoHide="false" *ngFor="let c of componentes | async">
                 <ion-item [routerLink]="c.redirectTo" routerDirection="root" [class.active-item]="selectedPath === c.redirectTo">
                     <ion-icon slot="start" [name]="c.icon"></ion-icon>
-                    <!-- <ion-label>{{ c.name }}{{c.redirectTo}}</ion-label> -->
                     <ion-label>{{ c.name }}</ion-label>
                 </ion-item>
             </ion-menu-toggle>

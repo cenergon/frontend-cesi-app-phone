@@ -8,7 +8,8 @@ import { UsuariosGuard } from 'src/app/guards/usuarios.guard';
 const routes: Routes = [
   {
     path: '',
-     redirectTo: '/menu/pedir-prestamo',
+   
+   redirectTo: '/menu/pedir-prestamo',
    // redirectTo: '/wizard',
    // redirectTo: '/menu/terminos-condiciones',
     pathMatch: 'full'

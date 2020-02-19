@@ -1,31 +1,35 @@
 <app-header [titulo]="titulo || 'Nosotros'" [icono]="icono || 'md-contacts'"> </app-header>
 <div class="ion-page" main>
     <ion-header>
-       <ion-toolbar>
-           <ion-buttons slot="start">
-               <ion-menu-button></ion-menu-button>
-           </ion-buttons>
-           <ion-title></ion-title>
-       </ion-toolbar>
-   </ion-header>
-   <ion-content class="ion-padding">
-       
-    <ion-row>
-        <ion-col style="text-align: center">
-            <img src="/assets/icon/CESI.png">
-        </ion-col>
-    </ion-row>
-    <ion-card>
-        <ion-card-header>
-            <ion-card-subtitle>FinTech</ion-card-subtitle>
-            <ion-card-title>Llego para quedarse</ion-card-title>
-        </ion-card-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title></ion-title>
+        </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
 
-        <ion-card-content>
-            Desarrollo de software basado en los nuevos servicios financieros, para añadir valor sobre los servicios actuales de mututales o entidades de credito. Nuestras herramientas FinTech permite realizar de formar más eficiente la acreditación de prestamos
-            a los clientes. Permitiendo un acceso más rapido a los prestamos, junto con una mayor transparencia en la oferta. Utilizando la tecnología, como pilar para brindar una mejor servicio a cliente.
-        </ion-card-content>
-    </ion-card>
+        <ion-row>
+            <ion-col style="text-align: center">
+                <img src="/assets/icon/CESI.png">
+            </ion-col>
+        </ion-row>
+        <ion-card>
+            <ion-card-header>
+                <ion-card-subtitle>FinTech</ion-card-subtitle>
+                <ion-card-title>Llego para quedarse</ion-card-title>
+            </ion-card-header>
 
-   </ion-content> 
+            <ion-card-content>
+                Desarrollo de software basado en los nuevos servicios financieros, para añadir valor sobre los servicios actuales de mututales o entidades de credito. Nuestras herramientas FinTech permite realizar de formar más eficiente la acreditación de prestamos
+                a los clientes. Permitiendo un acceso más rapido a los prestamos, junto con una mayor transparencia en la oferta. Utilizando la tecnología, como pilar para brindar una mejor servicio a cliente.
+            </ion-card-content>
+        </ion-card>
+
+    </ion-content>
+
+    <ion-footer>
+        <app-footer></app-footer>
+    </ion-footer>
 </div>

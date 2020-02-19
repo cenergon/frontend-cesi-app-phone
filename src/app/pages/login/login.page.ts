@@ -75,14 +75,11 @@ export class LoginPage implements OnInit {
   }
 
   async login(flogin: NgForm){
-    
     if (!flogin.valid){return;}
-     const valido = await this.usuarioService.login(this.loginUser.email,this.loginUser.password);
-     
-     if (valido){
+    const valido = await this.usuarioService.login(this.loginUser.email,this.loginUser.password);
+    if (valido){
        // navegar al tabs
        // this.navCtrl.navigateRoot('/main/tabs/tab1', { animated: true});
-       
       //  this.navCtrl.navigateRoot('/pedir-prestamo', { animated: true});
        this.navCtrl.navigateRoot('/menu', { animated: true});
 

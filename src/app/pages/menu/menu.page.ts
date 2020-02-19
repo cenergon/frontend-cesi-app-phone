@@ -6,6 +6,7 @@ import { PostsService } from '../../services/posts.service';
 import { UsuarioService } from '../../services/usuario.service';
 import { MenuController } from '@ionic/angular';
 import { AuthService } from '../../services/auth0.service';
+import { RouterEvent, Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -31,13 +32,24 @@ export class MenuPage implements OnInit {
     private postService: PostsService,
     private usuarioService: UsuarioService,
     private menu: MenuController,
-    public authService : AuthService
+    public authService : AuthService,
+    private router: Router
 
-  ) { }
+  ) {
+
+    this.router.events.subscribe((event : RouterEvent ) =>
+    {
+      this.selectedPath = event.url;
+      console.log('enveto',this.selectedPath);
+    })
+
+  }
+  
 
   ngOnInit() {
     this.componentes = this.menuService.getMenuOpts();
   }
+
 
   logout(){
     //logout propip
