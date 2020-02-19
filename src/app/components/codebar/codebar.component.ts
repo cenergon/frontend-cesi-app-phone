@@ -53,7 +53,6 @@ export class CodebarComponent implements OnInit {
     this.scan();
   }
 
-
   scan() {
     const options: BarcodeScannerOptions = {
       preferFrontCamera: false,
@@ -69,18 +68,20 @@ export class CodebarComponent implements OnInit {
     this.barcodeScanner.scan(options).then(barcodeData => {
       console.log('Barcode data completo', barcodeData);
       // Descompongo el codebar dni
-      this.lectura = this.codeBaservice.formatCodeBar(barcodeData.text);
+      if (barcodeData){
+
+        this.lectura = this.codeBaservice.formatCodeBar(barcodeData.text);
       // Guardo Geo y fecha de cuando scaneo
-      this.geoService.getGeolocation().then( resp => { 
+        this.geoService.getGeolocation().then( resp => { 
         console.log ('Imprimo coordenadas ionic',resp);
         this.lectura.coords = resp;
         this.lectura.created = new Date();
       } );
 
-      console.log('lectura de: ', this.lectura);
-      this.cargarForm(this.lectura);
-
-
+        console.log('lectura de: ', this.lectura);
+        this.cargarForm(this.lectura);
+      }
+      
      }).catch(err => {
          console.log('Error', err);
      });

@@ -24,8 +24,8 @@ img {
     display: block;
 }
 
-ion-item[type=text] {
-    height: 30px;
+.ion-item {
+    height: 20px;
 }
 
 .label3 {
@@ -34,4 +34,27 @@ ion-item[type=text] {
 
 .label4 {
     font-size: 10px;
+}
+
+ion-item {
+    // border-radius: 10px !important;
+    padding-left: 30px !important;
+    padding-right: 30px;
+    font-size: 0.9em;
+    border: 1px solid #f1f1f1;
+    background: rgb(219, 219, 219);
+    height: 10%;
+    width: 100%;
+}
+
+ion-input {
+    border-radius: 10px !important;
+    padding-right: 30px;
+    font-size: 0.9em;
+    border: 1px solid #f1f1f1 !important;
+    --background: rgb(219, 219, 219) !important;
+    /* height: 10%; */
+    /* width: 41%; */
+    //max-width: 50vw; // this is applying perfectly
+    //max-height: 10vh;
 }

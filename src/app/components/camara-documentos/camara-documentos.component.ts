@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { NavController } from '@ionic/angular';
+import { FormGroup, FormControl } from '@angular/forms';
 
 declare var window : any;
 
@@ -21,7 +22,7 @@ export class CamaraDocumentosComponent implements OnInit {
     allowSlideNext : false
   };  
 
-  public form = [
+  public documentos = [
     { val: 'DNI - Foto Ambos lados', isChecked: true },
     { val: '3 últimos Meses de Recibo de Sueldo', isChecked: false },
     { val: '3 últimos meses de resumen bancarios', isChecked: false },
@@ -46,7 +47,11 @@ export class CamaraDocumentosComponent implements OnInit {
     private geolocation : Geolocation,
     private camera: Camera,
     private navCtrl: NavController
-    ) {}
+    ) {
+
+    }
+
+  guardarDocumentos(){}
 
   async crearPost(){
     

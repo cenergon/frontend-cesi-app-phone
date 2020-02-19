@@ -12,56 +12,58 @@
             <ion-col>
                 <ion-list>
                     <ion-item>
-                        <ion-label>Provincia</ion-label>
-                        <ion-input formControlName="provincia" placeholder="ingrese provincia..." name="dni" type="numeric" required></ion-input>
+                        <!-- <ion-label>Provincia</ion-label> -->
+                        <ion-input formControlName="provincia" placeholder="Provicia" name="dni" type="text" required></ion-input>
                     </ion-item>
 
                     <ion-item>
-                        <ion-label>Localidad</ion-label>
-                        <ion-input formControlName="localidad" placeholder="ingrese localidad..." name="localidad" type="text" required></ion-input>
+                        <!-- <ion-label>Localidad</ion-label> -->
+                        <ion-input formControlName="localidad" placeholder="Localidad" name="localidad" type="text" required></ion-input>
                     </ion-item>
 
                     <ion-item>
-                        <ion-label>Domicilio</ion-label>
-                        <ion-input formControlName="domicilio" placeholder="ingrese domicilio..." name="domicilio" type="text" required></ion-input>
+                        <!-- <ion-label>Domicilio</ion-label> -->
+                        <ion-input formControlName="domicilio" placeholder="Domicilio / Calle" name="domicilio" type="text" required></ion-input>
+                    </ion-item>
+
+                    <ion-row>
+                        <ion-col>
+                            <ion-item>
+                                <!-- <ion-label>Número<i class="fas fa-sort-numeric-down    "></i></ion-label> -->
+                                <ion-input formControlName="numero" placeholder="Nro." name="" type="number" required></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item>
+                                <!-- <ion-label>Piso</ion-label> -->
+                                <ion-input formControlName="piso" placeholder="Piso" name="" type="number"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item>
+                                <!-- <ion-label>Dpto.</ion-label> -->
+                                <ion-input formControlName="dpto" placeholder="Dpto." name="" type="number"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-item>
+                        <!-- <ion-label>Entre calle</ion-label> -->
+                        <ion-input formControlName="entrecalle" placeholder="Entre calle" name="" type="text" required></ion-input>
                     </ion-item>
 
                     <ion-item>
-                        <ion-label>Calle</ion-label>
-                        <ion-input formControlName="calle" placeholder="ingrese fecha de nacimiento..." name="fechaNacimiento" type="date " required></ion-input>
+                        <!-- <ion-label>Y calle</ion-label> -->
+                        <ion-input formControlName="ycalle" placeholder="y Calle" name="" type="text" required></ion-input>
                     </ion-item>
 
                     <ion-item>
-                        <ion-label>Número<i class="fas fa-sort-numeric-down    "></i></ion-label>
-                        <ion-input formControlName="numero" placeholder="ingrese número de domicilio..." name="" type="date " required></ion-input>
+                        <!-- <ion-label>Barrio</ion-label> -->
+                        <ion-input formControlName="barrio" placeholder="Barrio" name="" type="text" required></ion-input>
                     </ion-item>
 
-                    <ion-item>
-                        <ion-label>Piso</ion-label>
-                        <ion-input formControlName="piso" placeholder="ingrese piso de domicilio si corresponde..." name="" type="date " required></ion-input>
-                    </ion-item>
+                    <ion-button [disabled]="form.invalid" expand="full" color="success" (click)="navDatosContactos()">CONTINUAR</ion-button>
 
-                    <ion-item>
-                        <ion-label>Dpto.</ion-label>
-                        <ion-input formControlName="dpto" placeholder="ingrese nro. de dto. si corresponde..." name="" type="date " required></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label>Entre calle</ion-label>
-                        <ion-input formControlName="entrecalle" placeholder="ingrese una calle paralela..." name="" type="date " required></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label>Y calle</ion-label>
-                        <ion-input formControlName="ycalle" placeholder="ingrese la otra calle paralela" name="" type="date " required></ion-input>
-                    </ion-item>
-
-                    <ion-item>
-                        <ion-label>Barrio</ion-label>
-                        <ion-input formControlName="barrio" placeholder="ingrese barrio si corresponde..." name="" type="date " required></ion-input>
-                    </ion-item>
-
-                    <ion-button expand="full" color="success" (click)="navDatosContactos()">CONTINUAR</ion-button>
                 </ion-list>
             </ion-col>
         </ion-row>

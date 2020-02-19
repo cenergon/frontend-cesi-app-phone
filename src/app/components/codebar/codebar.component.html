@@ -42,12 +42,13 @@
         </ion-slides>
     </ion-card>
     <!-- Formulario de control de carga  -->
+
     <form [formGroup]="form" (ngSubmit)="guardarDatosDni()">
         <ion-row>
             <ion-col>
-                <ion-list>
-                    <ion-item>
-                        <ion-label>DNI</ion-label>
+                <ion-list align-items-center>
+                    <ion-item align-items-center>
+                        <ion-label class="datos-personales">DNI</ion-label>
                         <ion-input formControlName="dni" placeholder="dni" name="dni" type="numeric" required></ion-input>
                     </ion-item>
 

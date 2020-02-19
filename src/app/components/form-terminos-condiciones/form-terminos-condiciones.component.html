@@ -24,14 +24,13 @@
   </i></ion-text>
         </div>
 
-
         <ion-item>
-            <ion-checkbox color="secondary" checked="false" slot="start"></ion-checkbox>
+            <ion-checkbox [(ngModel)]="checkedbtn" color="secondary" slot="start"></ion-checkbox>
             <ion-label class="label4">Acepto los términos del presente documento</ion-label>
         </ion-item>
 
         <section class="full-width">
-            <ion-button (click)="navDatosPersonales()" expand="full" color="success">CONTINUAR</ion-button>
+            <ion-button [disabled]="!checkedbtn" (click)="navDatosPersonales()" expand="full" color="success">CONTINUAR</ion-button>
         </section>
 
 </ion-content>
