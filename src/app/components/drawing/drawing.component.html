@@ -4,7 +4,13 @@
             <ion-icon name="create"></ion-icon>
             Firma
         </ion-title>
+        <ion-buttons slot="end">
+            <ion-button color="medium" size="small">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+            </ion-button>
+        </ion-buttons>
     </ion-toolbar>
+
     <div #fixedContainer ion-fixed>
         <!-- Barra de colores para pintar -->
         <!-- <ion-row>
@@ -24,17 +30,9 @@
             <ion-icon name="create"></ion-icon>
         </ion-button> -->
 
-        <ion-toolbar>
-            <ion-buttons slot="end">
-                <ion-button color="medium" size="small">
-                    <ion-icon slot="icon-only" name="trash"></ion-icon>
-                </ion-button>
-            </ion-buttons>
-        </ion-toolbar>
-
         <ion-slides [options]="swiperOts">
             <ion-slide>
-                <canvas width="375" height="400" #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
+                <canvas width="375" height="350" #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
             </ion-slide>
         </ion-slides>
         <p></p>
