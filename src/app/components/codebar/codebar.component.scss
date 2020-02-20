@@ -1,60 +1,61 @@
-ion-slides,
-ion-slide {
-    height: 100%;
-    width: 100%;
-}
-
-:root {
-    --ion-safe-area-top: 20px;
-    --ion-safe-area-bottom: 22px;
-}
-
-.img-avatar {
-    width: 350px
-}
-
-.top-20 {
-    margin-top: 10px
-}
-
-img {
-    // height: 70vh;
-    width: auto;
-    margin: auto;
-    display: block;
-}
-
-.ion-item {
-    height: 20px;
-}
-
-.label3 {
-    font-size: 13px;
-}
-
-.label4 {
-    font-size: 10px;
-}
-
-ion-item {
-    // border-radius: 10px !important;
-    padding-left: 30px !important;
-    padding-right: 30px;
-    font-size: 0.9em;
-    border: 1px solid #f1f1f1;
-    background: rgb(219, 219, 219);
-    height: 10%;
-    width: 100%;
-}
-
-ion-input {
-    border-radius: 10px !important;
-    padding-right: 30px;
-    font-size: 0.9em;
-    border: 1px solid #f1f1f1 !important;
-    --background: rgb(219, 219, 219) !important;
-    /* height: 10%; */
-    /* width: 41%; */
-    //max-width: 50vw; // this is applying perfectly
-    //max-height: 10vh;
-}
+    ion-slides,
+    ion-slide {
+        height: 100%;
+        width: 100%;
+    }
+    
+     :root {
+        --ion-safe-area-top: 20px;
+        --ion-safe-area-bottom: 22px;
+    }
+    
+    .img-avatar {
+        width: 350px
+    }
+    
+    .top-20 {
+        margin-top: 10px
+    }
+    
+    img {
+        // height: 70vh;
+        width: auto;
+        margin: auto;
+        display: block;
+    }
+    
+    .ion-item {
+        height: 20px;
+    }
+    
+    .label3 {
+        font-size: 13px;
+    }
+    
+    .label4 {
+        font-size: 10px;
+    }
+    
+    // ion-item {
+    //     // border-radius: 10px !important;
+    //     padding-left: 30px !important;
+    //     padding-right: 30px;
+    //     font-size: 0.9em;
+    //     //border: 1px solid #f1f1f1;
+    //     //background: rgb(219, 219, 219);
+    //     height: 10%;
+    //     width: 100%;
+    //     margin: 5px auto;
+    // }
+    // ion-input {
+    //     border-radius: 10px !important;
+    //     padding-right: 30px;
+    //     font-size: 0.9em;
+    //     border: 1px solid #f1f1f1 !important;
+    //     --background: rgb(219, 219, 219) !important;
+    //     height: 60%;
+    //     /* height: 10%; */
+    //     /* width: 41%; */
+    //     //max-width: 50vw; // this is applying perfectly
+    //     //max-height: 10vh;
+    // }

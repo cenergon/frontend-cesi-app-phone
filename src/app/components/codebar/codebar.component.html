@@ -1,12 +1,4 @@
 <ion-content>
-
-    <ion-toolbar color="warning">
-        <ion-title style="text-align: center" size="small">
-            <ion-icon name="person"></ion-icon>
-            Datos Personales
-        </ion-title>
-    </ion-toolbar>
-
     <ion-card>
         <ion-card-content>
             <p></p>
@@ -47,27 +39,38 @@
         <ion-row>
             <ion-col>
                 <ion-list align-items-center>
-                    <ion-item align-items-center>
-                        <ion-label class="datos-personales">DNI</ion-label>
-                        <ion-input formControlName="dni" placeholder="dni" name="dni" type="numeric" required></ion-input>
-                    </ion-item>
 
-                    <ion-item>
-                        <ion-label>Nombre</ion-label>
-                        <ion-input formControlName="nombre" placeholder="nombre" name="nombre" type="text" required></ion-input>
-                    </ion-item>
+                    <ion-row>
+                        <ion-col>
+                            <ion-item align-items-center>
+                                <!-- <ion-label class="datos-personales">DNI</ion-label> -->
+                                <ion-input formControlName="dni" placeholder="DNI" name="dni" type="numeric" required disabled="true"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item>
+                                <!-- <ion-label>Fecha de Nacimiento</ion-label> -->
+                                <ion-input formControlName="fechaNacimiento" placeholder="dd/mm/yyyy" name="fechaNacimiento" type="text" required disabled="true"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
 
-                    <ion-item>
-                        <ion-label>Apellido</ion-label>
-                        <ion-input formControlName="apellido" placeholder="apellido" name="nombre" type="text" required></ion-input>
-                    </ion-item>
+                    <ion-row>
+                        <ion-col>
+                            <ion-item>
+                                <!-- <ion-label>Nombre</ion-label> -->
+                                <ion-input formControlName="nombre" placeholder="Nombre" name="nombre" type="text" required disabled="true"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col>
+                            <ion-item>
+                                <!-- <ion-label>Apellido</ion-label> -->
+                                <ion-input formControlName="apellido" placeholder="Apellido" name="nombre" type="text" required disabled="true"></ion-input>
+                            </ion-item>
+                        </ion-col>
+                    </ion-row>
 
-                    <ion-item>
-                        <ion-label>Fecha de Nacimiento</ion-label>
-                        <ion-input formControlName="fechaNacimiento" placeholder="dd/mm/yyyy" name="fechaNacimiento" type="date " required></ion-input>
-                    </ion-item>
-
-                    <ion-button expand="full" color="success" (click)="navDatosDomiciliarios()">CONTINUAR</ion-button>
+                    <ion-button [disabled]="!form.invalid" expand="full" color="success" (click)="navDatosDomiciliarios()">CONTINUAR</ion-button>
                 </ion-list>
             </ion-col>
         </ion-row>

@@ -22,7 +22,6 @@ const routes: Routes = [
       // tslint:disable-next-line: max-line-length
       // { path: 'pedir-prestamo', loadChildren: '../pedir-prestamo/pedir-prestamo.module#PedirPrestamoPageModule', canLoad: [ UsuariosGuard ] },
       { path: 'mensajes', loadChildren: '../mensajes/mensajes.module#MensajesPageModule', },
-      { path: 'documentacion', loadChildren: '../documentacion/documentacion.module#DocumentacionPageModule', canLoad: [ UsuariosGuard ]},
       { path: 'cuenta', loadChildren: '../cuenta/cuenta.module#CuentaPageModule', canLoad: [ UsuariosGuard ] },
       { path: 'prestamo', loadChildren: '../prestamo/prestamo.module#PrestamoPageModule', canLoad: [ UsuariosGuard ] },
       { path: 'acercade', loadChildren: '../acercade/acercade.module#AcercadePageModule', canLoad: [ UsuariosGuard ]},
@@ -30,6 +29,7 @@ const routes: Routes = [
       // Pages Wizard - Agregar canLoad
       { path: 'pedir-prestamo', loadChildren: '../pedir-prestamo/pedir-prestamo.module#PedirPrestamoPageModule', },
       { path: 'terminos-condiciones', loadChildren: '../terminos-condiciones/terminos-condiciones.module#TerminosCondicionesPageModule' },
+      { path: 'documentacion', loadChildren: '../documentacion/documentacion.module#DocumentacionPageModule',},
       { path: 'datos-personales', loadChildren: '../datos-personales/datos-personales.module#DatosPersonalesPageModule' },
       { path: 'datos-domiciliarios', loadChildren: '../datos-domiciliarios/datos-domiciliarios.module#DatosDomiciliariosPageModule' },
       { path: 'datos-contactos', loadChildren: '../datos-contactos/datos-contactos.module#DatosContactosPageModule' },

@@ -20,6 +20,7 @@ import { SelfieComponent } from './selfie/selfie.component';
 import { FormValoresPrestamoComponent } from './form-valores-prestamo/form-valores-prestamo.component';
 import { FormFinTramiteComponent } from './form-fin-tramite/form-fin-tramite.component';
 import { FooterComponent } from './footer/footer.component';
+import { ListaDocumentacionComponent } from './lista-documentacion/lista-documentacion.component';
 
 
 
@@ -40,7 +41,8 @@ import { FooterComponent } from './footer/footer.component';
     FormValoresPrestamoComponent,
     FormFinTramiteComponent,
     SelfieComponent,
-    FooterComponent
+    FooterComponent,
+    ListaDocumentacionComponent
   ],
   exports: [
     PostsComponent,
@@ -56,7 +58,8 @@ import { FooterComponent } from './footer/footer.component';
     FormValoresPrestamoComponent,
     FormFinTramiteComponent,
     SelfieComponent,
-    FooterComponent
+    FooterComponent,
+    ListaDocumentacionComponent,
   ],
   imports: [
     CommonModule,
@@ -64,7 +67,7 @@ import { FooterComponent } from './footer/footer.component';
     PipesModule,
     RouterModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ]
 })
 export class ComponentsModule { }

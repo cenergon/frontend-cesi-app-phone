@@ -1,27 +1,19 @@
 <ion-content>
-
-    <ion-toolbar color="medium">
-        <ion-title style="text-align: center" size="small">
-            <ion-icon name="call"></ion-icon>
-            Datos de Contacto
-        </ion-title>
-    </ion-toolbar>
-
     <form [formGroup]="form" (ngSubmit)="guardarDatosContactos()">
         <ion-row>
             <ion-col>
                 <ion-list>
                     <ion-item>
-                        <ion-label>Teléfono Celular</ion-label>
-                        <ion-input formControlName="telefonoCelular" placeholder="" name="dni" type="numeric" required></ion-input>
+                        <!-- <ion-label>Teléfono Celular</ion-label> -->
+                        <ion-input formControlName="telefonoCelular" placeholder="Teléfono Celular" name="dni" type="number" required></ion-input>
                     </ion-item>
 
                     <ion-item>
-                        <ion-label>Teléfono Fijo</ion-label>
-                        <ion-input formControlName="telefonoFijo" placeholder="" name="nombre" type="text" required></ion-input>
+                        <!-- <ion-label>Teléfono Fijo</ion-label> -->
+                        <ion-input formControlName="telefonoFijo" placeholder="Teléfono Fijo" name="nombre" type="number" required></ion-input>
                     </ion-item>
 
-                    <ion-button expand="full" color="success" (click)="navCamDatos()">CONTINUAR</ion-button>
+                    <ion-button [disabled]="form.invalid" expand="full" color="success" (click)="navCamDatos()">CONTINUAR</ion-button>
                 </ion-list>
             </ion-col>
         </ion-row>
