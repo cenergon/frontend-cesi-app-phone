@@ -8,12 +8,19 @@ import { NavController } from '@ionic/angular';
 })
 export class ListaDocumentacionComponent implements OnInit {
 
+  public documentos = [
+    { val: 'DNI - Foto Ambos lados', isChecked: true },
+    { val: '3 últimos Meses de Recibo de Sueldo', isChecked: true },
+    { val: '3 últimos meses de resumen bancarios', isChecked: true },
+    { val: 'Impuesto de Servicio - A Nombre de titular', isChecked: true }
+  ];
+
   constructor(
     private navCtrl: NavController
   ) { }
 
-  navDcoumento(){
-    this.navCtrl.navigateRoot('/menu/documento1', { animated: true});
+  navCtrlPage(){
+    this.navCtrl.navigateRoot('/menu/terminos-condiciones', { animated: true});
   }
 
   ngOnInit() {}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-fin-tramite',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormFinTramiteComponent implements OnInit {
 
-  constructor() { }
+  inmediatoSiguiente: string = 'menu/home'
+  constructor(
+    private router: Router
+  ) { }
+
+  navCtrlPage(){
+    this.router.navigateByUrl('/main/tabs/tab1');
+
+  }
 
   ngOnInit() {}
 

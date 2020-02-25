@@ -16,11 +16,6 @@ export class SelfieComponent implements OnInit {
 
   constructor( private navCtrl: NavController) { }
 
-
-  navFirma(){
-    this.navCtrl.navigateRoot('/menu/firma', { animated: true});
-  }
-
   ngOnInit() {}
 
 }

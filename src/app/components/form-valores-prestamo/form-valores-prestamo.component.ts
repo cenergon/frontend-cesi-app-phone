@@ -20,8 +20,8 @@ export class FormValoresPrestamoComponent implements OnInit {
   ngOnInit() {
   }
 
-  navTerminosCondiones(){
-    this.navCtrl.navigateRoot('/menu/terminos-condiciones', { animated: true});
+  navCtrlPage(){
+    this.navCtrl.navigateRoot('/menu/documentacion', { animated: true});
   }
 
 

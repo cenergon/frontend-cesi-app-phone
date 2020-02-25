@@ -1,3 +1,49 @@
 <ion-content>
+    <div class="ion-page" main>
+        <div class="user-photo" padding-top>
+            <ion-row>
+                <ion-col style="text-align: center" text-center>
+                    <img height='100' width='100' src="/assets/avatars/av-1.png">
+                </ion-col>
+            </ion-row>
+        </div>
+
+        <div class="ion-text-center" padding>
+            <ion-card-subtitle color="primary">Detalle de la solicitud</ion-card-subtitle>
+        </div>
+
+        <ion-list>
+            <ion-item>
+                <ion-icon name="person" slot="start"></ion-icon>
+                <ion-label>
+                    <p>Nombre</p>
+                    <h2>Juan Carlos</h2>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="person" slot="start"></ion-icon>
+                <ion-label>
+                    <p>Apellido</p>
+                    <h2>Ramos</h2>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="person" slot="start"></ion-icon>
+                <ion-label>
+                    <p>Alias</p>
+                    <h2></h2>
+                </ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-icon name="md-call" slot="start"></ion-icon>
+                <ion-label>
+                    <p>Telefono:</p>
+                    <h2>2944-667389</h2>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+        <ion-button expand="full" color="success" (click)="navCtrlPage()">ACEPTAR</ion-button>
+
+    </div>
 
 </ion-content>

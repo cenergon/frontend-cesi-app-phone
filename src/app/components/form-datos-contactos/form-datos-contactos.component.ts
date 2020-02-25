@@ -24,8 +24,8 @@ export class FormDatosContactosComponent implements OnInit {
   guardarDatosContactos(){}
 
 
-  navCamDatos(){
-    this.navCtrl.navigateRoot('/menu/cam-documentos', { animated: true});
+  navCtrlPage(){
+    this.navCtrl.navigateRoot('/menu/documento1', { animated: true});
   }
 
   ngOnInit() {}

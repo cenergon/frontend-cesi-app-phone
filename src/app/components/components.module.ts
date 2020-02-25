@@ -21,6 +21,7 @@ import { FormValoresPrestamoComponent } from './form-valores-prestamo/form-valor
 import { FormFinTramiteComponent } from './form-fin-tramite/form-fin-tramite.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListaDocumentacionComponent } from './lista-documentacion/lista-documentacion.component';
+import { CameraComponent } from './camera/camera.component';
 
 
 
@@ -42,7 +43,8 @@ import { ListaDocumentacionComponent } from './lista-documentacion/lista-documen
     FormFinTramiteComponent,
     SelfieComponent,
     FooterComponent,
-    ListaDocumentacionComponent
+    ListaDocumentacionComponent,
+    CameraComponent
   ],
   exports: [
     PostsComponent,
@@ -60,6 +62,7 @@ import { ListaDocumentacionComponent } from './lista-documentacion/lista-documen
     SelfieComponent,
     FooterComponent,
     ListaDocumentacionComponent,
+    CameraComponent
   ],
   imports: [
     CommonModule,

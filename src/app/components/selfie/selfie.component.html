@@ -1,50 +1,8 @@
-<ion-header no-border>
-    <ion-toolbar>
-        <ion-row class="top-20">
-            <ion-title color="" style="text-align: center" size="small">Toma una Selfie en un lugar con claridad</ion-title>
-        </ion-row>
-    </ion-toolbar>
-</ion-header>
-
 <ion-content padding>
     <ion-card>
         <ion-card-content>
             <img src="assets/img/selfie.png" />
         </ion-card-content>
     </ion-card>
-
-    <ion-slides [options]="swiperOts">
-        <ion-slide>
-            <ion-button color="secondary" expand="full" shape="round">
-                <ion-icon slot="start" name="camera"></ion-icon>
-                CAMARA
-            </ion-button>
-        </ion-slide>
-    </ion-slides>
-
-    <ion-list>
-        <ion-item-sliding>
-            <ion-item style="text-align: center" color="">
-                <ion-label><i>Tu Rostro y DNI deben verse con claridad</i></ion-label>
-            </ion-item>
-        </ion-item-sliding>
-    </ion-list>
-
-
-    <ion-button (click)="navFirma()" color="success" expand="full" shape="round">
-        <ion-icon slot="start" name="cloud-upload"></ion-icon>
-        SUBIR FOTO
-    </ion-button>
-
-    <!-- <p></p>
-
-    <ion-button expand="full" color="success">CONTINUAR</ion-button> -->
-
-    <ion-col size="3" *ngFor="let image of tempImages">
-        <ion-card>
-            <img [src]="image">
-        </ion-card>
-    </ion-col>
-
-
+    <app-camera [inmediatoSiguiente]="'/menu/firma'" [galeria]='false'></app-camera>
 </ion-content>

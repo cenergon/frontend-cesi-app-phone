@@ -1,0 +1,30 @@
+<app-header [titulo]="titulo || 'Documentacion'" [icono]="icono || 'attach'"> </app-header>
+<div class="ion-page" main>
+
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-toolbar color="tertiary">
+        <ion-title style="text-align: center" size="small">
+            <ion-icon name="file"></ion-icon>
+            Documentación - Informe Bancario
+        </ion-title>
+    </ion-toolbar>
+
+    <div class="ion-text-center" padding>
+        <ion-card-subtitle color="primary"><i>Buenisimo, ya casi terminamos!!  Ahora Tome una foto de los 3 últimos meses de resumen bancarios y presione Subir Documentación, cuando se active en color verde</i></ion-card-subtitle>
+    </div>
+
+    <ion-content padding>
+        <app-camera [inmediatoSiguiente]="'/menu/documento4'"></app-camera>
+    </ion-content>
+
+    <ion-footer>
+        <app-footer></app-footer>
+    </ion-footer>
+</div>

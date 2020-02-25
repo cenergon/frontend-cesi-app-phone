@@ -7,6 +7,11 @@
     </ion-slide>
 </ion-slides>
 
+  swiperOts = {
+    allowSlidePrev : false,
+    allowSlideNext : false
+  };
+
 -----------Icono con boton
 
   <ion-button icon-only color="danger" slot="end" size="small">
