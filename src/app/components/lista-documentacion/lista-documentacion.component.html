@@ -12,8 +12,8 @@
     <ion-content>
         <ion-list>
             <ion-item *ngFor="let entry of documentos">
-                <ion-checkbox desable="true" rue color="primary" slot="end" [(ngModel)]="entry.isChecked" required></ion-checkbox>
                 <ion-label class="label3">{{entry.val}}</ion-label>
+                <ion-checkbox (click)="clickTrue()" mode="ios" color="primary" slot="end" checked value="1" readonly required></ion-checkbox>
             </ion-item>
             <p></p>
             <p></p>

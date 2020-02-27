@@ -10,6 +10,7 @@ export class DatosPersonalesPage implements OnInit {
 
   titulo : string;
   icono : string;
+  footer: false;
 
   constructor(
     private navCtrl: NavController

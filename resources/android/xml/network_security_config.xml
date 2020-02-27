@@ -8,5 +8,7 @@
 
          <!-- Server cordobasoft -->
          <domain includeSubdomains="true">190.12.101.100</domain>
+          <!-- Server soyem -->
+         <domain includeSubdomains="true">104.156.53.121</domain>
     </domain-config>
 </network-security-config>

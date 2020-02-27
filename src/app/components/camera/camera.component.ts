@@ -16,6 +16,7 @@ export class CameraComponent {
 
   @Input() inmediatoSiguiente: string;
   @Input() galeria: boolean = true;
+  @Input() tituloDocumento: string ;
 
   swiperOts = {
     allowSlidePrev : false,
@@ -46,18 +47,20 @@ export class CameraComponent {
 
     async crearPost(){
 
-      //console.log(this.post);
 
-    //   const creado = await this.postsSerivce.crearPost(this.post)
+      this.post.mensaje = this.tituloDocumento;
+      console.log(this.post);
 
-    //   //Purgo mi objeto
-    //   this.post = {
-    //    mensaje : '',
-    //    coords: null,
-    //    posicion: false,
-    //  };
+      const creado = await this.postsSerivce.crearPost(this.post)
 
-    //  this.tempImages = [];//limpio antes de carga
+      //Purgo mi objeto
+      this.post = {
+       mensaje : '',
+       coords: null,
+       posicion: false,
+     };
+
+     this.tempImages = [];//limpio antes de carga
 
      this.navCtrlPage(this.inmediatoSiguiente);
 

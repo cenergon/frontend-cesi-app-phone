@@ -15,6 +15,7 @@ export class PedirPrestamoPage implements OnInit {
 
   titulo: string;
   icono: string;
+  footer: string;
   componentes: Observable<ComponentMenu[]>;
 
 

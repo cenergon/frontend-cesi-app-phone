@@ -1,0 +1,28 @@
+<app-header [titulo]="titulo || 'Dashboard'" [icono]="icono || 'md-analytics'"> </app-header>
+<div class="ion-page" main>
+    <ion-header>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+            <ion-title></ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>
+                    Dashboard
+                </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <iframe src="http://104.156.53.121:8081/pentaho/api/repos/%3Apublic%3ADesarrollos%3ADemos_charts_all%3ADashboardMobile.wcdf/generatedContent?userid=admin&password=scb" style="width: 100%; height: 70vh;"></iframe>
+            </ion-card-content>
+        </ion-card>
+    </ion-content>
+
+    <ion-footer>
+        <app-footer></app-footer>
+    </ion-footer>
+</div>

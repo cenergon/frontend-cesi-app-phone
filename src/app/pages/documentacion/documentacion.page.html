@@ -1,4 +1,4 @@
-<app-header [titulo]="titulo || 'Documentacion'" [icono]="icono || 'attach'"> </app-header>
+<app-header [titulo]="titulo || ''" [icono]="icono || 'attach'"> </app-header>
 <div class="ion-page" main>
 
     <ion-header>
@@ -20,7 +20,9 @@
         <app-lista-documentacion></app-lista-documentacion>
     </ion-content>
 
-    <ion-footer>
-        <app-footer></app-footer>
-    </ion-footer>
+    <div *ngIf="footer">
+        <ion-footer>
+            <app-footer></app-footer>
+        </ion-footer>
+    </div>
 </div>

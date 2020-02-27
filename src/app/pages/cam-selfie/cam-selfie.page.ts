@@ -9,6 +9,7 @@ export class CamSelfiePage implements OnInit {
 
   titulo: string;
   icono: string;
+  footer = false;
   
   constructor() { }
 

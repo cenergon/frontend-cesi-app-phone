@@ -9,6 +9,7 @@ export class DatosContactosPage implements OnInit {
 
   titulo: string;
   icono: string;
+  footer: boolean = false;
   
   constructor() { }
 

@@ -7,6 +7,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./lista-documentacion.component.scss'],
 })
 export class ListaDocumentacionComponent implements OnInit {
+  isChecked =true;
 
   public documentos = [
     { val: 'DNI - Foto Ambos lados', isChecked: true },
@@ -21,6 +22,9 @@ export class ListaDocumentacionComponent implements OnInit {
 
   navCtrlPage(){
     this.navCtrl.navigateRoot('/menu/terminos-condiciones', { animated: true});
+  }
+  clickTrue(){
+    this.isChecked = true;
   }
 
   ngOnInit() {}

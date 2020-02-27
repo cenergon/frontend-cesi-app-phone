@@ -1,4 +1,4 @@
-<app-header [titulo]="titulo || 'Documentacion'" [icono]="icono || 'attach'"> </app-header>
+<app-header [titulo]="titulo || ''" [icono]="icono || 'attach'"> </app-header>
 <div class="ion-page" main>
 
     <ion-header>
@@ -21,10 +21,12 @@
     </div>
 
     <ion-content padding>
-        <app-camera [inmediatoSiguiente]="'/menu/documento2'"></app-camera>
+        <app-camera [tituloDocumento]="'DNI-LADOS'" [inmediatoSiguiente]="'/menu/documento2'"></app-camera>
     </ion-content>
 
-    <ion-footer>
-        <app-footer></app-footer>
-    </ion-footer>
+    <div *ngIf="footer">
+        <ion-footer>
+            <app-footer></app-footer>
+        </ion-footer>
+    </div>
 </div>

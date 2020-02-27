@@ -26,6 +26,8 @@ const routes: Routes = [
       { path: 'prestamo', loadChildren: '../prestamo/prestamo.module#PrestamoPageModule', canLoad: [ UsuariosGuard ] },
       { path: 'acercade', loadChildren: '../acercade/acercade.module#AcercadePageModule', canLoad: [ UsuariosGuard ]},
       { path: 'ayuda', loadChildren: '../ayuda/ayuda.module#AyudaPageModule', canLoad: [ UsuariosGuard ]},
+      // Dashboard
+      { path: 'dashboard', loadChildren: '../dashboard/dashboard.module#DashboardPageModule' },
       // Pages Wizard - Agregar canLoad
       { path: 'pedir-prestamo', loadChildren: '../pedir-prestamo/pedir-prestamo.module#PedirPrestamoPageModule', },
       { path: 'documentacion', loadChildren: '../documentacion/documentacion.module#DocumentacionPageModule',},
@@ -33,10 +35,10 @@ const routes: Routes = [
       { path: 'datos-personales', loadChildren: '../datos-personales/datos-personales.module#DatosPersonalesPageModule' },
       { path: 'datos-domiciliarios', loadChildren: '../datos-domiciliarios/datos-domiciliarios.module#DatosDomiciliariosPageModule' },
       { path: 'datos-contactos', loadChildren: '../datos-contactos/datos-contactos.module#DatosContactosPageModule' },
-      { path: 'documento1', loadChildren: './pages/documento1/documento1.module#Documento1PageModule' },
-      { path: 'documento2', loadChildren: './pages/documento2/documento2.module#Documento2PageModule' },
-      { path: 'documento3', loadChildren: './pages/documento3/documento3.module#Documento3PageModule' },
-      { path: 'documento4', loadChildren: './pages/documento4/documento4.module#Documento4PageModule' },
+      { path: 'documento1', loadChildren: '../documento1/documento1.module#Documento1PageModule' },
+      { path: 'documento2', loadChildren: '../documento2/documento2.module#Documento2PageModule' },
+      { path: 'documento3', loadChildren: '../documento3/documento3.module#Documento3PageModule' },
+      { path: 'documento4', loadChildren: '../documento4/documento4.module#Documento4PageModule' },
       { path: 'cam-documentos', loadChildren: '../cam-documentos/cam-documentos.module#CamDocumentosPageModule' },
       { path: 'cam-selfie', loadChildren: '../cam-selfie/cam-selfie.module#CamSelfiePageModule' },
       { path: 'firma', loadChildren: '../firma/firma.module#FirmaPageModule' },

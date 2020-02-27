@@ -9,6 +9,7 @@ export class Documento2Page implements OnInit {
 
   titulo:string;
   icono:string;
+  footer: string;
   constructor() { }
 
   ngOnInit() {

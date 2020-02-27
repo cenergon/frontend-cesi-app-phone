@@ -19,7 +19,9 @@
         <app-form-valores-prestamo></app-form-valores-prestamo>
     </ion-content>
 
-    <ion-footer>
-        <app-footer></app-footer>
-    </ion-footer>
+    <div *ngIf="footer">
+        <ion-footer>
+            <app-footer></app-footer>
+        </ion-footer>
+    </div>
 </div>

@@ -9,6 +9,7 @@ export class Documento4Page implements OnInit {
 
   titulo: string;
   icono: string;
+  footer = false;
   constructor() { }
 
   ngOnInit() {

@@ -9,6 +9,7 @@ export class Documento1Page implements OnInit {
 
   titulo: string;
   icono: string;
+  footer =false;
   
   constructor() { }
 

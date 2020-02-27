@@ -24,7 +24,9 @@
         <app-camera [inmediatoSiguiente]="'/menu/documento4'"></app-camera>
     </ion-content>
 
-    <ion-footer>
-        <app-footer></app-footer>
-    </ion-footer>
+    <div *ngIf="footer">
+        <ion-footer>
+            <app-footer></app-footer>
+        </ion-footer>
+    </div>
 </div>
