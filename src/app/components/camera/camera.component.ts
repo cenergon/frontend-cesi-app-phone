@@ -25,7 +25,7 @@ export class CameraComponent {
 
   cargandoGeo = false;
 
-  tempImages: string[] = [];
+  tempImages: string[] =[];
 
   post = {
     mensaje : '',
@@ -46,57 +46,59 @@ export class CameraComponent {
     }
 
     async crearPost(){
-
-
-      this.post.mensaje = this.tituloDocumento;
-      console.log(this.post);
-
+    
+      // console.log(this.post);
+   
       const creado = await this.postsSerivce.crearPost(this.post)
-
-      //Purgo mi objeto
+     
+      // Purgo mi objeto
       this.post = {
-       mensaje : '',
+       mensaje : this.tituloDocumento,
        coords: null,
        posicion: false,
      };
-
-     this.tempImages = [];//limpio antes de carga
-
+   
+     this.tempImages = [];// limpio antes de carga
+   
+     // Cuando creo un nuevo mensaje de post,  me muevo al tab1
+     // Gracias a las subscripcion es el secreto para actualizar el tab1
+     // this.router.navigateByUrl('/main/tabs/tab1');
      this.navCtrlPage(this.inmediatoSiguiente);
 
+      
      }
-
+   
      getGeolocation(){
-
-       //Si es falso, no pone la geo.
+   
+       // Si es falso, no pone la geo.
        if (!this.post.posicion){
          this.post.coords = null;
          return;
        }
-
+       
        this.cargandoGeo = true;
-
-       //Comienzo geo
+       
+       // Comienzo geo
        this.geolocation.getCurrentPosition().then((resp) => {
          // resp.coords.latitude
          // resp.coords.longitude
          this.cargandoGeo  = false;
-
+   
          const coords = `${ resp.coords.latitude }, ${ resp.coords.longitude}`;
          console.log(coords);
          this.post.coords =  coords;
-
+   
         }).catch((error) => {
           console.log('Error getting location', error);
           this.cargandoGeo = true;
         });
-
-
-        //console.log(this.post);
+   
+   
+        // console.log(this.post);
      }
-
+   
      camara(){
-
+   
        const options: CameraOptions = {
          quality: 45,
          destinationType: this.camera.DestinationType.FILE_URI,
@@ -105,11 +107,11 @@ export class CameraComponent {
          correctOrientation: true,
          sourceType: this.camera.PictureSourceType.CAMERA
        }
-
+   
        this.procesarImagen( options );
-
+   
      }
-
+   
      libreria(){
        const options: CameraOptions = {
          quality: 45,
@@ -119,31 +121,90 @@ export class CameraComponent {
          correctOrientation: true,
          sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
        }
-
+       
        this.procesarImagen( options );
-
-
+   
+   
      }
-
+   
      procesarImagen( options: CameraOptions){
        this.camera.getPicture(options).then( ( imageData ) => {
          // imageData is either a base64 encoded string or a file URI
          // If it's base64 (DATA_URL):
-
-         //Puede ser pesado de usar
+         
+         // Puede ser pesado de usar
          // let base64Image = 'data:image/jpeg;base64,' + imageData;
-
+        
          const img = window.Ionic.WebView.convertFileSrc( imageData );
-         //console.log (img);
-
+         // console.log (img);
+    
          this.postsSerivce.subirImagen( imageData );
          this.tempImages.push( img );
-
+    
         }, (err) => {
          // Handle error
         });
      }
+    
+
 }
+
+
+// guardar( form: NgForm ){
+    
+//   if (form.invalid) {
+//     console.log("Formulario no valido"); 
+//     return;
+//   }
+
+  
+//     Swal.fire({
+//       title: 'Espere',
+//       text: 'Guardando informacion',
+//       type: 'info',
+//       allowOutsideClick: false
+//     })
+//     Swal.showLoading();
+
+//   let peticion : Observable<any>;
+
+//   console.log(form);
+//   console.log("Guardando objeto",this.heroe.id);
+
+
+//     if( this.heroe.id){
+//     //actualizo
+//     console.log("entro a actualizar");
+//       peticion = this._heroesService.actualizarHeroe( this.heroe );
+       
+//       //this._heroesService.actualizarHeroe( this.heroe ).subscribe (
+//       //    resp=>{
+//       //      console.log(resp);
+//       //    }
+//       //  );
+
+//     }else{
+//       //creo
+//               peticion = this._heroesService.nuevoHeroe( this.heroe );
+
+//       // this._heroesService.nuevoHeroe( this.heroe ).subscribe (
+//       //   resp=>{
+//       //     console.log(resp);
+//       //   }
+//       // );
+//      }
+
+//    peticion.subscribe( resp=> {
+//       Swal.fire({
+//         title: this.heroe.nombre,
+//         text: 'Se actulizo correctamente',
+//         type: 'success'
+
+//       });
+
+//    })
+
+// }
 
 
 
