@@ -17,3 +17,8 @@
   <ion-button icon-only color="danger" slot="end" size="small">
             <ion-icon name="close-circle-outline"></ion-icon>
         </ion-button>
+
+        {
+  "appUser": "biPentahoApi",
+  "appKey": "fM4y6t_tPEty"
+}
