@@ -11,6 +11,7 @@ export class Documento1Page implements OnInit {
   icono: string;
   footer =false;
   
+  
   constructor() { }
 
   ngOnInit() {
