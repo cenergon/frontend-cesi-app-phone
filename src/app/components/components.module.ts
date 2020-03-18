@@ -62,7 +62,7 @@ import { CameraComponent } from './camera/camera.component';
     SelfieComponent,
     FooterComponent,
     ListaDocumentacionComponent,
-    CameraComponent
+    CameraComponent,IonicModule
   ],
   imports: [
     CommonModule,

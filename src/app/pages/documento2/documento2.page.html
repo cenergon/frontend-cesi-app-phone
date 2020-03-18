@@ -27,6 +27,12 @@
         <app-camera [inmediatoSiguiente]="'/menu/documento3'"></app-camera>
     </ion-content>
 
+    <ion-footer>
+        <ion-buttons slot="end">
+            <ion-back-button text="Regresar"></ion-back-button>
+        </ion-buttons>
+    </ion-footer>
+
     <div *ngIf="footer">
         <ion-footer>
             <app-footer></app-footer>

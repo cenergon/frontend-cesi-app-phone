@@ -27,6 +27,11 @@ export class HeaderComponent implements OnInit {
     // this.navCtrl.navigateRoot(this.path);
   }
 
+  goBack() {
+    console.log('regreso');
+    this.navCtrl.back();
+  }
+
   ngOnInit() {
   }
 
