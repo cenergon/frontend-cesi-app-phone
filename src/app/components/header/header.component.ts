@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
 
   goBack() {
     console.log('regreso');
-    this.navCtrl.back();
+    this.navCtrl.back({ animated: true} );
   }
 
   ngOnInit() {

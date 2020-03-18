@@ -15,7 +15,7 @@ declare var window : any;
 export class CameraComponent {
 
   @Input() inmediatoSiguiente: string;
-  @Input() galeria: boolean = true;
+  @Input() galeria: boolean = false;
   @Input() tituloDocumento: string ;
 
   swiperOts = {
@@ -42,19 +42,18 @@ export class CameraComponent {
 
 
     navCtrlPage( nav: string){
-      this.navCtrl.navigateRoot(nav);
+      this.navCtrl.navigateRoot(nav,{ animated: true});
     }
 
     navCtrlPagePrueba(){
-      this.navCtrl.navigateRoot(this.inmediatoSiguiente);
+      this.navCtrl.navigateRoot(this.inmediatoSiguiente,{ animated: true});
+
     }
 
     async crearPost(){
     
-      // console.log(this.post);
-   
       const creado = await this.postsSerivce.crearPost(this.post)
-     
+
       // Purgo mi objeto
       this.post = {
        mensaje : this.tituloDocumento,

@@ -10,10 +10,10 @@ export class ListaDocumentacionComponent implements OnInit {
   isChecked =true;
 
   public documentos = [
-    { val: 'DNI - Foto Ambos lados', isChecked: true },
-    { val: '3 últimos Meses de Recibo de Sueldo', isChecked: true },
-    { val: '3 últimos meses de resumen bancarios', isChecked: true },
-    { val: 'Impuesto de Servicio - A Nombre de titular', isChecked: true }
+    { val: 'DNI', isChecked: true },
+    { val: '3 últimos Recibos de Sueldo', isChecked: true },
+    { val: '3 últimos Resumen Bancarios', isChecked: true },
+    { val: 'Un Servicio a Tu Nombre', isChecked: true }
   ];
 
   constructor(
