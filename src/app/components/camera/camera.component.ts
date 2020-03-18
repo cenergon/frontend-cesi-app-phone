@@ -45,6 +45,10 @@ export class CameraComponent {
       this.navCtrl.navigateRoot(nav);
     }
 
+    navCtrlPagePrueba(){
+      this.navCtrl.navigateRoot(this.inmediatoSiguiente);
+    }
+
     async crearPost(){
     
       // console.log(this.post);
@@ -64,8 +68,6 @@ export class CameraComponent {
      // Gracias a las subscripcion es el secreto para actualizar el tab1
      // this.router.navigateByUrl('/main/tabs/tab1');
      this.navCtrlPage(this.inmediatoSiguiente);
-
-      
      }
    
      getGeolocation(){
@@ -145,6 +147,8 @@ export class CameraComponent {
          // Handle error
         });
      }
+
+  
     
 
 }
