@@ -14,7 +14,7 @@ import { NavController } from '@ionic/angular';
 })
 export class HeaderComponent implements OnInit {
 
-  @Input() titulo: string ="Inicio";
+  @Input() titulo: string ="";
   @Input() icono: string ="home";
   
   constructor(

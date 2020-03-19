@@ -17,6 +17,7 @@ export class CameraComponent {
   @Input() inmediatoSiguiente: string;
   @Input() galeria: boolean = false;
   @Input() tituloDocumento: string ;
+  @Input() cantPhotos: number = 0 ;
 
   swiperOts = {
     allowSlidePrev : false,
@@ -25,7 +26,7 @@ export class CameraComponent {
 
   cargandoGeo = false;
 
-  tempImages: string[] =[];
+  tempImages: string[] =['1','2','3'];
 
   post = {
     mensaje : '',

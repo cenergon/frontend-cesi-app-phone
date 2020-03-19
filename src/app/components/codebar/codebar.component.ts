@@ -68,16 +68,17 @@ export class CodebarComponent implements OnInit {
     this.barcodeScanner.scan(options).then(barcodeData => {
       console.log('Barcode data completo', barcodeData);
       // Descompongo el codebar dni
-      if (barcodeData){
+      if (barcodeData.text != ""){
         console.log('ENTRO IF');
         this.lectura = this.codeBaservice.formatCodeBar(barcodeData.text);
+        this.cargarForm(this.lectura);
+        
       // Guardo Geo y fecha de cuando scaneo
         this.geoService.getGeolocation().then( resp => { 
         console.log ('Imprimo coordenadas ionic',resp);
         this.lectura.coords = resp;
         this.lectura.created = new Date();
         console.log('lectura de: ', this.lectura);
-        this.cargarForm(this.lectura);
       } );
       }
       

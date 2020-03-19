@@ -132,7 +132,7 @@ export class CodeBarService {
       fechaEmision : fechaEmision,//new Date(this.invertirFecha(fechaEmision)),
       codigo : codigo,
    }
-    console.log(dniCode);
+    //console.log(dniCode);
     return dniCode;
  
   

@@ -27,7 +27,7 @@
 
     <ion-slides [options]="swiperOts">
         <ion-slide>
-            <ion-button [disabled]="tempImages.length < 1 " (click)="crearPost()" color="success">
+            <ion-button [disabled]="tempImages.length < [cantPhotos]" (click)="crearPost()" color="success">
                 <ion-icon slot="start" name="cloud-upload"></ion-icon>
                 SUBIR DOCUMENTACION
             </ion-button>
@@ -41,8 +41,8 @@
 
 
     <ion-row>
-        <ion-col size="3" *ngFor="let image of tempImages">
-            <ion-card>
+        <ion-col size="5" *ngFor="let image of tempImages">
+            <ion-card size="7">
                 <img [src]="image">
             </ion-card>
         </ion-col>
