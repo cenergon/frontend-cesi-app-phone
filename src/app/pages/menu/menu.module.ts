@@ -26,6 +26,8 @@ const routes: Routes = [
       { path: 'prestamo', loadChildren: '../prestamo/prestamo.module#PrestamoPageModule', canLoad: [ UsuariosGuard ] },
       { path: 'acercade', loadChildren: '../acercade/acercade.module#AcercadePageModule', canLoad: [ UsuariosGuard ]},
       { path: 'ayuda', loadChildren: '../ayuda/ayuda.module#AyudaPageModule', canLoad: [ UsuariosGuard ]},
+      { path: 'documentos-cargados', loadChildren: '../documentos-cargados/documentos-cargados.module#DocumentosCargadosPageModule' },
+
       // Dashboard
       { path: 'dashboard', loadChildren: '../dashboard/dashboard.module#DashboardPageModule' },
       // Pages Wizard - Agregar canLoad

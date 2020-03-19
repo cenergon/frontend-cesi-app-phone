@@ -1,17 +1,18 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Post } from '../../interfaces/interfaces';
+import { Documento } from '../../interfaces/interfaces';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss'],
+  selector: 'app-documento',
+  templateUrl: './documento.component.html',
+  styleUrls: ['./documento.component.scss'],
 })
-/**
- * Este es el encarfado de renderizar mis posts uno por uno en su html
- */
-export class PostComponent implements OnInit {
 
-  @Input() post: Post = {};
+/**
+ * Este es el encarfado de renderizar mis documentos uno por uno en su html
+ */
+export class DocumentoComponent implements OnInit {
+
+  @Input() documento: Documento = {};
 
   //El slideSoloOpts permite que cuando tengo una imagen esta no se mueva con el slide
   slideSoloOpts = {
@@ -25,9 +26,6 @@ export class PostComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    
-  }
-
+  ngOnInit() {}
 
 }

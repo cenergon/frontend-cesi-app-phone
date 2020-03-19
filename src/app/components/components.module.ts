@@ -22,6 +22,9 @@ import { FormFinTramiteComponent } from './form-fin-tramite/form-fin-tramite.com
 import { FooterComponent } from './footer/footer.component';
 import { ListaDocumentacionComponent } from './lista-documentacion/lista-documentacion.component';
 import { CameraComponent } from './camera/camera.component';
+import { Documento } from '../interfaces/interfaces';
+import { DocumentoComponent } from './documento/documento.component';
+import { DocumentosComponent } from './documentos/documentos.component';
 
 
 
@@ -44,7 +47,9 @@ import { CameraComponent } from './camera/camera.component';
     SelfieComponent,
     FooterComponent,
     ListaDocumentacionComponent,
-    CameraComponent
+    CameraComponent,
+    DocumentoComponent,
+    DocumentosComponent
   ],
   exports: [
     PostsComponent,
@@ -62,7 +67,9 @@ import { CameraComponent } from './camera/camera.component';
     SelfieComponent,
     FooterComponent,
     ListaDocumentacionComponent,
-    CameraComponent,IonicModule
+    CameraComponent,IonicModule,
+    DocumentoComponent,
+    DocumentosComponent
   ],
   imports: [
     CommonModule,

@@ -13,6 +13,22 @@ export interface Post {
     usuario?: Usuario;
     created?: string;
   }
+
+
+export interface RespuestaDocumentos {
+  ok: boolean;
+  pagina: number;
+  postList: Post[];
+}
+
+  export interface Documento {
+    imgs?: string[];
+    _id?: string;
+    mensaje?: string;
+    coords?: string;
+    usuario?: Usuario;
+    created?: string;
+  }
   
 export interface Usuario {
     avatar?: string;

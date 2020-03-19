@@ -69,7 +69,6 @@ export class CodebarComponent implements OnInit {
       console.log('Barcode data completo', barcodeData);
       // Descompongo el codebar dni
       if (barcodeData.text != ""){
-        console.log('ENTRO IF');
         this.lectura = this.codeBaservice.formatCodeBar(barcodeData.text);
         this.cargarForm(this.lectura);
         

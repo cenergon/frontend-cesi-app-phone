@@ -21,7 +21,7 @@
     {
         "icon": "ios-document",
         "name": "Documentación",
-        "redirectTo": "/menu/main/tabs/tab2"
+        "redirectTo": "/menu/documentos-cargados"
     },
 
     {

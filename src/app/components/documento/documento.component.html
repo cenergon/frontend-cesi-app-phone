@@ -1,0 +1,62 @@
+<!--clase personalizada-->
+<div class="documento">
+    <ion-item lines="none">
+        <ion-avatar slot="start">
+            <img src="/assets/avatars/{{documento.usuario.avatar}}">
+        </ion-avatar>
+
+        <ion-label>
+            <h3>
+                {{documento.usuario.nombre}}
+            </h3>
+            <h5>
+                {{documento.usuario.email}}
+            </h5>
+        </ion-label>
+
+    </ion-item>
+
+    <!-- ngIf si existen las img-->
+    <!--mis imagenes todos las trabajo para que mantengan su tamaño-->
+    <!-- <ion-slides pager="true"> -->
+    <!--clase personalizada para imagenes/ tamaño-->
+    <!-- <ion-slide class="image-slide" [style]=" img1 | domSanitizer">
+      </ion-slide>
+      <ion-slide class="image-slide" [style]=" img2 | domSanitizer">
+      </ion-slide>
+      <ion-slide class="image-slide" [style]=" img3 | domSanitizer">
+      </ion-slide>
+
+  </ion-slides> -->
+
+
+    <!-- ngIf imgs lo creo si tengo mas de una imangen.... -->
+    <ion-slides pager="true" *ngIf="documento.imgs.length > 1">
+
+        <ion-slide *ngFor="let img of documento.imgs" class="image-slide" [style]=" (img | imagen: documento.usuario._id ) | domSanitizer ">
+        </ion-slide>
+
+    </ion-slides>
+
+    <!-- Muestro si solo es una imagen -->
+    <ion-slides *ngIf="documento.imgs.length === 1" [options]="slideSoloOpts">
+
+        <ion-slide class="image-slide" [style]=" (documento.imgs[0] | imagen: documento.usuario._id ) | domSanitizer ">
+        </ion-slide>
+
+    </ion-slides>
+
+    <!-- mapa-->
+
+    <app-mapa [coords]="documento.coords" *ngIf="documento.coords"></app-mapa>
+
+    <ion-item lines="none">
+        <ion-icon slot="start" name="heart-empty"></ion-icon>
+        <ion-icon slot="end" name="bookmark"></ion-icon>
+    </ion-item>
+
+    <ion-item lines="none">
+        <ion-label text-wrap> {{documento.mensaje}}</ion-label>
+
+    </ion-item>
+</div>
