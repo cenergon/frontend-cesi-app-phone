@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { NavController, IonInput } from '@ionic/angular';
+import { DocumentosService } from '../../services/documentos.service';
 declare var window : any;
 
 @Component({
@@ -26,16 +27,17 @@ export class CameraComponent {
 
   cargandoGeo = false;
 
-  tempImages: string[] =['1','2','3'];
+  tempImages: string[] =[];
 
   post = {
+   // tituloDocumento : '',
     mensaje : '',
     coords: null,
     posicion: false,
   };
 
   constructor(
-    private postsSerivce: PostsService,
+    private documentosService: DocumentosService,
     private router: Router,
     private geolocation: Geolocation,
     private camera: Camera,
@@ -51,13 +53,15 @@ export class CameraComponent {
 
     }
 
-    async crearPost(){
+    async cargarDocumento(){
     
-      const creado = await this.postsSerivce.crearPost(this.post)
+      this.post.mensaje = this.tituloDocumento;
+
+      const creado = await this.documentosService.crearPost(this.post)
 
       // Purgo mi objeto
       this.post = {
-       mensaje : this.tituloDocumento,
+       mensaje : null,
        coords: null,
        posicion: false,
      };
@@ -140,16 +144,13 @@ export class CameraComponent {
          const img = window.Ionic.WebView.convertFileSrc( imageData );
          // console.log (img);
     
-         this.postsSerivce.subirImagen( imageData );
+         this.documentosService.subirImagen( imageData );
          this.tempImages.push( img );
     
         }, (err) => {
          // Handle error
         });
      }
-
-  
-    
 
 }
 

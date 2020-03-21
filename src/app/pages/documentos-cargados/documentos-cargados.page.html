@@ -1,20 +1,22 @@
-<app-header></app-header>
+<ion-header translucent="true">
+    <app-header [titulo]="titulo || ''" [icono]="icono || 'document'"></app-header>
+    <ion-toolbar color='light'>
+        <ion-title size='small'>Documentación Presentada</ion-title>
+    </ion-toolbar>
+</ion-header>
 
-<div class="ion-page" main>
+<ion-content class="ion-padding" color="light">
+    <!-- Refresher - cuando hay nuevos post se debe recargar-->
+    <ion-refresher slot="fixed" (ionRefresh)="recargar($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
 
-    <ion-content class="ion-padding" color="light">
-        <!-- Refresher - cuando hay nuevos post se debe recargar-->
-        <ion-refresher slot="fixed" (ionRefresh)="recargar($event)">
-            <ion-refresher-content></ion-refresher-content>
-        </ion-refresher>
+    <!-- Documento viene del componente docuementos -->
+    <app-documentos [documentos]="documentos"></app-documentos>
 
-        <!-- Documento viene del componente docuementos -->
-        <app-documentos [documentos]="documentos"></app-documentos>
-
-        <!-- Infinite Scroll - lo controlo por una propiedad de angular [disabled]='true/false'-->
-        <ion-infinite-scroll [disabled]="!habilitado" threshold="150px" (ionInfinite)="siguientes($event)">
-            <ion-infinite-scroll-content>
-            </ion-infinite-scroll-content>
-        </ion-infinite-scroll>
-    </ion-content>
-</div>
+    <!-- Infinite Scroll - lo controlo por una propiedad de angular [disabled]='true/false'-->
+    <ion-infinite-scroll [disabled]="!habilitado" threshold="150px" (ionInfinite)="siguientes($event)">
+        <ion-infinite-scroll-content>
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

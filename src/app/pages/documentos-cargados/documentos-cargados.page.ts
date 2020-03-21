@@ -13,6 +13,8 @@ import { MenuService } from 'src/app/services/menu.service';
 export class DocumentosCargadosPage implements OnInit {
 
 
+  titulo : string;
+  icono : string;
   documentos: Documento[]=[];
   habilitado = true;
 
