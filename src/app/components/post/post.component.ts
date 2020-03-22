@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post } from '../../interfaces/interfaces';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-post',
@@ -23,8 +24,11 @@ export class PostComponent implements OnInit {
   img2 = './assets/perro-2.jpg';
   img3 = './assets/perro-2.jpg';
 
-  constructor() { }
+  constructor( private navCtrl: NavController) { }
 
+  navCtrlPage(){
+    this.navCtrl.navigateRoot('/menu/pedir-prestamo', { animated: true});
+  }
   ngOnInit() {
     
   }

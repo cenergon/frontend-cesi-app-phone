@@ -11,6 +11,7 @@ export class MensajesPage implements OnInit {
 
   titulo : string;
   icono: 'ios-chatbubbles';
+  notificaciones = true;
  
 
   userId : string;
