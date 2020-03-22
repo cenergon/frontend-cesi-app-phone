@@ -14,17 +14,6 @@
         "redirectTo": "/menu/pedir-prestamo"
     },
     {
-        "icon": "ios-chatbubbles",
-        "name": "Notificaciones",
-        "redirectTo": "/menu/mensajes"
-    },
-    {
-        "icon": "ios-document",
-        "name": "Documentación",
-        "redirectTo": "/menu/documentos-cargados"
-    },
-
-    {
         "icon": "contact",
         "name": "Estado de Cuenta",
         "redirectTo": "/menu/cuenta"
@@ -35,9 +24,24 @@
         "redirectTo": "/menu/prestamo"
     },
     {
-        "icon": "md-contacts",
-        "name": "Acerca de Nosotros",
-        "redirectTo": "/menu/acercade"
+        "icon": "ios-chatbubbles",
+        "name": "Notificaciones",
+        "redirectTo": "/menu/mensajes"
+    },
+    {
+        "icon": "attach",
+        "name": "Agregar Documentos",
+        "redirectTo": "/menu/main/tabs/tab2"
+    },
+    {
+        "icon": "ios-document",
+        "name": "Documentación",
+        "redirectTo": "/menu/documentos-cargados"
+    },
+    {
+        "icon": "ios-help-circle-outline",
+        "name": "Terminos y Condiciones",
+        "redirectTo": "/menu/terminos-condiciones"
     },
     {
         "icon": "ios-document",
@@ -45,8 +49,8 @@
         "redirectTo": "/menu/ayuda"
     },
     {
-        "icon": "ios-help-circle-outline",
-        "name": "Terminos y Condiciones",
-        "redirectTo": "/menu/terminos-condiciones"
+        "icon": "md-contacts",
+        "name": "Acerca de Nosotros",
+        "redirectTo": "/menu/acercade"
     }
 ]

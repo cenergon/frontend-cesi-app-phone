@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormControl, Validators } from '@angular/forms';
 import { IonSlide, IonSlides, NavController } from '@ionic/angular';
 import { UsuarioService } from '../../services/usuario.service';
 import { UiSericeService } from '../../services/ui-serice.service';
@@ -17,6 +17,11 @@ export class LoginPage implements OnInit {
 
   // Este decorador permite manipular el IonSlides de mi html
   @ViewChild( 'slidePrincipal', {static: true} ) slides: IonSlides;
+
+  checkedbtn : boolean = false
+
+  //Form
+  form: FormGroup;
 
   // Datos de configuracion App
   configApp = {
@@ -67,7 +72,16 @@ export class LoginPage implements OnInit {
     private uiService: UiSericeService,
     public authService: AuthService ,// auth0 Web
     public autrhServiceIonic : AuthServiceIonic
-  ) { }
+  ) { 
+
+    this.form = new FormGroup({
+      'dni': new FormControl('',  [ Validators.required, Validators.minLength(8) ]),
+      'email': new FormControl('',[ Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"),]),
+      'nombre': new FormControl('',  [ Validators.required, Validators.minLength(8) ]),
+      'password' : new FormControl('', Validators.required),
+      'checkedbtn' : new FormControl('', Validators.required),
+    });
+  }
 
   ngOnInit() {
     // Bloqueo mi slide principal 
