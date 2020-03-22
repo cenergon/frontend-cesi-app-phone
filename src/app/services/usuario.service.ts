@@ -108,6 +108,7 @@ export class UsuarioService {
             await this.guardarToken( resp['token']) ;
             resolve(true);
           } else {
+            console.log("NO CREO USUARIO");
             this.token = null;
             this.storage.clear();
             resolve(false);

@@ -75,9 +75,9 @@ export class LoginPage implements OnInit {
   ) { 
 
     this.form = new FormGroup({
-      'dni': new FormControl('',  [ Validators.required, Validators.minLength(8) ]),
+      // 'dni': new FormControl('',  [ Validators.required, Validators.minLength(8) ]),
       'email': new FormControl('',[ Validators.required, Validators.pattern("[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"),]),
-      'nombre': new FormControl('',  [ Validators.required, Validators.minLength(8) ]),
+      'nombre': new FormControl('',  [ Validators.required, Validators.minLength(3) ]),
       'password' : new FormControl('', Validators.required),
       'checkedbtn' : new FormControl('', Validators.required),
     });
@@ -107,7 +107,7 @@ export class LoginPage implements OnInit {
 
   async registro(fRegistro: NgForm){
 
-    if(fRegistro.invalid){return;}
+    if(fRegistro.invalid){ console.log('form registro invalido'); return;}
 
     const valido = await this.usuarioService.registro(this.registerUser);
 
