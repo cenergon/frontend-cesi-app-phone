@@ -1,28 +1,23 @@
-<app-header [titulo]="titulo || 'Notificaciones'" [icono]="icono || 'ios-chatbubbles'">
-</app-header>
 <div class="ion-page" main>
-    <ion-header>
-        <ion-toolbar>
-            <ion-buttons slot="start">
-                <ion-menu-button></ion-menu-button>
-            </ion-buttons>
-            <ion-title>Mensajes</ion-title>
+    <ion-header translucent="true">
+        <app-header [titulo]="titulo || ''" [icono]="icono || 'ios-chatbubbles'"></app-header>
+        <ion-toolbar color='medium'>
+            <ion-title size='small'>Notificaciones</ion-title>
             <ion-buttons slot="end">
-                <ion-button (click)="borrarMensajes()" color="danger">
-                    <ion-icon slot="icon-only" name="trash"></ion-icon>
-                </ion-button>
+                <div *ngIf="notificaciones">
+                    <ion-button (click)="borrarMensajes()" color="warning">
+                        <ion-icon slot="icon-only" name="trash"></ion-icon>
+                    </ion-button>
+                </div>
             </ion-buttons>
         </ion-toolbar>
     </ion-header>
     <ion-content class="ion-padding">
-        <ion-header>
+        <!-- <ion-item>
             <ion-label>UserId: Cliente</ion-label>
-        </ion-header>
-        <ion-item>
             <ion-label>{{ pushService.userId }}</ion-label>
-        </ion-item>
+        </ion-item> -->
         <div class="container main-container">
-            <h1>Mensajes</h1>
             <div class="app-mensajes" id="app-mensajes">
                 <ion-item *ngFor="let push of mensajes">
                     <ion-label>
@@ -42,14 +37,11 @@
                 </ion-item>
             </div>
         </div>
-        <ion-slides [options]="swiperOts">
-            <ion-slide>
-                <ion-button expand="full" fill="outline" (click)="scan()" size='large' shape='round'>
-                    Scan Code</ion-button>
-            </ion-slide>
-        </ion-slides>
     </ion-content>
-    <ion-footer>
-        <app-footer></app-footer>
-    </ion-footer>
 </div>
+<!-- <ion-slides [options]="swiperOts">
+    <ion-slide>
+        <ion-button expand="full" fill="outline" (click)="scan()" size='large' shape='round'>
+            Scan Code</ion-button>
+    </ion-slide>
+</ion-slides> -->

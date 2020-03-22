@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { Tab5Page } from './tab5.page';
+import { ComponentsModule } from '../../components/components.module';
 
 
 const routes: Routes = [
@@ -20,7 +21,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    ComponentsModule
   
   ],
   declarations: [Tab5Page]

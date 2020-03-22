@@ -48,10 +48,5 @@
         "icon": "ios-help-circle-outline",
         "name": "Terminos y Condiciones",
         "redirectTo": "/menu/terminos-condiciones"
-    },
-    {
-        "icon": "md-analytics",
-        "name": "Dashboard",
-        "redirectTo": "/menu/dashboard"
     }
 ]
